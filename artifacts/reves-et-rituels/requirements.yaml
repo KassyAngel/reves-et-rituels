@@ -1,0 +1,12 @@
+packages:
+  "framer-motion": "For smooth, elegant page transitions and modal animations fitting the celestial theme"
+  "date-fns": "For formatting journal dates easily across locales"
+
+images:
+  - path: "artifacts/reves-et-rituels/public/images/celestial-bg.png"
+    description: "Soft glowing ethereal celestial background, very light pale white and soft sky blue with tiny, subtle specks of warm gold dust, dreamlike, highly aesthetic, minimalist"
+    aspect_ratio: "9:16"
+
+notes:
+  - "App is purely frontend. All state is managed locally via React State and LocalStorage."
+  - "Mobile-first layout enforced via max-w-[430px] wrapper."

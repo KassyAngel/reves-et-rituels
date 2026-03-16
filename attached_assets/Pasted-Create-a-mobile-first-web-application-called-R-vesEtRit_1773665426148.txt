@@ -1,0 +1,118 @@
+Create a mobile-first web application called "RêvesEtRituels" (Dreams & Rituals) 
+using React + Vite. The app will be packaged for Android via Capacitor (Play Store).
+
+---
+
+## 🎨 VISUAL STYLE
+- Celestial & luminous aesthetic: white, sky blue, soft gold
+- Elegant, spiritual, calming UI
+- Custom fonts: use Google Fonts — "Cinzel" for titles, "Lato" for body text
+- Smooth transitions and soft glowing effects
+- Mobile-first layout (max-width 430px centered on desktop)
+- No dark mode for now
+
+---
+
+## 🌍 LANGUAGE
+- Default language: French
+- A visible FR / EN toggle button in the top-right corner of every screen
+- All UI text, labels, and content must have both French and English versions
+- Store language preference in localStorage
+
+---
+
+## 📱 SCREENS / NAVIGATION
+Use a bottom navigation bar with 4 tabs (icons + labels):
+1. 🌙 Rêves / Dreams
+2. ✨ Rituels / Rituals
+3. 📖 Journal
+4. 🌕 Lune / Moon
+
+---
+
+## 🌙 TAB 1 — Dream Interpretation
+- Large text area: "Décris ton rêve..." / "Describe your dream..."
+- A "Interpréter" / "Interpret" button
+- Below the button: a result card showing a static interpretation
+- For now, use a hardcoded set of 10 dream keyword categories 
+  (ex: water, flying, falling, snake, house, death, fire, chase, teeth, baby)
+  and display a matching symbolic interpretation card
+- If no keyword matches, show a generic poetic response
+- The interpretation card should have a soft golden border and an icon
+
+---
+
+## ✨ TAB 2 — Guided Rituals
+- Display a list of ritual cards, each with:
+  - An emoji icon
+  - A title (FR + EN)
+  - A short description
+  - A "Commencer" / "Start" button
+- Include these 5 rituals at launch:
+  1. 🕯️ House purification / Purification de la maison
+  2. 🌿 Protection ritual / Rituel de protection
+  3. 💫 Manifestation ritual / Rituel de manifestation
+  4. 🧘 Inner peace ritual / Rituel de paix intérieure
+  5. 🌙 Dream preparation ritual / Rituel de préparation au rêve
+- When clicking "Start", open a step-by-step modal with 3 to 5 instructions
+- Each step should have a soft animated progress indicator
+
+---
+
+## 📖 TAB 3 — Dream Journal
+- A form to save a dream entry: date (auto), title, description, mood (emoji selector)
+- List of saved entries below, sorted by most recent
+- Each entry is a card that can be expanded or deleted
+- Store all entries in localStorage (no backend, no user account)
+- Empty state: show a poetic illustration placeholder
+
+---
+
+## 🌕 TAB 4 — Moon Calendar
+- Display the current moon phase with a large illustrative icon
+- Show the moon phase name in FR and EN
+- Show a short description of the energy of the current phase
+- Show a mini 7-day lunar calendar strip (next 7 days with phases)
+- Calculate moon phases using a simple JS algorithm (no API needed)
+
+---
+
+## 🔧 TECHNICAL REQUIREMENTS
+- React + Vite project
+- All data is static or stored in localStorage (no backend, no database)
+- No user authentication
+- Capacitor-compatible structure (standard Vite build output in /dist)
+- Clean component structure: one file per screen/tab
+- Use CSS Modules or plain CSS (no Tailwind)
+- Fully responsive, mobile-first
+- No external API calls in this first version
+
+---
+
+## 📁 FILE STRUCTURE SUGGESTION
+src/
+  components/
+    BottomNav.jsx
+    LanguageToggle.jsx
+  screens/
+    Dreams.jsx
+    Rituals.jsx
+    Journal.jsx
+    Moon.jsx
+  data/
+    dreamKeywords.js
+    rituals.js
+    moonDescriptions.js
+  i18n/
+    fr.js
+    en.js
+  App.jsx
+  main.jsx
+  App.css
+
+---
+
+## 🚀 START
+Build the full working version of this app. Start with App.jsx, 
+the bottom navigation, the language toggle, and then each screen in order.
+Make it beautiful, spiritual, and functional.

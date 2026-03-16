@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "RêvesEtRituels"
+version = "1.0.0"
+id = "artifacts/reves-et-rituels"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+localPort = 25707
+name = "web"
+paths = ["/"]
+
+[services.development]
+run = "pnpm --filter @workspace/reves-et-rituels run dev"
+
+[services.env]
+PORT = "25707"
+BASE_PATH = "/"
+
+[services.production]
+build = ["pnpm", "--filter", "@workspace/reves-et-rituels", "run", "build"]
+publicDir = "artifacts/reves-et-rituels/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"

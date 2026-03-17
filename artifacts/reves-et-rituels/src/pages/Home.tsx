@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="min-h-screen w-full flex flex-col items-center justify-center relative overflow-hidden bg-gradient-to-b from-[#e8f0fe] via-[#f5f0ff] to-[#fffbe8]">
 
-      {/* Floating stars background */}
+      {/* Floating stars */}
       {stars.map((_, i) => (
         <motion.div
           key={i}
@@ -47,13 +47,23 @@ export default function Home() {
         transition={{ duration: 1, ease: "easeOut" }}
         className="flex flex-col items-center text-center px-8 z-10"
       >
-        {/* Moon icon */}
+        {/* Hero image */}
         <motion.div
-          animate={{ rotate: [0, 8, -8, 0], scale: [1, 1.05, 1] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="text-[90px] mb-6 drop-shadow-xl leading-none"
+          animate={{ y: [0, -10, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          className="mb-6"
         >
-          🌙
+          <img
+            src={`${import.meta.env.BASE_URL}images/hero-moon.png`}
+            alt="Rêves & Rituels"
+            className="w-56 h-56 object-contain"
+            style={{
+              borderRadius: "50%",
+              maskImage: "radial-gradient(circle, black 55%, transparent 75%)",
+              WebkitMaskImage: "radial-gradient(circle, black 55%, transparent 75%)",
+              filter: "drop-shadow(0px 8px 24px rgba(180, 140, 255, 0.4))"
+            }}
+          />
         </motion.div>
 
         {/* App name */}
@@ -71,11 +81,9 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 1 }}
-          className="text-slate-400 text-sm font-sans mb-10 italic"
+          className="text-slate-400 text-sm font-sans mb-8 italic"
         >
-          {lang === 'fr'
-            ? 'Explore ton monde intérieur'
-            : 'Explore your inner world'}
+          {lang === 'fr' ? 'Explore ton monde intérieur' : 'Explore your inner world'}
         </motion.p>
 
         {/* Divider */}
@@ -83,7 +91,7 @@ export default function Home() {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="w-24 h-px bg-gradient-to-r from-transparent via-yellow-300 to-transparent mb-10"
+          className="w-24 h-px bg-gradient-to-r from-transparent via-yellow-300 to-transparent mb-8"
         />
 
         {/* Quote */}
@@ -91,7 +99,7 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 1 }}
-          className="text-slate-500 text-sm italic max-w-[260px] leading-relaxed mb-12 font-sans"
+          className="text-slate-500 text-sm italic max-w-[260px] leading-relaxed mb-10 font-sans"
         >
           {lang === 'fr'
             ? '"Les rêves sont la fenêtre de l\'âme sur l\'infini."'
@@ -106,14 +114,15 @@ export default function Home() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}
           onClick={() => navigate("/dreams")}
-          className="px-10 py-4 rounded-full bg-gradient-to-r from-blue-300 via-purple-200 to-yellow-200 text-slate-700 font-bold text-base shadow-lg hover:shadow-xl transition-all border border-white/60"
+          className="px-10 py-4 rounded-full bg-gradient-to-r from-purple-300 via-purple-200 to-yellow-200 text-slate-700 font-bold text-base shadow-lg hover:shadow-xl transition-all border border-white/60"
         >
-          {lang === 'fr' ? '✨ Commencer le voyage' : '✨ Begin the journey'}
+          {lang === 'fr' ? 'Commencer le voyage' : 'Begin the journey'}
         </motion.button>
+
       </motion.div>
 
       {/* Bottom glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-yellow-100 rounded-full blur-3xl opacity-50 pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-purple-100 rounded-full blur-3xl opacity-50 pointer-events-none" />
     </div>
   );
 }

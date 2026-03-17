@@ -15,7 +15,7 @@ function normalize(text: string): string {
 export default function Dreams() {
   const { t, lang } = useLanguage();
   const [query, setQuery] = useState("");
-  const [selected, setSelected] = useState<{ icon: string; interpretation: string; title: string } | null>(null);
+  const [selected, setSelected] = useState<{ image: string; interpretation: string; title: string } | null>(null);
 
   const suggestions = useMemo(() => {
     if (!query.trim()) return [];
@@ -30,7 +30,7 @@ export default function Dreams() {
 
   const handleSelect = (category: any) => {
     setSelected({
-      icon: category.icon,
+      image: category.image,
       interpretation: category.interpretation,
       title: category.keywords[0]
     });
@@ -93,7 +93,11 @@ export default function Dreams() {
                   onClick={() => handleSelect(category)}
                   className="w-full flex items-center gap-3 px-5 py-3 hover:bg-primary/5 transition-colors text-left border-b border-slate-50 last:border-0"
                 >
-                  <span className="text-2xl">{category.icon}</span>
+                  <img
+                    src={category.image}
+                    alt={category.keywords[0]}
+                    className="w-8 h-8 object-contain rounded-lg flex-shrink-0"
+                  />
                   <div>
                     <p className="font-semibold text-sm text-foreground capitalize">
                       {category.keywords[0]}
@@ -140,7 +144,11 @@ export default function Dreams() {
                   border: '1px solid rgba(255,255,255,0.8)'
                 }}
               >
-                <span className="text-xl">{category.icon}</span>
+                <img
+                  src={category.image}
+                  alt={category.keywords[0]}
+                  className="w-7 h-7 object-contain rounded-md flex-shrink-0"
+                />
                 <span className="text-foreground/80 capitalize text-xs font-semibold">
                   {category.keywords[0]}
                 </span>
@@ -162,7 +170,11 @@ export default function Dreams() {
           >
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-yellow-300 to-transparent opacity-50" />
             <div className="flex flex-col items-center text-center">
-              <span className="text-5xl mb-4 drop-shadow-md">{selected.icon}</span>
+              <img
+                src={selected.image}
+                alt={selected.title}
+                className="w-20 h-20 object-contain mb-4 drop-shadow-md rounded-xl"
+              />
               <h3 className="font-display font-bold text-lg mb-3 text-foreground capitalize">
                 {selected.title}
               </h3>

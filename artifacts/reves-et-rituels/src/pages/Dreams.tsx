@@ -12,6 +12,15 @@ function normalize(text: string): string {
     .replace(/[^a-z0-9\s]/g, " ");
 }
 
+const CHIP_COLORS = [
+  { bg: 'linear-gradient(135deg, #ddeeff, #c8e0f8)', border: 'rgba(180,210,255,0.6)' },
+  { bg: 'linear-gradient(135deg, #ede8ff, #ddd0f8)', border: 'rgba(200,180,255,0.6)' },
+  { bg: 'linear-gradient(135deg, #fff4d6, #fce8b2)', border: 'rgba(255,220,130,0.6)' },
+  { bg: 'linear-gradient(135deg, #d8f5ee, #beebd9)', border: 'rgba(140,220,190,0.6)' },
+  { bg: 'linear-gradient(135deg, #ffe8e6, #fdd5cf)', border: 'rgba(255,180,170,0.6)' },
+  { bg: 'linear-gradient(135deg, #e8f4fe, #d0e8fb)', border: 'rgba(160,210,255,0.6)' },
+];
+
 export default function Dreams() {
   const { t, lang } = useLanguage();
   const [query, setQuery] = useState("");
@@ -45,10 +54,27 @@ export default function Dreams() {
   return (
     <div className="w-full h-full flex flex-col items-center">
 
-      {/* Header */}
-      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-yellow-100 flex items-center justify-center mb-6 shadow-inner">
-        <span className="text-4xl">🌙</span>
-      </div>
+      {/* Header image — blends into background with slow heartbeat */}
+      <motion.img
+        src={`${import.meta.env.BASE_URL}images/hero-moon.png`}
+        alt=""
+        animate={{ scale: [1, 1.07, 1, 1.07, 1] }}
+        transition={{
+          duration: 2.6,
+          repeat: Infinity,
+          ease: "easeInOut",
+          times: [0, 0.25, 0.5, 0.65, 1],
+        }}
+        className="w-36 h-36 object-contain -mb-2"
+        style={{
+          maskImage:
+            "radial-gradient(ellipse 62% 62% at 50% 48%, black 30%, rgba(0,0,0,0.7) 52%, transparent 74%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 62% 62% at 50% 48%, black 30%, rgba(0,0,0,0.7) 52%, transparent 74%)",
+          filter: "drop-shadow(0px 6px 18px rgba(160, 120, 255, 0.25))",
+        }}
+      />
+
       <h1 className="font-display text-4xl font-bold text-center mb-3 text-foreground tracking-wide">
         {t.dreams.title}
       </h1>
@@ -113,7 +139,7 @@ export default function Dreams() {
         </AnimatePresence>
       </div>
 
-      {/* Symboles populaires */}
+      {/* Symboles populaires — grille 3 colonnes harmonieuse */}
       {!selected && query.length === 0 && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -123,37 +149,34 @@ export default function Dreams() {
           <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">
             {lang === 'fr' ? 'Symboles populaires' : 'Popular symbols'}
           </p>
-          <div className="flex flex-wrap gap-2">
-            {dreamKeywords[lang].slice(0, 12).map((category, i) => (
-              <motion.button
-                key={i}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.06, type: "spring", stiffness: 200 }}
-                onClick={() => handleSelect(category)}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-2xl shadow-sm text-sm transition-all hover:scale-105 active:scale-95"
-                style={{
-                  background: [
-                    'linear-gradient(135deg, #E8F4FE, #D6EAF8)',
-                    'linear-gradient(135deg, #F3E8FF, #E9D5FF)',
-                    'linear-gradient(135deg, #FEF9E7, #FDEBD0)',
-                    'linear-gradient(135deg, #E8F8F5, #D5F5E3)',
-                    'linear-gradient(135deg, #FDEDEC, #FADBD8)',
-                    'linear-gradient(135deg, #EBF5FB, #D6EAF8)',
-                  ][i % 6],
-                  border: '1px solid rgba(255,255,255,0.8)'
-                }}
-              >
-                <img
-                  src={category.image}
-                  alt={category.keywords[0]}
-                  className="w-7 h-7 object-contain rounded-md flex-shrink-0"
-                />
-                <span className="text-foreground/80 capitalize text-xs font-semibold">
-                  {category.keywords[0]}
-                </span>
-              </motion.button>
-            ))}
+
+          <div className="grid grid-cols-3 gap-3">
+            {dreamKeywords[lang].slice(0, 12).map((category, i) => {
+              const color = CHIP_COLORS[i % CHIP_COLORS.length];
+              return (
+                <motion.button
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.82 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: i * 0.05, type: "spring", stiffness: 220, damping: 18 }}
+                  onClick={() => handleSelect(category)}
+                  className="flex flex-col items-center justify-center gap-1.5 py-3 px-2 rounded-2xl shadow-sm transition-all hover:scale-105 active:scale-95"
+                  style={{
+                    background: color.bg,
+                    border: `1px solid ${color.border}`,
+                  }}
+                >
+                  <img
+                    src={category.image}
+                    alt={category.keywords[0]}
+                    className="w-10 h-10 object-contain rounded-xl"
+                  />
+                  <span className="text-foreground/75 capitalize text-[11px] font-semibold leading-tight text-center w-full truncate px-1">
+                    {category.keywords[0]}
+                  </span>
+                </motion.button>
+              );
+            })}
           </div>
         </motion.div>
       )}

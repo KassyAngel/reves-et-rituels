@@ -4,7 +4,9 @@ export const translations = {
       dreams: "Rêves",
       rituals: "Rituels",
       journal: "Journal",
-      moon: "Lune"
+      moon: "Lune",
+      prayers: "Prières",
+      plants: "Plantes",
     },
     dreams: {
       title: "Interprétation",
@@ -43,7 +45,9 @@ export const translations = {
       dreams: "Dreams",
       rituals: "Rituals",
       journal: "Journal",
-      moon: "Moon"
+      moon: "Moon",
+      prayers: "Prayers",
+      plants: "Plants"
     },
     dreams: {
       title: "Interpretation",

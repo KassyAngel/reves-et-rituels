@@ -1,45 +1,56 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-export interface JournalEntry {
+export type JournalEntry = {
   id: string;
   date: string;
   title: string;
   content: string;
-  mood: string;
-  timestamp: number;
+  moodId: string;   // remplace l'ancien "mood" emoji
+  tags: string[];
+};
+
+const STORAGE_KEY = "reves-journal-v2";
+
+function loadEntries(): JournalEntry[] {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    // Migration : si ancienne entrée avec "mood" emoji, convertir
+    return parsed.map((e: any) => ({
+      ...e,
+      moodId: e.moodId ?? "happy",
+      tags:   e.tags   ?? [],
+    }));
+  } catch {
+    return [];
+  }
 }
 
 export function useJournal() {
-  const [entries, setEntries] = useState<JournalEntry[]>([]);
+  const [entries, setEntries] = useState<JournalEntry[]>(loadEntries);
 
   useEffect(() => {
-    const saved = localStorage.getItem('reves-journal');
-    if (saved) {
-      try {
-        setEntries(JSON.parse(saved));
-      } catch (e) {
-        console.error("Failed to parse journal", e);
-      }
-    }
-  }, []);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+  }, [entries]);
 
-  const saveEntries = (newEntries: JournalEntry[]) => {
-    setEntries(newEntries);
-    localStorage.setItem('reves-journal', JSON.stringify(newEntries));
+  const addEntry = (data: Omit<JournalEntry, "id">) => {
+    const entry: JournalEntry = {
+      ...data,
+      id: Date.now().toString(),
+    };
+    setEntries(prev => [entry, ...prev]);
   };
 
-  const addEntry = (entry: Omit<JournalEntry, 'id' | 'timestamp'>) => {
-    const newEntry: JournalEntry = {
-      ...entry,
-      id: crypto.randomUUID(),
-      timestamp: Date.now()
-    };
-    saveEntries([newEntry, ...entries].sort((a, b) => b.timestamp - a.timestamp));
+  const updateEntry = (id: string, data: Partial<Omit<JournalEntry, "id">>) => {
+    setEntries(prev =>
+      prev.map(e => e.id === id ? { ...e, ...data } : e)
+    );
   };
 
   const deleteEntry = (id: string) => {
-    saveEntries(entries.filter(e => e.id !== id));
+    setEntries(prev => prev.filter(e => e.id !== id));
   };
 
-  return { entries, addEntry, deleteEntry };
+  return { entries, addEntry, updateEntry, deleteEntry };
 }

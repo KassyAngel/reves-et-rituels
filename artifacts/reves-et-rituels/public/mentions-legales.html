@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales - Rêves & Rituels</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --violet: #7C3AED;
+            --violet-light: #A78BFA;
+            --violet-pale: #DDD6FE;
+            --gold: #F59E0B;
+            --gold-light: #FDE68A;
+            --bg: #F5F0FF;
+            --bg-mid: #EDE9FE;
+            --text-dark: #1E1033;
+            --text-mid: #4C3572;
+            --text-light: #8B6FBF;
+            --card-bg: rgba(255,255,255,0.82);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.75;
+            color: var(--text-dark);
+            background: linear-gradient(160deg, #F5F0FF 0%, #EDE9FE 40%, #FFFBE8 100%);
+            min-height: 100vh;
+            padding: 72px 20px 60px;
+        }
+        .back-btn {
+            position: fixed; top: 16px; left: 16px; z-index: 999;
+            display: flex; align-items: center; gap: 8px;
+            padding: 10px 18px;
+            background: rgba(255,255,255,0.92); border: none; border-radius: 50px;
+            color: var(--violet); font-family: 'DM Sans', sans-serif;
+            font-size: 0.88rem; font-weight: 500; cursor: pointer;
+            box-shadow: 0 4px 16px rgba(124,58,237,0.18);
+            backdrop-filter: blur(12px); transition: all 0.2s ease;
+        }
+        .back-btn:hover { background: var(--violet); color: white; transform: translateY(-1px); }
+        .back-btn svg { width:16px; height:16px; flex-shrink:0; transition:transform 0.2s; }
+        .back-btn:hover svg { transform: translateX(-3px); }
+        .container { max-width: 860px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 50px; }
+        .header::before {
+            content: '';
+            display: block;
+            width: 60px; height: 4px;
+            background: linear-gradient(90deg, var(--violet), var(--gold));
+            margin: 0 auto 24px;
+            border-radius: 2px;
+        }
+        .app-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: linear-gradient(135deg, var(--violet), var(--violet-light));
+            color: white;
+            font-family: 'DM Sans', sans-serif; font-weight: 500;
+            font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+            padding: 6px 16px; border-radius: 20px; margin-bottom: 18px;
+        }
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 5vw, 3rem); font-weight: 700;
+            color: var(--text-dark); line-height: 1.2; margin-bottom: 10px;
+        }
+        h1 span {
+            background: linear-gradient(135deg, var(--violet), var(--gold));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .date { color: var(--text-light); font-size: 0.85rem; margin-top: 8px; }
+        .section {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border-radius: 20px; padding: 36px 40px; margin-bottom: 20px;
+            border: 1px solid rgba(124, 58, 237, 0.1);
+            box-shadow: 0 4px 24px rgba(124, 58, 237, 0.06);
+        }
+        h2 {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+            color: var(--violet); margin-bottom: 18px;
+            padding-bottom: 12px; border-bottom: 1px solid var(--violet-pale);
+            display: flex; align-items: center; gap: 10px;
+        }
+        h2 .num {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 28px; height: 28px;
+            background: linear-gradient(135deg, var(--violet), var(--violet-light));
+            color: white; border-radius: 50%;
+            font-size: 0.75rem; font-family: 'DM Sans', sans-serif; font-weight: 500; flex-shrink: 0;
+        }
+        h3 { font-weight: 500; color: var(--text-mid); font-size: 1rem; margin-top: 20px; margin-bottom: 10px; }
+        p { margin-bottom: 14px; color: var(--text-dark); font-size: 0.95rem; }
+        ul, ol { margin-left: 18px; margin-bottom: 14px; }
+        li { margin-bottom: 7px; color: var(--text-dark); font-size: 0.95rem; }
+        strong { font-weight: 500; color: var(--text-mid); }
+        a { color: var(--violet); text-decoration: none; border-bottom: 1px solid rgba(124,58,237,0.3); }
+        a:hover { border-color: var(--violet); }
+        .info-box {
+            background: linear-gradient(135deg, rgba(124,58,237,0.05), rgba(167,139,250,0.1));
+            border-left: 3px solid var(--violet-light);
+            border-radius: 0 12px 12px 0; padding: 18px 22px; margin: 16px 0;
+        }
+        .info-box p:last-child, .warning-box p:last-child, .success-box p:last-child { margin-bottom: 0; }
+        .warning-box {
+            background: rgba(221,214,254,0.35);
+            border: 1.5px solid var(--violet-pale);
+            border-radius: 12px; padding: 18px 22px; margin: 16px 0;
+        }
+        .warning-box .wtitle { color: var(--violet); font-weight: 500; font-size: 0.9rem; margin-bottom: 10px; }
+        .success-box {
+            background: rgba(200,240,220,0.35); border: 1.5px solid #A8DFC0;
+            border-radius: 12px; padding: 18px 22px; margin: 16px 0;
+        }
+        .success-box .stitle { color: #2E7D52; font-weight: 500; font-size: 0.9rem; margin-bottom: 10px; }
+        footer { text-align: center; margin-top: 50px; padding-top: 30px; border-top: 1px solid var(--violet-pale); }
+        footer p { color: var(--text-light); font-size: 0.82rem; }
+        .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--violet); margin-bottom: 8px; }
+        @media (max-width: 640px) { .section { padding: 24px 22px; } h2 { font-size: 1.2rem; } }
+    </style>
+</head>
+<body>
+
+<button class="back-btn" onclick="if(window.history.length>1){window.history.back();}else{window.close();}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Retour
+</button>
+
+<div class="container">
+    <div class="header">
+        <div class="app-badge">🌙 Rêves & Rituels</div>
+        <h1>Mentions <span>Légales</span></h1>
+        <p class="date">Dernière mise à jour : mars 2026</p>
+    </div>
+
+    <div class="section">
+        <div class="success-box">
+            <p class="stitle">ℹ️ Information importante</p>
+            <p>Dans cette section, vous trouverez toutes les informations relatives aux conditions générales d'utilisation qui régissent la relation entre vous et nous, propriétaires de cette application. En tant qu'utilisateur, il est important que vous preniez connaissance de ces conditions avant de poursuivre votre utilisation.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2><span class="num">1</span>Éditeur de l'application</h2>
+        <p>L'application <strong>Rêves & Rituels</strong> est éditée par :</p>
+        <div class="info-box">
+            <p><strong>Kc Dev</strong> — Auto-entrepreneur</p>
+            <p><strong>SIRET :</strong> 992 482 745 00013</p>
+            <p><strong>Localisation :</strong> France</p>
+            <p><strong>Email :</strong> <a href="mailto:cartomystik@gmail.com">cartomystik@gmail.com</a></p>
+        </div>
+        <p>Kc Dev s'engage à traiter les informations de nos utilisateurs avec toutes les garanties et à se conformer aux exigences nationales et européennes qui régissent la collecte et l'utilisation des données personnelles. Cette application est strictement conforme au <strong>Règlement (UE) 2016/679</strong> (RGPD).</p>
+    </div>
+
+    <div class="section">
+        <h2><span class="num">2</span>Directeur de publication</h2>
+        <p>Kc Dev</p>
+    </div>
+
+    <div class="section">
+        <h2><span class="num">3</span>Hébergement</h2>
+        <div class="info-box">
+            <p><strong>Application mobile uniquement</strong></p>
+            <p>Rêves & Rituels est une application mobile native qui ne nécessite pas d'hébergement web. Les données sont stockées localement sur votre appareil.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2><span class="num">4</span>Conditions générales d'utilisation</h2>
+        <p>Les présentes Conditions Générales régissent l'utilisation (y compris le simple accès) de l'application Rêves & Rituels, ainsi que son contenu et les services qui y sont proposés. Toute personne accédant à l'application accepte d'être liée par les Conditions Générales en vigueur.</p>
+        <h3>4.1 Acceptation des conditions</h3>
+        <p>L'utilisation de Rêves & Rituels implique l'acceptation pleine et entière des présentes mentions légales. Si vous n'acceptez pas ces conditions, vous ne devez pas utiliser cette application.</p>
+        <h3>4.2 Modification des conditions</h3>
+        <p>Kc Dev se réserve le droit de modifier les présentes mentions légales à tout moment. Les utilisateurs seront informés des modifications importantes via une notification dans l'application.</p>
+    </div>
+
+    <div class="section">
+        <h2><span class="num">5</span>Nature du contenu</h2>
+        <div class="warning-box">
+            <p class="wtitle">⚠️ Contenu à vocation spirituelle et bien-être</p>
+            <p>Les interprétations de rêves, rituels, prières, descriptions lunaires et informations sur les plantes proposés par l'application sont fournis à titre de <strong>divertissement, développement personnel et exploration spirituelle uniquement</strong>. Ils ne constituent en aucun cas des conseils médicaux, psychologiques, juridiques ou professionnels.</p>
+        </div>
+        <p>Les informations sur les plantes sont données à titre éducatif. Consultez toujours un professionnel de santé avant toute prise de plante médicinale, en particulier en cas de grossesse, d'allaitement, de traitement médical ou d'allergie connue.</p>
+    </div>
+
+    <div class="section">
+        <h2><span class="num">6</span>Données personnelles</h2>
+        <p>Les données personnelles collectées par l'application sont traitées conformément au RGPD. Pour plus d'informations, veuillez consulter notre <a href="politique-confidentialite.html">Politique de Confidentialité</a>.</p>
+    </div>
+
+    <div class="section">
+        <h2><span class="num">7</span>Engagements et obligations des utilisateurs</h2>
+        <h3>7.1 Utilisation conforme</h3>
+        <p>L'utilisateur s'engage à utiliser l'application sans enfreindre : la législation en vigueur, la bonne foi, l'ordre public, ni les droits de propriété intellectuelle de Kc Dev.</p>
+        <h3>7.2 Utilisations interdites</h3>
+        <ul>
+            <li>À des fins illégales ou nuisibles</li>
+            <li>Pour causer des dommages ou entraver son fonctionnement normal</li>
+            <li>Pour reproduire, distribuer ou modifier son contenu sans autorisation</li>
+            <li>Pour porter atteinte aux droits de Kc Dev ou de tiers</li>
+            <li>À des fins commerciales ou publicitaires non autorisées</li>
+            <li>Pour extraire ou compiler des données de manière automatisée</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2><span class="num">8</span>Publicité (utilisateurs gratuits)</h2>
+        <p>Cette application propose du contenu publicitaire fourni par <strong>Google AdMob</strong> pour les utilisateurs de la version gratuite.</p>
+        <h3>8.1 Responsabilité publicitaire</h3>
+        <div class="info-box">
+            <p>Kc Dev n'est pas responsable de l'exactitude des annonces, de la qualité des produits annoncés, ni des relations contractuelles entre l'utilisateur et les annonceurs.</p>
+        </div>
+        <h3>8.2 Politique Google AdMob</h3>
+        <p><a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></p>
+        <h3>8.3 Désactivation des publicités</h3>
+        <p>Pour une expérience sans publicité, souscrivez à la <strong>version Premium</strong> de Rêves & Rituels.</p>
+    </div>
+
+    <div class="section">
+        <h2><span class="num">9</span>Mesures de sécurité</h2>
+        <h3>9.1 Protection des données</h3>
+        <p>Les données personnelles sont stockées localement sur l'appareil et ne sont pas transmises à nos serveurs, sauf pour la gestion de l'abonnement Premium.</p>
+        <h3>9.2 Limites de sécurité</h3>
+        <div class="warning-box">
+            <p class="wtitle">⚠️ Information importante</p>
+            <p>L'utilisateur doit être conscient que les mesures de sécurité des systèmes informatiques sur Internet ne sont pas entièrement fiables. Kc Dev ne peut garantir l'absence totale de logiciels malveillants, bien que nous mettions en œuvre tous les moyens nécessaires pour les éviter.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2><span class="num">10</span>Propriété intellectuelle</h2>
+        <p>L'ensemble des contenus de l'application (textes, interprétations de rêves, rituels, prières, descriptions lunaires, informations sur les plantes, images, icônes, design, code source) est la propriété exclusive de Kc Dev. Sont expressément interdites sans autorisation écrite préalable : la reproduction, distribution, modification, utilisation commerciale ou extraction du contenu.</p>
+        <p>Tout manquement constitue une contrefaçon engageant la responsabilité civile et pénale conformément aux articles L.335-2 et suivants du Code de la propriété intellectuelle.</p>
+        <p>Signalement de violation : <a href="mailto:cartomystik@gmail.com">cartomystik@gmail.com</a></p>
+    </div>
+
+    <div class="section">
+        <h2><span class="num">11</span>Limitation de responsabilité</h2>
+        <div class="warning-box">
+            <p class="wtitle">⚠️ Responsabilité limitée</p>
+            <p>Les interprétations de rêves, rituels, prières, cycles lunaires et informations sur les plantes fournis par l'application sont proposés à titre de <strong>divertissement, bien-être et exploration spirituelle uniquement</strong>. Ils ne constituent en aucun cas des conseils médicaux, psychologiques, juridiques ou professionnels.</p>
+        </div>
+        <p>Kc Dev n'est pas responsable des dommages résultant du manque de disponibilité de l'application, de bugs ou erreurs, d'une utilisation frauduleuse, ni des décisions prises sur la base des contenus fournis. L'utilisateur utilise l'application sous sa seule et entière responsabilité.</p>
+    </div>
+
+    <div class="section">
+        <h2><span class="num">12</span>Accès Premium</h2>
+        <h3>12.1 Tarifs et Durées</h3>
+        <p>Rêves & Rituels propose un accès Premium sans publicité :</p>
+        <ul>
+            <li><strong>Annuel :</strong> abonnement renouvelable chaque année (avec période d'essai gratuite)</li>
+        </ul>
+        <p><em>Les tarifs sont affichés dans l'application et peuvent varier selon votre région.</em></p>
+        <h3>12.2 Mode de paiement</h3>
+        <div class="info-box">
+            <p><strong>📱 Application Android</strong></p>
+            <p>Les achats sont effectués via <strong>Google Play Billing</strong>, traité directement par Google Play Store selon leurs conditions générales.</p>
+            <p><a href="https://policies.google.com/privacy" target="_blank">Politique de confidentialité Google Play</a></p>
+        </div>
+        <h3>12.3 Gestion via RevenueCat</h3>
+        <div class="info-box">
+            <p>Nous utilisons <strong>RevenueCat</strong> pour gérer et synchroniser vos achats. RevenueCat valide vos achats auprès de Google Play, synchronise votre statut Premium entre appareils, et ne traite aucun paiement directement. Seul votre email est partagé pour identifier votre compte.</p>
+            <p><a href="https://www.revenuecat.com/privacy" target="_blank">Politique de confidentialité RevenueCat</a></p>
+        </div>
+        <h3>12.4 Restauration d'abonnement</h3>
+        <ol>
+            <li>Ouvrez le menu de l'application</li>
+            <li>Cliquez sur "Restaurer les achats"</li>
+            <li>Le système vérifie automatiquement votre achat via RevenueCat et Google Play</li>
+        </ol>
+        <h3>12.5 Politique de Remboursement</h3>
+        <div class="info-box">
+            <p>Les remboursements sont gérés selon la <strong>politique de remboursement de Google Play</strong> : accédez à votre historique d'achats Google Play, sélectionnez l'achat Rêves & Rituels et suivez la procédure.</p>
+            <p><a href="https://support.google.com/googleplay/answer/2479637" target="_blank">Support Google Play</a></p>
+        </div>
+        <h3>12.6 Sécurité des Paiements</h3>
+        <p>Aucune information de carte bancaire n'est stockée par Kc Dev. Les paiements sont traités de manière sécurisée par Google Play Billing.</p>
+    </div>
+
+    <div class="section">
+        <h2><span class="num">13</span>Âge minimum</h2>
+        <p>L'utilisation de Rêves & Rituels est réservée aux personnes âgées de <strong>13 ans et plus</strong>. Les mineurs de moins de 18 ans doivent obtenir l'autorisation de leurs parents ou tuteurs légaux avant d'utiliser l'application, de fournir des données personnelles ou de souscrire à la version Premium.</p>
+    </div>
+
+    <div class="section">
+        <h2><span class="num">14</span>Résolution de conflits</h2>
+        <p>Conformément au Règlement UE n°524/2013 :</p>
+        <div class="info-box">
+            <p><strong>Plateforme ODR (Online Dispute Resolution)</strong></p>
+            <p><a href="http://ec.europa.eu/consumers/odr/" target="_blank">http://ec.europa.eu/consumers/odr/</a></p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2><span class="num">15</span>Droit applicable et juridiction</h2>
+        <p>Les présentes mentions légales sont régies par le droit français. En cas de litige, et à défaut de résolution amiable, les tribunaux français seront seuls compétents.</p>
+    </div>
+
+    <div class="section">
+        <h2><span class="num">16</span>Contact</h2>
+        <div class="info-box">
+            <p><strong>Email :</strong> <a href="mailto:cartomystik@gmail.com">cartomystik@gmail.com</a></p>
+            <p>Nous nous engageons à répondre dans les meilleurs délais.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2><span class="num">17</span>Indivisibilité</h2>
+        <p>Si une disposition des présentes mentions légales est déclarée nulle ou inapplicable, les autres dispositions resteront en vigueur.</p>
+    </div>
+
+    <footer>
+        <p class="footer-logo">🌙 Rêves & Rituels</p>
+        <p>Mentions légales — Kc Dev — Mars 2026</p>
+        <p>Conformes au RGPD et à la législation française</p>
+    </footer>
+</div>
+</body>
+</html>

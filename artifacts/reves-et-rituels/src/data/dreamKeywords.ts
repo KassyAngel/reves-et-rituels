@@ -511,6 +511,79 @@ export const dreamKeywords = {
       interpretation: "Le pont symbolise une transition importante dans ta vie. Le traverser avec confiance indique que tu es prêt à passer à une nouvelle étape. Un pont fragile évoque une hésitation face au changement.",
       image: "/images/iconekeywords/pont.webp"
     },
+    // ─── CORPS / PARTIES ──────────────────────────────────────────────────────
+    {
+      keywords: [
+        "yeux", "œil", "voir", "regard", "aveugle", "cécité", "lunettes",
+        "larmes", "pleurer", "vision floue", "borgne", "myope", "cligner",
+        "pupille", "iris", "regarder dans les yeux", "œil qui saigne"
+      ],
+      interpretation: "Les yeux symbolisent la perception, la conscience et la vérité. Perdre la vue en rêve indique une résistance à voir une réalité en face. Des yeux qui pleurent expriment une émotion refoulée qui cherche à s'extérioriser. Regarder quelqu'un dans les yeux symbolise une connexion profonde ou une confrontation nécessaire.",
+      image: "/images/iconekeywords/yeux.webp"
+    },
+    {
+      keywords: [
+        "jambes", "paralysie", "ne pas pouvoir bouger", "jambes lourdes",
+        "courir sans avancer", "jambes qui lâchent", "boiter", "marcher",
+        "genoux", "pieds", "cheville", "immobile", "figé", "pétrifié",
+        "paralysé", "ne plus sentir ses jambes"
+      ],
+      interpretation: "Les jambes représentent ta capacité à avancer dans la vie et à te soutenir toi-même. La paralysie en rêve est très fréquente : elle traduit un sentiment de blocage, d'impuissance ou de peur face à une décision importante. Des jambes lourdes signalent un épuisement profond. Ne plus pouvoir courir invite à identifier ce qui te freine réellement.",
+      image: "/images/iconekeywords/jambes.webp"
+    },
+    {
+      keywords: [
+        "mains", "toucher", "donner", "prendre", "serrer la main",
+        "main tendue", "mains liées", "mains sales", "mains propres",
+        "caresser", "frapper", "applaudir", "poing", "doigts",
+        "main coupée", "perdre une main", "main blessée"
+      ],
+      interpretation: "Les mains symbolisent le pouvoir d'action, la créativité et le lien aux autres. Tendre la main représente générosité ou appel à l'aide. Des mains liées indiquent un sentiment d'impuissance. Des mains sales évoquent une culpabilité ou une situation dont tu veux te laver. Perdre une main signale une peur de perdre tes capacités ou ton autonomie.",
+      image: "/images/iconekeywords/mains.webp"
+    },
+
+    // ─── EXPÉRIENCES ONIRIQUES ────────────────────────────────────────────────
+    {
+      keywords: [
+        "rêve lucide", "rêve dans le rêve", "se réveiller dans le rêve",
+        "savoir que l'on rêve", "contrôler son rêve", "faux réveil",
+        "rêve emboîté", "sortie hors du corps", "voyage astral",
+        "conscience dans le rêve", "méta-rêve"
+      ],
+      interpretation: "Le rêve lucide est une invitation de ton inconscient à reprendre le contrôle de ta vie éveillée. Savoir que tu rêves sans te réveiller symbolise un éveil spirituel et une conscience élargie. Un faux réveil indique que tu cherches à percer les illusions qui t'entourent. C'est le signe d'une grande intelligence intuitive en développement.",
+      image: "/images/iconekeywords/lucide.webp"
+    },
+    {
+      keywords: [
+        "transformation", "se transformer", "changer de forme", "métamorphose",
+        "devenir un animal", "devenir quelqu'un d'autre", "se voir changer",
+        "corps qui change", "mue", "chrysalide", "loup-garou", "shapeshifting",
+        "ne plus se reconnaître", "changer d'apparence"
+      ],
+      interpretation: "La transformation en rêve est l'un des symboles les plus puissants : tu es en pleine mutation intérieure. Devenir un animal révèle quel instinct ou quelle énergie tu cherches à intégrer. Ne plus te reconnaître signale que ton identité est en train d'évoluer profondément. Accueille ce changement — il est le signe d'une renaissance.",
+      image: "/images/iconekeywords/transformation.webp"
+    },
+    {
+      keywords: [
+        "temps", "horloge", "montre", "vieillir", "vieux", "rajeunir",
+        "temps qui s'arrête", "temps qui accélère", "passé", "futur",
+        "machine à remonter le temps", "retour dans le passé",
+        "voir le futur", "temps figé", "pendule", "sablier", "minuterie"
+      ],
+      interpretation: "Le temps en rêve parle de ton rapport à la vie, au changement et à la mortalité. Une horloge arrêtée indique un moment de suspension, une décision en attente. Vieillir soudainement reflète une peur du temps qui passe ou d'opportunités manquées. Retourner dans le passé signale un regret ou une leçon non intégrée. Le futur vu en rêve est souvent une projection de tes désirs ou de tes craintes.",
+      image: "/images/iconekeywords/temps.webp"
+    },
+    {
+      keywords: [
+        "pouvoirs", "super pouvoirs", "magie", "télékinésie", "léviter",
+        "devenir invisible", "voler sans ailes", "force surhumaine",
+        "guérir par les mains", "lire dans les pensées", "téléportation",
+        "contrôler les éléments", "baguette magique", "sort", "enchantement",
+        "être un super-héros", "pouvoir spécial"
+      ],
+      interpretation: "Posséder des pouvoirs en rêve reflète un désir de maîtrise, de reconnaissance ou de dépassement de soi. La télékinésie symbolise le souhait d'influencer ton environnement sans effort. L'invisibilité traduit un besoin de retrait ou une peur d'être vu. La guérison par les mains révèle un don empathique profond. Ces rêves t'invitent à reconnaître les ressources extraordinaires qui sommeillent en toi.",
+      image: "/images/iconekeywords/pouvoirs.webp"
+    },
   ],
   en: [
     // ─── ELEMENTS / NATURE ───────────────────────────────────────────────────
@@ -1025,6 +1098,77 @@ export const dreamKeywords = {
       ],
       interpretation: "These themes in dreams signal a deep connection to something greater than yourself. A miracle or answered prayer brings confirmation that you are on the right path. Synchronicities in dreams invite you to pay attention to signs in your waking life. Your soul is communicating — listen.",
       image: "/images/iconekeywords/spirituel.webp"
+    },
+    // ─── BODY / PARTS ─────────────────────────────────────────────────────────
+    {
+      keywords: [
+        "eyes", "eye", "see", "gaze", "blind", "blindness", "glasses",
+        "tears", "cry", "blurry vision", "one-eyed", "blink",
+        "pupil", "iris", "look into eyes", "bleeding eye"
+      ],
+      interpretation: "Eyes symbolize perception, consciousness and truth. Losing your sight in a dream indicates resistance to facing a reality. Crying eyes express a repressed emotion seeking release. Looking someone in the eyes symbolizes a deep connection or a necessary confrontation.",
+      image: "/images/iconekeywords/yeux.webp"
+    },
+    {
+      keywords: [
+        "legs", "paralysis", "can't move", "heavy legs", "running in place",
+        "legs give out", "limp", "walk", "knees", "feet", "ankle",
+        "immobile", "frozen", "petrified", "paralyzed", "can't feel legs"
+      ],
+      interpretation: "Legs represent your ability to move forward in life and support yourself. Paralysis in a dream is very common: it conveys a feeling of blockage, helplessness or fear about an important decision. Heavy legs signal deep exhaustion. Not being able to run invites you to identify what is truly holding you back.",
+      image: "/images/iconekeywords/jambes.webp"
+    },
+    {
+      keywords: [
+        "hands", "touch", "give", "take", "handshake", "outstretched hand",
+        "tied hands", "dirty hands", "clean hands", "caress", "hit",
+        "clap", "fist", "fingers", "severed hand", "lose a hand", "injured hand"
+      ],
+      interpretation: "Hands symbolize the power to act, creativity and connection to others. Reaching out a hand represents generosity or a call for help. Tied hands indicate a feeling of powerlessness. Dirty hands evoke guilt or a situation you want to wash your hands of. Losing a hand signals a fear of losing your abilities or autonomy.",
+      image: "/images/iconekeywords/mains.webp"
+    },
+
+    // ─── DREAM EXPERIENCES ────────────────────────────────────────────────────
+    {
+      keywords: [
+        "lucid dream", "dream within a dream", "wake up in a dream",
+        "knowing you're dreaming", "control your dream", "false awakening",
+        "nested dream", "out of body", "astral travel",
+        "awareness in dream", "meta-dream"
+      ],
+      interpretation: "A lucid dream is an invitation from your unconscious to regain control in your waking life. Knowing you are dreaming without waking symbolizes spiritual awakening and expanded consciousness. A false awakening indicates you are trying to pierce through illusions around you. It is a sign of great intuitive intelligence in development.",
+      image: "/images/iconekeywords/lucide.webp"
+    },
+    {
+      keywords: [
+        "transformation", "transform", "shapeshift", "metamorphosis",
+        "become an animal", "become someone else", "watch yourself change",
+        "body changing", "shedding skin", "chrysalis", "werewolf",
+        "no longer recognize yourself", "change appearance"
+      ],
+      interpretation: "Transformation in a dream is one of the most powerful symbols: you are in the midst of inner mutation. Becoming an animal reveals which instinct or energy you are seeking to integrate. No longer recognizing yourself signals your identity is deeply evolving. Welcome this change — it is the sign of a rebirth.",
+      image: "/images/iconekeywords/transformation.webp"
+    },
+    {
+      keywords: [
+        "time", "clock", "watch", "age", "grow old", "get younger",
+        "time stops", "time speeds up", "past", "future",
+        "time machine", "go back in time", "see the future",
+        "frozen time", "pendulum", "hourglass", "timer"
+      ],
+      interpretation: "Time in dreams speaks of your relationship with life, change and mortality. A stopped clock indicates a moment of suspension, a pending decision. Suddenly aging reflects a fear of time passing or missed opportunities. Going back to the past signals a regret or an unintegrated lesson. The future seen in a dream is often a projection of your desires or fears.",
+      image: "/images/iconekeywords/temps.webp"
+    },
+    {
+      keywords: [
+        "powers", "superpowers", "magic", "telekinesis", "levitate",
+        "become invisible", "fly without wings", "superhuman strength",
+        "heal with hands", "read minds", "teleportation",
+        "control elements", "magic wand", "spell", "enchantment",
+        "be a superhero", "special power"
+      ],
+      interpretation: "Having powers in a dream reflects a desire for mastery, recognition or self-transcendence. Telekinesis symbolizes the wish to influence your environment effortlessly. Invisibility conveys a need for withdrawal or a fear of being seen. Healing with your hands reveals a deep empathic gift. These dreams invite you to recognize the extraordinary resources sleeping within you.",
+      image: "/images/iconekeywords/pouvoirs.webp"
     },
   ]
 };

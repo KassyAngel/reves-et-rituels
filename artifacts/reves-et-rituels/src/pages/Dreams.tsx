@@ -14,6 +14,12 @@ function normalize(text: string): string {
     .replace(/[^a-z0-9\s]/g, " ");
 }
 
+// Curated list of first-keywords that define the popular symbols grid
+const POPULAR_KEYWORDS: Record<"fr" | "en", string[]> = {
+  fr: ["eau", "voler", "tomber", "feu", "tempête", "serpent", "chien", "mort", "maison", "amour", "dent", "voiture", "forêt", "montagne", "famille", "neige"],
+  en: ["water", "fly", "fall", "fire", "storm", "snake", "dog", "death", "home", "love", "tooth", "car", "forest", "mountain", "family", "snow"],
+};
+
 export default function Dreams() {
   const { lang } = useLanguage();
   const { trackNavigation } = useInterstitial();
@@ -142,11 +148,9 @@ export default function Dreams() {
             {lang === "fr" ? "Symboles populaires" : "Popular symbols"}
           </p>
           <div className="grid grid-cols-4 gap-2 w-full">
-          {dreamKeywords[lang]
-            .filter((category, index, arr) =>
-              arr.findIndex(c => c.image === category.image) === index
-            )
-            .slice(0, 16)
+          {POPULAR_KEYWORDS[lang]
+            .map(kw => dreamKeywords[lang].find(c => c.keywords[0] === kw))
+            .filter((c): c is NonNullable<typeof c> => Boolean(c))
             .map((category, i) => (
               <motion.button
                 key={i}

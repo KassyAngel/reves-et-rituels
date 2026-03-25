@@ -1,14 +1,30 @@
-import { ReactNode } from "react";
+import { ReactNode, useState, useEffect } from "react";
 import { BottomNav } from "./BottomNav";
 import { LanguageToggle } from "./LanguageToggle";
-import { TopBarButtons } from "./TopBarButtons"; // ← nouveau composant
+import { TopBarButtons } from "./TopBarButtons";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "wouter";
+import { subscribeBannerHeight } from "@/lib/admob";
+
+// Hauteur approximative de la pill BottomNav (icônes + texte + padding vertical)
+const NAV_PILL_HEIGHT = 68;
+// mb-2 du pill = 8px + un peu de respiration
+const NAV_MARGIN = 16;
 
 export function Layout({ children }: { children: ReactNode }) {
   const [location] = useLocation();
   const isHome = location === "/";
-  const isDreams = location === "/" || location === "/dreams";
+  const [bannerHeight, setBannerHeight] = useState(0);
+
+  useEffect(() => {
+    const unsubscribe = subscribeBannerHeight((h) => setBannerHeight(h));
+    return unsubscribe;
+  }, []);
+
+  // Le contenu scrollable doit dégager :
+  //   bannière + pill nav + marges
+  // De bas en haut : [barre système] [bannière AdMob] [pill nav] [contenu]
+  const contentPaddingBottom = bannerHeight + NAV_PILL_HEIGHT + NAV_MARGIN;
 
   return (
     <div className="min-h-screen w-full bg-[#FAFAFA] flex justify-center">
@@ -26,17 +42,25 @@ export function Layout({ children }: { children: ReactNode }) {
           </div>
         )}
 
-        {/* ── Barre du haut : Premium+Menu à gauche, FR à droite ── */}
+        {/* Top bar */}
         {!isHome && (
-            <div className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-3 pt-6">
+          <div className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-3 pt-6">
             <TopBarButtons />
             <LanguageToggle />
           </div>
         )}
 
-        <div className={`flex-1 relative z-10 w-full overflow-y-auto overflow-x-hidden custom-scrollbar ${
-          isHome ? "" : "px-6 pt-20 pb-32"
-        }`}>
+        {/* Scrollable content area */}
+        <div
+          className={`flex-1 relative z-10 w-full overflow-y-auto overflow-x-hidden custom-scrollbar ${
+            isHome ? "" : "px-6 pt-20"
+          }`}
+          style={
+            isHome
+              ? undefined
+              : { paddingBottom: contentPaddingBottom }
+          }
+        >
           <AnimatePresence mode="wait">
             <motion.div
               key={location}
@@ -50,6 +74,7 @@ export function Layout({ children }: { children: ReactNode }) {
             </motion.div>
           </AnimatePresence>
         </div>
+
         {!isHome && <BottomNav />}
       </div>
     </div>

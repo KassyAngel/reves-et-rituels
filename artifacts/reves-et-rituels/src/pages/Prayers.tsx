@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronRight } from "lucide-react";
 import { useRewarded } from "@/hooks/use-rewarded";
 import { LockedOverlay } from "@/components/LockedOverlay";
+import { useActivity } from "@/hooks/use-activity";
 
 const LOCKED_PRAYERS = new Set([
   "abundance", "love-prayer", "angels", "strength", "forgiveness", "family"
@@ -14,6 +15,8 @@ const LOCKED_PRAYERS = new Set([
 export default function Prayers() {
   const { lang } = useLanguage();
   const { isUnlocked, watchAd, loading } = useRewarded();
+  const { track } = useActivity();
+
   const [selected, setSelected] = useState<any>(null);
   const [showLocked, setShowLocked] = useState(false);
 
@@ -23,13 +26,21 @@ export default function Prayers() {
       setShowLocked(true);
     } else {
       setShowLocked(false);
+      track(
+        "prayer",
+        prayer.id,
+        prayer.title[lang as "fr" | "en"]
+      );
     }
   };
 
   const handleWatch = async () => {
     if (!selected) return;
     const rewarded = await watchAd(selected.id);
-    if (rewarded) setShowLocked(false);
+    if (rewarded) {
+      setShowLocked(false);
+      track("prayer", selected.id, selected.title[lang as "fr" | "en"]);
+    }
   };
 
   const handleClose = () => {
@@ -108,31 +119,41 @@ export default function Prayers() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.92 }}
                 transition={{ type: "spring", damping: 25, stiffness: 250 }}
-                onClick={e => e.stopPropagation()}
+                onClick={(e) => e.stopPropagation()}
                 className="w-full max-w-[400px] bg-white rounded-[2rem] shadow-2xl overflow-hidden max-h-[88vh] flex flex-col"
               >
-                {/* Bannière */}
-                <div className="relative h-52 flex-shrink-0 overflow-hidden rounded-t-[2rem]">
+                {/* Bannière — icône en background plein cadre */}
+                <div className="relative h-72 flex-shrink-0 overflow-hidden rounded-t-[2rem]">
+                  {/* Image en fond plein */}
                   <img
-                    src={`/images/prayers/${selected.id}-bg.webp`}
-                    alt=""
-                    className="absolute inset-0 w-full h-full object-cover object-[center_20%]"
+                    src={`/images/prayers/${selected.id}.webp`}
+                    alt={selected.title[lang]}
+                    className="absolute inset-0 w-full h-full object-cover object-top"
                     onError={(e) => {
                       const img = e.target as HTMLImageElement;
-                      if (!img.src.endsWith(".png")) {
-                        img.src = img.src.replace("-bg.webp", "-bg.png");
-                      } else {
-                        img.style.display = "none";
+                      img.style.display = "none";
+                      const parent = img.parentElement;
+                      if (parent) {
+                        parent.style.background = "linear-gradient(135deg, #fef9c3, #ede9fe)";
+                        const span = document.createElement("span");
+                        span.className = "absolute inset-0 flex items-center justify-center text-8xl";
+                        span.textContent = selected.icon;
+                        parent.appendChild(span);
                       }
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/20" />
+                  {/* Dégradé sombre en bas pour lisibilité du titre */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/55" />
+
+                  {/* Bouton fermer */}
                   <button
                     onClick={handleClose}
                     className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/80 flex items-center justify-center shadow z-10"
                   >
                     <X size={18} />
                   </button>
+
+                  {/* Titre en bas de la bannière */}
                   <div className="absolute bottom-3 left-0 right-0 flex flex-col items-center z-10 px-4">
                     <h2 className="font-display font-bold text-lg text-white drop-shadow-lg text-center">
                       {selected.title[lang]}
@@ -140,7 +161,6 @@ export default function Prayers() {
                   </div>
                 </div>
 
-                {/* Contenu : verrouillé ou normal */}
                 {showLocked ? (
                   <LockedOverlay onWatch={handleWatch} loading={loading} />
                 ) : (

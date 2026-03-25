@@ -80,10 +80,12 @@
   "dependencies": {
     "@capacitor-community/admob": "^6.2.0",
     "@capacitor/android": "^8.2.0",
+    "@capacitor/browser": "^8.0.2",
     "@capacitor/cli": "^8.2.0",
     "@capacitor/core": "^8.2.0",
     "@capacitor/local-notifications": "^8.0.2",
     "@capacitor/splash-screen": "^8.0.1",
+    "@capgo/capacitor-in-app-review": "^8.1.2",
     "@revenuecat/purchases-capacitor": "^12.3.0",
     "zustand": "^5.0.11"
   }

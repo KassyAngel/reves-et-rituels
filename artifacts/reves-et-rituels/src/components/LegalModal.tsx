@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Shield, FileText, X } from "lucide-react";
 import { useLanguage } from "@/hooks/use-language";
 import { NotificationSettings } from "./NotificationSettings";
+import { Browser } from "@capacitor/browser";
 
 interface Props {
   open: boolean;
@@ -10,8 +11,28 @@ interface Props {
   anchorRef?: React.RefObject<HTMLButtonElement | null>;
 }
 
+// Ouvre une URL dans le navigateur intégré Capacitor (ou dans l'onglet web)
+async function openUrl(url: string) {
+  try {
+    await Browser.open({ url });
+  } catch {
+    // Fallback web
+    window.open(url, "_blank");
+  }
+}
+
 export function LegalModal({ open, onClose, anchorRef }: Props) {
   const { lang } = useLanguage();
+
+  // URLs selon la langue — fichiers dans public/ de ton app
+  const URLS = {
+    privacy: lang === "fr"
+      ? "https://kassyangel.github.io/reves-et-rituels-legal/politique-confidentialite.html"
+      : "https://kassyangel.github.io/reves-et-rituels-legal/privacy-policy.html",
+    legal: lang === "fr"
+      ? "https://kassyangel.github.io/reves-et-rituels-legal/mentions-legales.html"
+      : "https://kassyangel.github.io/reves-et-rituels-legal/legal-notices.html",
+  };
 
   const getPosition = () => {
     if (!anchorRef?.current) return { top: 80, left: 8 };
@@ -71,7 +92,11 @@ export function LegalModal({ open, onClose, anchorRef }: Props) {
                 {lang === "fr" ? "Informations légales" : "Legal"}
               </p>
 
-              <button className="w-full flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-blue-50 transition-colors text-left">
+              {/* Politique de confidentialité */}
+              <button
+                onClick={() => { openUrl(URLS.privacy); onClose(); }}
+                className="w-full flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-blue-50 transition-colors text-left"
+              >
                 <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
                   <Shield size={15} className="text-blue-500" />
                 </div>
@@ -85,7 +110,11 @@ export function LegalModal({ open, onClose, anchorRef }: Props) {
                 </div>
               </button>
 
-              <button className="w-full flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors text-left">
+              {/* Mentions légales */}
+              <button
+                onClick={() => { openUrl(URLS.legal); onClose(); }}
+                className="w-full flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors text-left"
+              >
                 <div className="w-8 h-8 rounded-lg bg-slate-200 flex items-center justify-center flex-shrink-0">
                   <FileText size={15} className="text-slate-600" />
                 </div>

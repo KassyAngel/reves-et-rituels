@@ -389,9 +389,15 @@ importers:
 
   artifacts/reves-et-rituels:
     dependencies:
+      '@capacitor-community/admob':
+        specifier: ^6.2.0
+        version: 6.2.0
       '@capacitor/android':
         specifier: ^8.2.0
         version: 8.2.0(@capacitor/core@8.2.0)
+      '@capacitor/browser':
+        specifier: ^8.0.2
+        version: 8.0.2(@capacitor/core@8.2.0)
       '@capacitor/cli':
         specifier: ^8.2.0
         version: 8.2.0
@@ -404,6 +410,12 @@ importers:
       '@capacitor/splash-screen':
         specifier: ^8.0.1
         version: 8.0.1(@capacitor/core@8.2.0)
+      '@capgo/capacitor-in-app-review':
+        specifier: ^8.1.2
+        version: 8.1.2(@capacitor/core@8.2.0)
+      '@revenuecat/purchases-capacitor':
+        specifier: ^12.3.0
+        version: 12.3.0(@capacitor/core@8.2.0)
       zustand:
         specifier: ^5.0.11
         version: 5.0.11(@types/react@19.2.14)(react@19.1.0)(use-sync-external-store@1.6.0(react@19.1.0))
@@ -739,15 +751,27 @@ packages:
     resolution: {integrity: sha512-LwdZHpScM4Qz8Xw2iKSzS+cfglZzJGvofQICy7W7v4caru4EaAmyUuO6BGrbyQ2mYV11W0U8j5mBhd14dd3B0A==}
     engines: {node: '>=6.9.0'}
 
+  '@capacitor-community/admob@6.2.0':
+    resolution: {integrity: sha512-Po+FXAs4XW2LOegEo1pBssXVjblzt2LeyCiQML9Ep/GnDZooI+ZTIpnB1yU6W3dVW8iO2FENkfWM+oE8O+fNSA==}
+    engines: {node: '>=18.0.0'}
+
   '@capacitor/android@8.2.0':
     resolution: {integrity: sha512-XLm5OsWLPfXQxDxzFS7SOdMEgGvW+2c7TGLXkTR2cSKdkWK5Abns4imlT5qghKYhjM9r74IrDkBWg/9ALUGNKQ==}
     peerDependencies:
       '@capacitor/core': ^8.2.0
 
+  '@capacitor/browser@8.0.2':
+    resolution: {integrity: sha512-oJEtVP5huwPJ8GgOCH3OewhsBPTW6aVtWg8hU6g65MxBdhkcAKyzYrhsyXupC5GaMxltqLf1JzKETMmGkh6tDw==}
+    peerDependencies:
+      '@capacitor/core': '>=8.0.0'
+
   '@capacitor/cli@8.2.0':
     resolution: {integrity: sha512-1cMEk0d/I6tl1U+v/lnJR5Oylpx8ZBIHrvQxD5zK0MkjYOUyQAAGJgh97rkhGJqjAUvrGpa8H4BmyhNQN9a17A==}
     engines: {node: '>=22.0.0'}
     hasBin: true
+
+  '@capacitor/core@6.2.1':
+    resolution: {integrity: sha512-urZwxa7hVE/BnA18oCFAdizXPse6fCKanQyEqpmz6cBJ2vObwMpyJDG5jBeoSsgocS9+Ax+9vb4ducWJn0y2qQ==}
 
   '@capacitor/core@8.2.0':
     resolution: {integrity: sha512-oKaoNeNtH2iIZMDFVrb1atoyRECDGHcfLMunJ5KWN8DtvpVBeeA4c41e20NTuhMxw1cSYbpq2PV2hb+/9CJxlQ==}
@@ -759,6 +783,11 @@ packages:
 
   '@capacitor/splash-screen@8.0.1':
     resolution: {integrity: sha512-c/ew/Z3eA7z8l06WoRAtzVF16VwYYrExmHmfGq1Cg675pVzaC/yuucB8/1xG1vhEfnW4fZ1KhSf/kzR1RiVYgg==}
+    peerDependencies:
+      '@capacitor/core': '>=8.0.0'
+
+  '@capgo/capacitor-in-app-review@8.1.2':
+    resolution: {integrity: sha512-TGB15TwVJnFptddAdtg5g1xdipME7Qg420wOff61tdlC7BfASvNt4c6UgPNyk8/Ylx/0la19Iv0NaM6gSVraOQ==}
     peerDependencies:
       '@capacitor/core': '>=8.0.0'
 
@@ -1568,6 +1597,14 @@ packages:
 
   '@replit/vite-plugin-runtime-error-modal@0.0.6':
     resolution: {integrity: sha512-53iuzLsrvcUnWxAo0fvNrUhOf7LYJ+3at61dZeTIrkaZD4vGNjTbvE0j50TFcjjTC9UM74uprlnQ4+L2A//Cjg==}
+
+  '@revenuecat/purchases-capacitor@12.3.0':
+    resolution: {integrity: sha512-TvtEYPMiE+9s2tT1KUl5QqgUd0H96YCrRhpXv3ZWR30ve63Apl53xHYU3mf4vOInXc3wm1oEDJKz+1thuiTTBA==}
+    peerDependencies:
+      '@capacitor/core': '>=8.0.0'
+
+  '@revenuecat/purchases-typescript-internal-esm@17.52.0':
+    resolution: {integrity: sha512-xB75VkbgJVotnbnK/OoYLyyCqLgi3Qm/7T8NUBG6e3OvxUOVkF2XQLMbNz1e/1MJjcQxVWXY4RxnA4MHl0TxcA==}
 
   '@rolldown/pluginutils@1.0.0-rc.3':
     resolution: {integrity: sha512-eybk3TjzzzV97Dlj5c+XrBFW57eTNhzod66y9HrBlzJ6NsCrWCp/2kaPS3K9wJmurBC0Tdw4yPjXKZqlznim3Q==}
@@ -3496,7 +3533,15 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
 
+  '@capacitor-community/admob@6.2.0':
+    dependencies:
+      '@capacitor/core': 6.2.1
+
   '@capacitor/android@8.2.0(@capacitor/core@8.2.0)':
+    dependencies:
+      '@capacitor/core': 8.2.0
+
+  '@capacitor/browser@8.0.2(@capacitor/core@8.2.0)':
     dependencies:
       '@capacitor/core': 8.2.0
 
@@ -3522,6 +3567,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@capacitor/core@6.2.1':
+    dependencies:
+      tslib: 2.8.1
+
   '@capacitor/core@8.2.0':
     dependencies:
       tslib: 2.8.1
@@ -3531,6 +3580,10 @@ snapshots:
       '@capacitor/core': 8.2.0
 
   '@capacitor/splash-screen@8.0.1(@capacitor/core@8.2.0)':
+    dependencies:
+      '@capacitor/core': 8.2.0
+
+  '@capgo/capacitor-in-app-review@8.1.2(@capacitor/core@8.2.0)':
     dependencies:
       '@capacitor/core': 8.2.0
 
@@ -4503,6 +4556,13 @@ snapshots:
   '@replit/vite-plugin-runtime-error-modal@0.0.6':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
+
+  '@revenuecat/purchases-capacitor@12.3.0(@capacitor/core@8.2.0)':
+    dependencies:
+      '@capacitor/core': 8.2.0
+      '@revenuecat/purchases-typescript-internal-esm': 17.52.0
+
+  '@revenuecat/purchases-typescript-internal-esm@17.52.0': {}
 
   '@rolldown/pluginutils@1.0.0-rc.3': {}
 

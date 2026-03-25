@@ -4,6 +4,7 @@ import { dreamKeywords } from "@/data/dreamKeywords";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, X } from "lucide-react";
 import { useInterstitial } from "@/hooks/use-interstitial";
+import { useActivity } from "@/hooks/use-activity";
 
 function normalize(text: string): string {
   return text
@@ -16,6 +17,8 @@ function normalize(text: string): string {
 export default function Dreams() {
   const { lang } = useLanguage();
   const { trackNavigation } = useInterstitial();
+  const { track } = useActivity();
+
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<{
     image: string;
@@ -44,7 +47,14 @@ export default function Dreams() {
       title: category.keywords[0],
     });
     setQuery("");
-    trackNavigation(); // ← interstitiel toutes les 3 consultations
+    trackNavigation();
+
+    // ── Tracking activité ──────────────────────────────────────────────
+    track(
+      "dream",
+      category.keywords[0],
+      category.keywords[0].charAt(0).toUpperCase() + category.keywords[0].slice(1)
+    );
   };
 
   const handleClear = () => {
@@ -132,13 +142,18 @@ export default function Dreams() {
             {lang === "fr" ? "Symboles populaires" : "Popular symbols"}
           </p>
           <div className="grid grid-cols-4 gap-2 w-full">
-            {dreamKeywords[lang].slice(0, 16).map((category, i) => (
+          {dreamKeywords[lang]
+            .filter((category, index, arr) =>
+              arr.findIndex(c => c.image === category.image) === index
+            )
+            .slice(0, 16)
+            .map((category, i) => (
               <motion.button
                 key={i}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.04 }}
-                onClick={() => handleSelect(category)} // ← compteur inclus
+                onClick={() => handleSelect(category)}
                 className="rounded-2xl overflow-hidden shadow-sm hover:shadow-md active:scale-95 transition-all"
               >
                 <div className="w-full aspect-square overflow-hidden rounded-2xl relative">
@@ -186,7 +201,6 @@ export default function Dreams() {
           </motion.div>
         )}
       </AnimatePresence>
-
     </div>
   );
 }

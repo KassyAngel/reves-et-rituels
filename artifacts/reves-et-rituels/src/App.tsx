@@ -12,7 +12,9 @@ import NotFound from "@/pages/not-found";
 import Prayers from "@/pages/Prayers";
 import Plants from "@/pages/Plants";
 import { NotificationPrompt } from "@/components/NotificationPrompt";
-import { requestConsentInfo, initAdMob, showBanner } from "@/lib/admob";
+import { requestConsentInfo, initAdMob } from "@/lib/admob";
+import { getNotificationSettings, scheduleDaily } from "@/lib/notifications";
+import { useRateApp } from "@/hooks/use-rate-app";
 
 const queryClient = new QueryClient();
 
@@ -45,18 +47,30 @@ function Router() {
 }
 
 function App() {
+  const { checkAndPrompt } = useRateApp();
   useEffect(() => {
     const init = async () => {
-      await requestConsentInfo(); // ← 1. Popup RGPD si nécessaire
-      await initAdMob();          // ← 2. Init AdMob
-      await showBanner();         // ← 3. Bannière
+      await requestConsentInfo();
+      await initAdMob();
+      checkAndPrompt();
+     
+      // Re-schedule 365 jours à chaque ouverture de l'app
+      try {
+        const settings = await getNotificationSettings();
+        if (settings?.enabled) {
+          const savedLang = (localStorage.getItem("rr_lang") as "fr" | "en") || "fr";
+          await scheduleDaily(settings.hour, settings.minute, savedLang);
+        }
+      } catch {
+        // Web ou permission révoquée — pas de crash
+      }
     };
     init();
   }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
-      <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+      <WouterRouter base="">
         <Router />
         <NotificationPrompt />
       </WouterRouter>

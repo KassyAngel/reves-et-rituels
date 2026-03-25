@@ -223,19 +223,20 @@ export default function Moon() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[999] flex items-end justify-center bg-black/30 backdrop-blur-sm"
+              className="fixed inset-0 z-[999] flex items-center justify-center bg-black/40 backdrop-blur-sm px-4"
               onClick={() => setSelected(null)}
             >
               <motion.div
-                initial={{ y: "100%" }}
-                animate={{ y: 0 }}
-                exit={{ y: "100%" }}
+                initial={{ opacity: 0, scale: 0.92, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.92, y: 20 }}
                 transition={{ type: "spring", damping: 25, stiffness: 200 }}
                 onClick={(e) => e.stopPropagation()}
-                className="w-full max-w-[430px] bg-white rounded-t-[2rem] shadow-2xl overflow-hidden max-h-[88vh] flex flex-col"
+                className="w-full max-w-[390px] bg-white rounded-[2rem] shadow-2xl overflow-hidden flex flex-col"
+                style={{ maxHeight: "75vh" }}
               >
+                {/* Header */}
                 <div className="bg-gradient-to-br from-indigo-50 via-purple-50 to-white pt-5 pb-4 px-6 text-center relative flex-shrink-0">
-                  <div className="w-10 h-1 bg-slate-200 rounded-full mx-auto mb-3" />
                   <button
                     onClick={() => setSelected(null)}
                     className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/70 flex items-center justify-center text-slate-400 shadow"
@@ -278,6 +279,7 @@ export default function Moon() {
                   <div className="h-px w-16 bg-gradient-to-r from-transparent via-purple-300 to-transparent mx-auto mt-3" />
                 </div>
 
+                {/* Contenu scrollable */}
                 <div className="flex-1 overflow-y-auto p-4 space-y-3">
                   <div className="bg-slate-50 rounded-2xl p-4">
                     <p className="text-[10px] font-bold uppercase tracking-wider text-primary mb-2">
@@ -307,7 +309,8 @@ export default function Moon() {
                   </div>
                 </div>
 
-                <div className="flex-shrink-0 px-4 pt-2 pb-2">
+                {/* Bouton fermer */}
+                <div className="flex-shrink-0 px-4 pt-2 pb-4">
                   <button
                     onClick={() => setSelected(null)}
                     className="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-200 to-purple-200 text-slate-700 font-bold shadow-md"

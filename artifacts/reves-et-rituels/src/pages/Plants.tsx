@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, AlertTriangle } from "lucide-react";
 import { useRewarded } from "@/hooks/use-rewarded";
 import { LockedOverlay } from "@/components/LockedOverlay";
+import { useActivity } from "@/hooks/use-activity";
 
 const LOCKED_PLANTS = new Set([
   "armoise", "valerian", "millepertuis", "ginkgo", "palo-santo",
@@ -29,6 +30,8 @@ function Disclaimer({ lang }: { lang: string }) {
 export default function Plants() {
   const { lang } = useLanguage();
   const { isUnlocked, watchAd, loading } = useRewarded();
+  const { track } = useActivity();
+
   const [activeCategory, setActiveCategory] = useState<PlantCategory | "all">("all");
   const [selected, setSelected] = useState<Plant | null>(null);
   const [showLocked, setShowLocked] = useState(false);
@@ -56,13 +59,19 @@ export default function Plants() {
       setShowLocked(true);
     } else {
       setShowLocked(false);
+      // ── Tracking : plante déverrouillée consultée
+      track("plant", plant.id, plant.name[lang as "fr" | "en"]);
     }
   };
 
   const handleWatch = async () => {
     if (!selected) return;
     const rewarded = await watchAd(selected.id);
-    if (rewarded) setShowLocked(false);
+    if (rewarded) {
+      setShowLocked(false);
+      // Tracking après déverrouillage pub
+      track("plant", selected.id, selected.name[lang as "fr" | "en"]);
+    }
   };
 
   const handleClose = () => {
@@ -144,13 +153,11 @@ export default function Plants() {
                     className="w-full h-full object-cover"
                     onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
                   />
-                  {/* Badge warning */}
                   {plant.warning && (
                     <span className="absolute top-2 left-2 w-5 h-5 bg-amber-400 rounded-full flex items-center justify-center">
                       <AlertTriangle size={10} className="text-white" />
                     </span>
                   )}
-                  {/* Badge cadenas */}
                   {locked && (
                     <span className="absolute top-2 right-2 w-6 h-6 bg-black/40 rounded-full flex items-center justify-center text-xs">
                       🔒
@@ -210,7 +217,6 @@ export default function Plants() {
                   </div>
                 </div>
 
-                {/* Contenu : verrouillé ou normal */}
                 {showLocked ? (
                   <LockedOverlay onWatch={handleWatch} loading={loading} />
                 ) : (

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/hooks/use-language";
 import { useLocation } from "wouter";
+import { showBanner } from "@/lib/admob";
 
 const stars = Array.from({ length: 18 });
 
@@ -113,7 +114,10 @@ export default function Home() {
           transition={{ delay: 1.5, duration: 0.6 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}
-          onClick={() => navigate("/dreams")}
+          onClick={async () => {
+            await showBanner();
+            navigate("/dreams");
+          }}
           className="px-10 py-4 rounded-full bg-gradient-to-r from-purple-300 via-purple-200 to-yellow-200 text-slate-700 font-bold text-base shadow-lg hover:shadow-xl transition-all border border-white/60"
         >
           {lang === 'fr' ? 'Commencer le voyage' : 'Begin the journey'}

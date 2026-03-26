@@ -30,6 +30,26 @@ const POPULAR_KEYWORDS: Record<"fr" | "en", string[]> = {
   en: ["water", "fly", "fall", "fire", "storm", "snake", "dog", "death", "home", "love", "tooth", "car", "forest", "mountain", "family", "snow"],
 };
 
+// Score a single keyword against all search tokens — word-boundary aware.
+// Keywords that match MORE tokens get a bonus, so "accident de bus" beats "accident" alone.
+function scoreKeyword(normKw: string, tokens: string[]): number {
+  const kwWords = normKw.split(/\s+/);
+  let s = 0;
+  let matched = 0;
+  for (const token of tokens) {
+    if (normKw === token) {
+      s += 4; matched++; // exact full-keyword match
+    } else if (kwWords.some(w => w === token)) {
+      s += 2; matched++; // exact word within multi-word keyword
+    } else if (kwWords.some(w => w.startsWith(token) || token.startsWith(w))) {
+      s += 1; matched++; // prefix match
+    }
+  }
+  // Bonus for multi-token coverage: "accident de bus" matches both "accident" AND "bus"
+  if (matched > 1) s += matched * 2;
+  return s;
+}
+
 export default function Dreams() {
   const { lang } = useLanguage();
   const { trackNavigation } = useInterstitial();
@@ -52,35 +72,36 @@ export default function Dreams() {
       .map(w => w.replace(/[^a-z0-9]/g, ""))
       .filter(w => w.length >= 3 && !STOPWORDS.has(w));
 
-    // Fallback: if all words were filtered (very short query), use full query
     const searchTokens = tokens.length > 0 ? tokens : [normalizedQuery.trim()];
 
     return dreamKeywords[lang]
       .map((category) => {
-        const normalizedKws = category.keywords.map(normalize);
-        let score = 0;
-        for (const token of searchTokens) {
-          if (normalizedKws.some(kw =>
-            kw.includes(token) ||              // keyword contains the token
-            token.includes(kw) ||              // token contains the keyword (e.g. "accidents" matches "accident")
-            (kw.length >= 4 && token.includes(kw.slice(0, 5))) // token contains first 5 chars
-          )) {
-            score++;
+        let totalScore = 0;
+        let bestKeyword = category.keywords[0];
+        let bestKwScore = -1;
+
+        for (const kw of category.keywords) {
+          const s = scoreKeyword(normalize(kw), searchTokens);
+          totalScore += s;
+          if (s > bestKwScore) {
+            bestKwScore = s;
+            bestKeyword = kw;
           }
         }
-        return { category, score };
+
+        return { category, totalScore, bestKeyword };
       })
-      .filter(({ score }) => score > 0)
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 5)
-      .map(({ category }) => category);
+      .filter(({ totalScore }) => totalScore > 0)
+      .sort((a, b) => b.totalScore - a.totalScore)
+      .slice(0, 5);
   }, [query, lang]);
 
-  const handleSelect = (category: any) => {
+  const handleSelect = (category: any, displayTitle?: string) => {
+    const title = displayTitle ?? category.keywords[0];
     setSelected({
       image: category.image,
       interpretation: category.interpretation,
-      title: category.keywords[0],
+      title,
     });
     setQuery("");
     trackNavigation();
@@ -89,7 +110,7 @@ export default function Dreams() {
     track(
       "dream",
       category.keywords[0],
-      category.keywords[0].charAt(0).toUpperCase() + category.keywords[0].slice(1)
+      title.charAt(0).toUpperCase() + title.slice(1)
     );
   };
 
@@ -151,18 +172,18 @@ export default function Dreams() {
               exit={{ opacity: 0, y: -8 }}
               className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden z-50"
             >
-              {suggestions.map((category, i) => (
+              {suggestions.map(({ category, bestKeyword }, i) => (
                 <motion.button
                   key={i}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
-                  onClick={() => handleSelect(category)}
+                  onClick={() => handleSelect(category, bestKeyword)}
                   className="w-full flex items-center gap-3 px-4 py-3 hover:bg-primary/5 transition-colors text-left border-b border-slate-50 last:border-0"
                 >
-                  <img src={category.image} alt={category.keywords[0]} className="w-8 h-8 object-contain rounded-lg flex-shrink-0" />
+                  <img src={`${import.meta.env.BASE_URL}${category.image.replace(/^\//, "")}`} alt={bestKeyword} className="w-8 h-8 object-contain rounded-lg flex-shrink-0" />
                   <div>
-                    <p className="font-semibold text-sm text-foreground capitalize">{category.keywords[0]}</p>
+                    <p className="font-semibold text-sm text-foreground capitalize">{bestKeyword}</p>
                     <p className="text-xs text-muted-foreground line-clamp-1">{category.interpretation.slice(0, 55)}...</p>
                   </div>
                 </motion.button>

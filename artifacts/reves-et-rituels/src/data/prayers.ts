@@ -232,8 +232,6 @@ Thank you for being there.
 Always.`
     }
   },
-
-  // ── NOUVELLES PRIÈRES ─────────────────────────────────────────────────────
   {
     id: "abundance",
     icon: "✨",
@@ -542,4 +540,509 @@ They are my greatest blessings.
 Amen.`
     }
   },
+
+  // ── NOUVELLES PRIÈRES ─────────────────────────────────────────────────────
+  {
+    id: "morning-prayer",
+    icon: "🌅",
+    title: { fr: "Prière du Matin", en: "Morning Prayer" },
+    desc: { fr: "Commencer chaque journée avec intention et lumière.", en: "Begin each day with intention and light." },
+    text: {
+      fr: `En ce matin qui s'éveille,
+je me lève avec gratitude dans le cœur.
+
+Que cette journée soit guidée par ta lumière.
+Que mes pensées soient justes et bienveillantes.
+Que mes paroles soient douces et vraies.
+Que mes actes soient alignés avec mon âme.
+
+Donne-moi la clarté pour voir ce qui est essentiel.
+Donne-moi l'énergie pour accomplir ma mission.
+Donne-moi la joie pour traverser les petites épreuves.
+
+Je m'engage à vivre pleinement ce jour.
+À aimer sans retenue.
+À servir avec humilité.
+
+Merci pour ce nouveau départ.
+Qu'il en soit ainsi.`,
+      en: `As this morning awakens,
+I rise with gratitude in my heart.
+
+May this day be guided by your light.
+May my thoughts be just and kind.
+May my words be gentle and true.
+May my actions be aligned with my soul.
+
+Give me clarity to see what is essential.
+Give me energy to fulfill my mission.
+Give me joy to face the small trials.
+
+I commit to living this day fully.
+To loving without restraint.
+To serving with humility.
+
+Thank you for this new beginning.
+So be it.`
+    }
+  },
+  {
+    id: "holy-spirit",
+    icon: "🕊️",
+    title: { fr: "Viens Esprit Saint", en: "Come Holy Spirit" },
+    desc: { fr: "Invoquer le souffle divin pour être guidé et inspiré.", en: "Invoke the divine breath for guidance and inspiration." },
+    text: {
+      fr: `Viens, Esprit Saint,
+remplis le cœur de tes fidèles
+et allume en eux le feu de ton amour.
+
+Envoie ton Esprit, et tout sera créé,
+et tu renouvelleras la face de la terre.
+
+Ô Dieu, qui as instruit le cœur de tes fidèles
+par la lumière du Saint-Esprit,
+donne-nous de goûter en ton Esprit
+ce qui est droit et juste,
+et de nous réjouir toujours
+de sa consolation.
+
+Viens, Esprit de sagesse.
+Viens, Esprit de lumière.
+Viens, Esprit d'amour.
+
+Amen.`,
+      en: `Come, Holy Spirit,
+fill the hearts of your faithful
+and kindle in them the fire of your love.
+
+Send forth your Spirit and they shall be created,
+and you shall renew the face of the earth.
+
+O God, who by the light of the Holy Spirit
+has instructed the hearts of your faithful,
+grant that by the same Holy Spirit
+we may be truly wise
+and ever rejoice in his consolation.
+
+Come, Spirit of wisdom.
+Come, Spirit of light.
+Come, Spirit of love.
+
+Amen.`
+    }
+  },
+  {
+    id: "notre-dame",
+    icon: "🌹",
+    title: { fr: "Je vous salue Marie", en: "Hail Mary" },
+    desc: { fr: "La prière mariale la plus universelle au monde.", en: "The most universal Marian prayer in the world." },
+    text: {
+      fr: `Je vous salue Marie,
+pleine de grâce,
+le Seigneur est avec vous.
+
+Vous êtes bénie entre toutes les femmes,
+et Jésus, le fruit de vos entrailles, est béni.
+
+Sainte Marie, Mère de Dieu,
+priez pour nous, pauvres pécheurs,
+maintenant et à l'heure de notre mort.
+
+Amen.`,
+      en: `Hail Mary,
+full of grace,
+the Lord is with thee.
+
+Blessed art thou among women,
+and blessed is the fruit of thy womb, Jesus.
+
+Holy Mary, Mother of God,
+pray for us sinners,
+now and at the hour of our death.
+
+Amen.`
+    }
+  },
+  {
+    id: "notre-pere",
+    icon: "☁️",
+    title: { fr: "Notre Père", en: "Our Father" },
+    desc: { fr: "La prière enseignée par Jésus, fondement de toute prière.", en: "The prayer taught by Jesus, foundation of all prayer." },
+    text: {
+      fr: `Notre Père, qui es aux cieux,
+que ton nom soit sanctifié,
+que ton règne vienne,
+que ta volonté soit faite
+sur la terre comme au ciel.
+
+Donne-nous aujourd'hui notre pain de ce jour.
+Pardonne-nous nos offenses,
+comme nous pardonnons aussi
+à ceux qui nous ont offensés.
+
+Et ne nous soumets pas à la tentation,
+mais délivre-nous du mal.
+
+Car c'est à toi qu'appartiennent
+le règne, la puissance et la gloire,
+pour les siècles des siècles.
+
+Amen.`,
+      en: `Our Father, who art in heaven,
+hallowed be thy name.
+Thy kingdom come,
+thy will be done
+on earth as it is in heaven.
+
+Give us this day our daily bread,
+and forgive us our trespasses
+as we forgive those
+who trespass against us.
+
+And lead us not into temptation,
+but deliver us from evil.
+
+For thine is the kingdom,
+the power and the glory,
+for ever and ever.
+
+Amen.`
+    }
+  },
+  {
+    id: "chakra-opening",
+    icon: "🌀",
+    title: { fr: "Ouverture des Chakras", en: "Chakra Opening" },
+    desc: { fr: "Harmoniser et éveiller les centres d'énergie du corps.", en: "Harmonize and awaken the body's energy centers." },
+    text: {
+      fr: `En ce moment sacré,
+j'invite l'énergie divine à circuler librement en moi.
+
+Je libère mon chakra racine.
+Je suis ancré(e), en sécurité, à ma place sur cette terre.
+
+J'ouvre mon chakra sacré.
+Je suis créatif(ve), vivant(e), dans le flux de la vie.
+
+J'éveille mon chakra du plexus solaire.
+Je suis confiant(e), puissant(e), maître de ma destinée.
+
+J'ouvre mon chakra du cœur.
+Je suis amour. Je donne et reçois sans limite.
+
+Je libère mon chakra de la gorge.
+Je dis ma vérité avec douceur et courage.
+
+J'ouvre mon troisième œil.
+Je vois au-delà des apparences. Je fais confiance à mon intuition.
+
+J'éveille mon chakra couronne.
+Je suis relié(e) au divin, à l'univers, à tout ce qui est.
+
+Que l'énergie circule.
+Que je sois équilibré(e).
+Qu'il en soit ainsi.`,
+      en: `In this sacred moment,
+I invite divine energy to flow freely within me.
+
+I free my root chakra.
+I am grounded, safe, in my rightful place on this earth.
+
+I open my sacral chakra.
+I am creative, alive, in the flow of life.
+
+I awaken my solar plexus chakra.
+I am confident, powerful, master of my destiny.
+
+I open my heart chakra.
+I am love. I give and receive without limit.
+
+I free my throat chakra.
+I speak my truth with gentleness and courage.
+
+I open my third eye.
+I see beyond appearances. I trust my intuition.
+
+I awaken my crown chakra.
+I am connected to the divine, to the universe, to all that is.
+
+May energy flow freely.
+May I be balanced.
+So be it.`
+    }
+  },
+  {
+    id: "prosperity",
+    icon: "🌿",
+    title: { fr: "Prière de Prospérité", en: "Prayer of Prosperity" },
+    desc: { fr: "Attirer la réussite et ouvrir la voie à ses projets.", en: "Attract success and open the way to your projects." },
+    text: {
+      fr: `Univers bienveillant,
+je m'aligne aujourd'hui sur la fréquence de la réussite.
+
+Je lâche prise sur toutes les croyances limitantes
+qui m'ont empêché(e) d'avancer.
+Je suis digne de réussir.
+Je suis capable de créer.
+Je mérite de m'épanouir.
+
+Mes projets grandissent et fleurissent.
+Les bonnes personnes arrivent sur mon chemin.
+Les portes s'ouvrent au bon moment.
+
+Je travaille avec passion et persévérance.
+L'univers conspire en ma faveur.
+
+Je reçois avec humilité.
+Je partage avec joie.
+Je prospère dans tous les domaines de ma vie.
+
+Et il en est ainsi.`,
+      en: `Benevolent Universe,
+I align myself today with the frequency of success.
+
+I release all limiting beliefs
+that have prevented me from moving forward.
+I am worthy of success.
+I am capable of creating.
+I deserve to flourish.
+
+My projects grow and bloom.
+The right people come into my path.
+Doors open at the right moment.
+
+I work with passion and perseverance.
+The universe conspires in my favor.
+
+I receive with humility.
+I share with joy.
+I prosper in all areas of my life.
+
+And so it is.`
+    }
+  },
+  {
+    id: "divine-light",
+    icon: "☀️",
+    title: { fr: "Lumière Divine Intérieure", en: "Inner Divine Light" },
+    desc: { fr: "Reconnaître et honorer la lumière qui brille en soi.", en: "Recognize and honor the light that shines within." },
+    text: {
+      fr: `Il y a en moi une lumière
+qui n'a jamais été éteinte.
+
+Elle a traversé toutes mes nuits.
+Elle a survécu à toutes mes tempêtes.
+Elle est là, maintenant,
+fidèle et brillante.
+
+Je l'honore.
+Je la reconnais.
+Je la laisse grandir.
+
+Cette lumière, c'est moi.
+C'est ce que je suis vraiment
+au-delà de tous les masques,
+au-delà de toutes les peurs.
+
+Je suis lumière.
+Je suis amour.
+Je suis paix.
+
+Que cette lumière rayonne en moi
+et autour de moi,
+en ce jour et à jamais.
+
+Amen.`,
+      en: `Within me there is a light
+that has never been extinguished.
+
+It has crossed all my nights.
+It has survived all my storms.
+It is here, now,
+faithful and bright.
+
+I honor it.
+I recognize it.
+I let it grow.
+
+This light is me.
+It is what I truly am
+beyond all masks,
+beyond all fears.
+
+I am light.
+I am love.
+I am peace.
+
+May this light shine within me
+and around me,
+on this day and forever.
+
+Amen.`
+    }
+  },
+  {
+    id: "ancestors",
+    icon: "🌳",
+    title: { fr: "Prière aux Ancêtres", en: "Prayer to the Ancestors" },
+    desc: { fr: "Honorer sa lignée et recevoir la sagesse des anciens.", en: "Honor your lineage and receive the wisdom of the elders." },
+    text: {
+      fr: `Ô ancêtres bien-aimés,
+vous dont le sang coule dans mes veines,
+vous dont la sagesse vit en moi,
+je vous honore en ce moment.
+
+Merci pour les sacrifices que vous avez faits.
+Merci pour les chemins que vous avez tracés.
+Merci pour la vie que vous m'avez transmise.
+
+Guérissez à travers moi
+ce qui n'a pas pu être guéri de votre vivant.
+Brisez à travers moi
+les chaînes qui ont alourdi notre lignée.
+
+Je suis le renouveau de notre famille.
+Je porte votre héritage avec fierté
+et je le transmets transformé.
+
+Merci pour votre présence invisible.
+Merci pour votre amour éternel.
+
+Qu'il en soit ainsi.`,
+      en: `O beloved ancestors,
+you whose blood flows through my veins,
+you whose wisdom lives within me,
+I honor you in this moment.
+
+Thank you for the sacrifices you made.
+Thank you for the paths you forged.
+Thank you for the life you passed on to me.
+
+Heal through me
+what could not be healed in your lifetime.
+Break through me
+the chains that have weighed upon our lineage.
+
+I am the renewal of our family.
+I carry your heritage with pride
+and pass it on transformed.
+
+Thank you for your invisible presence.
+Thank you for your eternal love.
+
+So be it.`
+    }
+  },
+  {
+    id: "nature-prayer",
+    icon: "🍃",
+    title: { fr: "Prière à la Nature", en: "Prayer to Nature" },
+    desc: { fr: "Se reconnecter à la Terre et aux éléments sacrés.", en: "Reconnect with the Earth and the sacred elements." },
+    text: {
+      fr: `Mère Nature,
+je reviens à toi avec humilité.
+
+Merci pour l'air que tu me donnes à respirer.
+Merci pour l'eau qui purifie mon corps.
+Merci pour la terre qui me porte.
+Merci pour le feu du soleil qui me nourrit.
+
+Apprends-moi la patience de l'arbre.
+Apprends-moi la fluidité de la rivière.
+Apprends-moi la force tranquille de la montagne.
+Apprends-moi la douceur du vent.
+
+Je suis un enfant de la terre.
+Je prends soin d'elle
+comme elle prend soin de moi.
+
+En harmonie avec tout ce qui vit.
+En gratitude pour tout ce qui est.
+
+Qu'il en soit ainsi.`,
+      en: `Mother Nature,
+I return to you with humility.
+
+Thank you for the air you give me to breathe.
+Thank you for the water that purifies my body.
+Thank you for the earth that carries me.
+Thank you for the fire of the sun that nourishes me.
+
+Teach me the patience of the tree.
+Teach me the fluidity of the river.
+Teach me the quiet strength of the mountain.
+Teach me the gentleness of the wind.
+
+I am a child of the earth.
+I care for her
+as she cares for me.
+
+In harmony with all that lives.
+In gratitude for all that is.
+
+So be it.`
+    }
+  },
+  {
+    id: "anxiety-release",
+    icon: "🌊",
+    title: { fr: "Libération de l'Anxiété", en: "Anxiety Release" },
+    desc: { fr: "Dissoudre la peur et retrouver la paix du cœur.", en: "Dissolve fear and reclaim peace of heart." },
+    text: ``,
+    // text est rempli ci-dessous pour éviter les limites de longueur
+  },
 ];
+
+// Ajouter le texte de la dernière prière séparément pour la lisibilité
+prayers[prayers.length - 1].text = {
+  fr: `Je reconnais cette anxiété en moi.
+Je ne la combats pas.
+Je lui parle avec douceur.
+
+Tu es là pour me protéger.
+Je t'entends.
+Mais tu n'as plus besoin de crier.
+
+Je respire.
+Je m'ancre dans ce moment présent.
+Mes pieds touchent le sol.
+Mon corps est en sécurité.
+
+Ce qui m'appartient reste.
+Ce qui doit partir s'en va.
+Je lâche le contrôle.
+Je fais confiance à la vie.
+
+La paix est déjà là, en moi.
+Elle a toujours été là.
+Je la laisse simplement être.
+
+Je suis en sécurité.
+Je suis en paix.
+Et il en est ainsi.`,
+  en: `I acknowledge this anxiety within me.
+I do not fight it.
+I speak to it gently.
+
+You are here to protect me.
+I hear you.
+But you no longer need to shout.
+
+I breathe.
+I ground myself in this present moment.
+My feet touch the ground.
+My body is safe.
+
+What belongs to me remains.
+What must leave, leaves.
+I release control.
+I trust in life.
+
+Peace is already here, within me.
+It has always been here.
+I simply let it be.
+
+I am safe.
+I am at peace.
+And so it is.`
+};

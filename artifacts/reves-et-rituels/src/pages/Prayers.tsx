@@ -8,8 +8,27 @@ import { useRewarded } from "@/hooks/use-rewarded";
 import { LockedOverlay } from "@/components/LockedOverlay";
 import { useActivity } from "@/hooks/use-activity";
 
+// 6 gratuites : saint-michel, protection-daily, healing, gratitude, defunts, serenity
+// Tout le reste est verrouillé
 const LOCKED_PRAYERS = new Set([
-  "abundance", "love-prayer", "angels", "strength", "forgiveness", "family"
+  "angels",
+  "abundance",
+  "love-prayer",
+  "strength",
+  "forgiveness",
+  "sleep-prayer",
+  "family",
+  // Nouvelles
+  "morning-prayer",
+  "holy-spirit",
+  "notre-dame",
+  "notre-pere",
+  "chakra-opening",
+  "prosperity",
+  "divine-light",
+  "ancestors",
+  "nature-prayer",
+  "anxiety-release",
 ]);
 
 export default function Prayers() {
@@ -26,11 +45,7 @@ export default function Prayers() {
       setShowLocked(true);
     } else {
       setShowLocked(false);
-      track(
-        "prayer",
-        prayer.id,
-        prayer.title[lang as "fr" | "en"]
-      );
+      track("prayer", prayer.id, prayer.title[lang as "fr" | "en"]);
     }
   };
 
@@ -68,7 +83,7 @@ export default function Prayers() {
               key={prayer.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.08 }}
+              transition={{ delay: i * 0.05 }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => handleSelect(prayer)}
@@ -122,9 +137,8 @@ export default function Prayers() {
                 onClick={(e) => e.stopPropagation()}
                 className="w-full max-w-[400px] bg-white rounded-[2rem] shadow-2xl overflow-hidden max-h-[88vh] flex flex-col"
               >
-                {/* Bannière — icône en background plein cadre */}
+                {/* Bannière */}
                 <div className="relative h-72 flex-shrink-0 overflow-hidden rounded-t-[2rem]">
-                  {/* Image en fond plein */}
                   <img
                     src={`/images/prayers/${selected.id}.webp`}
                     alt={selected.title[lang]}
@@ -142,18 +156,13 @@ export default function Prayers() {
                       }
                     }}
                   />
-                  {/* Dégradé sombre en bas pour lisibilité du titre */}
                   <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/55" />
-
-                  {/* Bouton fermer */}
                   <button
                     onClick={handleClose}
                     className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/80 flex items-center justify-center shadow z-10"
                   >
                     <X size={18} />
                   </button>
-
-                  {/* Titre en bas de la bannière */}
                   <div className="absolute bottom-3 left-0 right-0 flex flex-col items-center z-10 px-4">
                     <h2 className="font-display font-bold text-lg text-white drop-shadow-lg text-center">
                       {selected.title[lang]}

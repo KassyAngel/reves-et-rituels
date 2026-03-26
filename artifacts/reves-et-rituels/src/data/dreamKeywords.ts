@@ -549,7 +549,10 @@ export const dreamKeywords = {
         "romance", "séduction", "rendez-vous", "premier amour", "passion",
         "désir", "tendresse", "réconciliation", "âme sœur", "relation toxique",
         "crush", "béguin", "flirter", "relation amoureuse",
-        "divorce", "séparation difficile", "cœur brisé", "chagrin d'amour"
+        "divorce", "séparation difficile", "cœur brisé", "chagrin d'amour",
+        "tomber amoureux", "tomber amoureuse", "coup de foudre", "amoureuse",
+        "amoureux", "demande en mariage", "se marier", "attirer quelqu'un",
+        "embrasser quelqu'un", "être embrassé", "rencontrer l'amour"
       ],
       interpretation: "Les rêves d'amour révèlent tes désirs affectifs profonds et tes besoins émotionnels. Un ex qui revient symbolise souvent une émotion non résolue. Un mariage représente une union intérieure, une intégration de deux aspects de toi-même. La jalousie en rêve invite à examiner tes insécurités avec bienveillance.",
       image: "/images/iconekeywords/amour.webp"

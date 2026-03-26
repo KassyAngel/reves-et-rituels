@@ -68,7 +68,8 @@ export default function Journal() {
     useActivity();
   const locale = lang === "fr" ? frLocale : enLocale;
 
-  const [activeTab, setActiveTab] = useState<TabId>("dreams");
+  // ✅ "tracker" en premier — l'onglet Suivi s'ouvre par défaut
+  const [activeTab, setActiveTab] = useState<TabId>("tracker");
 
   // ── État onglet Rêves ─────────────────────────────────────────────────
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -153,19 +154,8 @@ export default function Journal() {
   return (
     <div className="w-full h-full flex flex-col pb-4">
 
-      {/* ── Tabs navigation ────────────────────────────────────────────── */}
+      {/* ── Tabs navigation — Suivi en premier, Journal en second ───── */}
       <div className="flex bg-slate-100 rounded-2xl p-1 mb-5 gap-1">
-        <button
-          onClick={() => setActiveTab("dreams")}
-          className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold transition-all ${
-            activeTab === "dreams"
-              ? "bg-white shadow-sm text-foreground"
-              : "text-muted-foreground"
-          }`}
-        >
-          <BookOpen size={15} />
-          {lang === "fr" ? "Mon Journal" : "My Journal"}
-        </button>
         <button
           onClick={() => setActiveTab("tracker")}
           className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold transition-all ${
@@ -182,18 +172,214 @@ export default function Journal() {
             </span>
           )}
         </button>
+        <button
+          onClick={() => setActiveTab("dreams")}
+          className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold transition-all ${
+            activeTab === "dreams"
+              ? "bg-white shadow-sm text-foreground"
+              : "text-muted-foreground"
+          }`}
+        >
+          <BookOpen size={15} />
+          {lang === "fr" ? "Mon Journal" : "My Journal"}
+        </button>
       </div>
 
       {/* ════════════════════════════════════════════════════════════════ */}
-      {/* ONGLET RÊVES                                                     */}
+      {/* ONGLET SUIVI (maintenant en premier)                            */}
       {/* ════════════════════════════════════════════════════════════════ */}
       <AnimatePresence mode="wait">
-        {activeTab === "dreams" && (
+        {activeTab === "tracker" && (
           <motion.div
-            key="dreams"
+            key="tracker"
             initial={{ opacity: 0, x: -16 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -16 }}
+            transition={{ duration: 0.18 }}
+            className="flex flex-col flex-1"
+          >
+            {/* ── Stats ──────────────────────────────────────────────── */}
+            <div className="grid grid-cols-4 gap-2 mb-5">
+              {(["dream", "ritual", "prayer", "plant"] as const).map((type) => {
+                const cfg = ACTIVITY_CONFIG[type];
+                return (
+                  <div
+                    key={type}
+                    className={`${cfg.bg} ${cfg.border} border rounded-2xl p-3 flex flex-col items-center`}
+                  >
+                    <span className="text-lg mb-0.5">•</span>
+                    <span className="text-xl font-bold text-foreground leading-none">
+                      {stats[type]}
+                    </span>
+                    <span className="text-[9px] text-muted-foreground mt-1 text-center leading-tight">
+                      {cfg.text[lang as "fr" | "en"]}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* ── Streak ─────────────────────────────────────────────── */}
+            <div className="bg-white border border-slate-100 rounded-2xl p-4 mb-5 shadow-sm">
+              <div className="flex items-center justify-between mb-3">
+                <p className="text-sm font-bold text-foreground">
+                  {lang === "fr" ? "Série active" : "Active streak"}
+                </p>
+                <span className="text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                  {streak.count} {lang === "fr" ? "jour(s)" : "day(s)"}
+                </span>
+              </div>
+              <div className="flex gap-1.5">
+                {streak.last7.map((active, i) => {
+                  const isToday = i === 6;
+                  return (
+                    <div
+                      key={i}
+                      className={`flex-1 h-3 rounded-full transition-all ${
+                        isToday && active
+                          ? "bg-primary"
+                          : active
+                          ? "bg-primary/40"
+                          : "bg-slate-100"
+                      }`}
+                    />
+                  );
+                })}
+              </div>
+              <div className="flex justify-between mt-1.5">
+                {["L", "M", "M", "J", "V", "S", "D"].map((d, i) => (
+                  <span key={i} className="text-[9px] text-muted-foreground flex-1 text-center">
+                    {d}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* ── Filtres type + favori ───────────────────────────────── */}
+            <div className="flex gap-2 overflow-x-auto pb-1 mb-4 scrollbar-hide">
+              {(["all", "dream", "ritual", "prayer", "plant"] as const).map((type) => {
+                const label =
+                  type === "all"
+                    ? lang === "fr" ? "Tout" : "All"
+                    : ACTIVITY_CONFIG[type].text[lang as "fr" | "en"];
+                const emoji = "•";
+                return (
+                  <button
+                    key={type}
+                    onClick={() => setFilterType(type)}
+                    className={`shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all border ${
+                      filterType === type
+                        ? "bg-foreground text-white border-foreground"
+                        : "bg-white text-muted-foreground border-slate-100"
+                    }`}
+                  >
+                    <span className="text-sm">{emoji}</span>
+                    {label}
+                  </button>
+                );
+              })}
+              <button
+                onClick={() => setShowFavOnly(!showFavOnly)}
+                className={`shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all border ${
+                  showFavOnly
+                    ? "bg-yellow-400 text-white border-yellow-400"
+                    : "bg-white text-muted-foreground border-slate-100"
+                }`}
+              >
+                <Star size={11} className={showFavOnly ? "fill-white" : ""} />
+                {lang === "fr" ? "Favoris" : "Favorites"}
+              </button>
+            </div>
+
+            {/* ── Liste activités ─────────────────────────────────────── */}
+            <div className="flex-1 space-y-2.5">
+              {filteredActivities.length === 0 ? (
+                <div className="h-48 flex flex-col items-center justify-center text-center opacity-40">
+                  <LayoutList size={38} strokeWidth={1} className="mb-3 text-primary" />
+                  <p className="text-sm italic max-w-[220px]">
+                    {lang === "fr"
+                      ? "Aucune activité encore.\nInterprète un rêve, accomplis un rituel…"
+                      : "No activity yet.\nInterpret a dream, complete a ritual…"}
+                  </p>
+                </div>
+              ) : (
+                <AnimatePresence>
+                  {filteredActivities.map((activity) => {
+                    const cfg = ACTIVITY_CONFIG[activity.type];
+                    return (
+                      <motion.div
+                        key={activity.id}
+                        layout
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.93 }}
+                        className={`flex items-center gap-3 p-3.5 rounded-2xl border ${cfg.bg} ${cfg.border} shadow-sm`}
+                      >
+                        {/* Badge type */}
+                        <div className="w-9 h-9 rounded-xl bg-white/70 flex items-center justify-center text-base shrink-0 shadow-inner">
+                          <span className="w-2 h-2 bg-current rounded-full"></span>
+                        </div>
+
+                        {/* Contenu */}
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-bold text-foreground truncate">
+                            {activity.title}
+                          </p>
+                          <p className="text-[10px] text-muted-foreground mt-0.5">
+                            {cfg.text[lang as "fr" | "en"]} · {relativeDate(activity.date)}
+                          </p>
+                        </div>
+
+                        {/* Actions */}
+                        <div className="flex items-center gap-1 shrink-0">
+                          <button
+                            onClick={() => toggleFavorite(activity.id)}
+                            className="w-8 h-8 flex items-center justify-center rounded-xl hover:bg-white/60 transition-colors"
+                          >
+                            <Star
+                              size={15}
+                              className={
+                                activity.favorite
+                                  ? "fill-yellow-400 text-yellow-400"
+                                  : "text-slate-300"
+                              }
+                            />
+                          </button>
+                          <button
+                            onClick={() => setActivityDeleteConfirm(activity.id)}
+                            className="w-8 h-8 flex items-center justify-center rounded-xl hover:bg-white/60 transition-colors"
+                          >
+                            <Trash2 size={14} className="text-slate-300 hover:text-red-400 transition-colors" />
+                          </button>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </AnimatePresence>
+              )}
+            </div>
+
+            {/* ── Bouton tout effacer ─────────────────────────────────── */}
+            {activities.length > 0 && (
+              <button
+                onClick={() => setConfirmClear(true)}
+                className="mt-5 w-full py-2.5 rounded-xl border border-slate-200 text-xs text-muted-foreground font-medium hover:bg-red-50 hover:text-red-400 hover:border-red-200 transition-all"
+              >
+                {lang === "fr" ? "Effacer tout l'historique" : "Clear all history"}
+              </button>
+            )}
+          </motion.div>
+        )}
+
+        {/* ════════════════════════════════════════════════════════════════ */}
+        {/* ONGLET RÊVES (maintenant en second)                             */}
+        {/* ════════════════════════════════════════════════════════════════ */}
+        {activeTab === "dreams" && (
+          <motion.div
+            key="dreams"
+            initial={{ opacity: 0, x: 16 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 16 }}
             transition={{ duration: 0.18 }}
             className="flex flex-col flex-1"
           >
@@ -410,191 +596,6 @@ export default function Journal() {
                 </AnimatePresence>
               )}
             </div>
-          </motion.div>
-        )}
-
-        {/* ══════════════════════════════════════════════════════════════ */}
-        {/* ONGLET SUIVI                                                   */}
-        {/* ══════════════════════════════════════════════════════════════ */}
-        {activeTab === "tracker" && (
-          <motion.div
-            key="tracker"
-            initial={{ opacity: 0, x: 16 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 16 }}
-            transition={{ duration: 0.18 }}
-            className="flex flex-col flex-1"
-          >
-            {/* ── Stats ──────────────────────────────────────────────── */}
-            <div className="grid grid-cols-4 gap-2 mb-5">
-              {(["dream", "ritual", "prayer", "plant"] as const).map((type) => {
-                const cfg = ACTIVITY_CONFIG[type];
-                return (
-                  <div
-                    key={type}
-                    className={`${cfg.bg} ${cfg.border} border rounded-2xl p-3 flex flex-col items-center`}
-                  >
-                    <span className="text-lg mb-0.5">•</span>
-                    <span className="text-xl font-bold text-foreground leading-none">
-                      {stats[type]}
-                    </span>
-                    <span className="text-[9px] text-muted-foreground mt-1 text-center leading-tight">
-                      {cfg.text[lang as "fr" | "en"]}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* ── Streak ─────────────────────────────────────────────── */}
-            <div className="bg-white border border-slate-100 rounded-2xl p-4 mb-5 shadow-sm">
-              <div className="flex items-center justify-between mb-3">
-                <p className="text-sm font-bold text-foreground">
-                  {lang === "fr" ? "Série active" : "Active streak"}
-                </p>
-                <span className="text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
-                  {streak.count} {lang === "fr" ? "jour(s)" : "day(s)"}
-                </span>
-              </div>
-              <div className="flex gap-1.5">
-                {streak.last7.map((active, i) => {
-                  const isToday = i === 6;
-                  return (
-                    <div
-                      key={i}
-                      className={`flex-1 h-3 rounded-full transition-all ${
-                        isToday && active
-                          ? "bg-primary"
-                          : active
-                          ? "bg-primary/40"
-                          : "bg-slate-100"
-                      }`}
-                    />
-                  );
-                })}
-              </div>
-              <div className="flex justify-between mt-1.5">
-                {["L", "M", "M", "J", "V", "S", "D"].map((d, i) => (
-                  <span key={i} className="text-[9px] text-muted-foreground flex-1 text-center">
-                    {d}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* ── Filtres type + favori ───────────────────────────────── */}
-            <div className="flex gap-2 overflow-x-auto pb-1 mb-4 scrollbar-hide">
-              {(["all", "dream", "ritual", "prayer", "plant"] as const).map((type) => {
-                const label =
-                  type === "all"
-                    ? lang === "fr" ? "Tout" : "All"
-                    : ACTIVITY_CONFIG[type].text[lang as "fr" | "en"];
-            const emoji = "•";
-                return (
-                  <button
-                    key={type}
-                    onClick={() => setFilterType(type)}
-                    className={`shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all border ${
-                      filterType === type
-                        ? "bg-foreground text-white border-foreground"
-                        : "bg-white text-muted-foreground border-slate-100"
-                    }`}
-                  >
-                    <span className="text-sm">{emoji}</span>
-                    {label}
-                  </button>
-                );
-              })}
-              <button
-                onClick={() => setShowFavOnly(!showFavOnly)}
-                className={`shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all border ${
-                  showFavOnly
-                    ? "bg-yellow-400 text-white border-yellow-400"
-                    : "bg-white text-muted-foreground border-slate-100"
-                }`}
-              >
-                <Star size={11} className={showFavOnly ? "fill-white" : ""} />
-                {lang === "fr" ? "Favoris" : "Favorites"}
-              </button>
-            </div>
-
-            {/* ── Liste activités ─────────────────────────────────────── */}
-            <div className="flex-1 space-y-2.5">
-              {filteredActivities.length === 0 ? (
-                <div className="h-48 flex flex-col items-center justify-center text-center opacity-40">
-                  <LayoutList size={38} strokeWidth={1} className="mb-3 text-primary" />
-                  <p className="text-sm italic max-w-[220px]">
-                    {lang === "fr"
-                      ? "Aucune activité encore.\nInterprète un rêve, accomplis un rituel…"
-                      : "No activity yet.\nInterpret a dream, complete a ritual…"}
-                  </p>
-                </div>
-              ) : (
-                <AnimatePresence>
-                  {filteredActivities.map((activity) => {
-                    const cfg = ACTIVITY_CONFIG[activity.type];
-                    return (
-                      <motion.div
-                        key={activity.id}
-                        layout
-                        initial={{ opacity: 0, y: 12 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.93 }}
-                        className={`flex items-center gap-3 p-3.5 rounded-2xl border ${cfg.bg} ${cfg.border} shadow-sm`}
-                      >
-                        {/* Badge type */}
-                        <div className="w-9 h-9 rounded-xl bg-white/70 flex items-center justify-center text-base shrink-0 shadow-inner">
-                          <span className="w-2 h-2 bg-current rounded-full"></span>
-                        </div>
-
-                        {/* Contenu */}
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm font-bold text-foreground truncate">
-                            {activity.title}
-                          </p>
-                          <p className="text-[10px] text-muted-foreground mt-0.5">
-                            {cfg.text[lang as "fr" | "en"]} · {relativeDate(activity.date)}
-                          </p>
-                        </div>
-
-                        {/* Actions */}
-                        <div className="flex items-center gap-1 shrink-0">
-                          <button
-                            onClick={() => toggleFavorite(activity.id)}
-                            className="w-8 h-8 flex items-center justify-center rounded-xl hover:bg-white/60 transition-colors"
-                          >
-                            <Star
-                              size={15}
-                              className={
-                                activity.favorite
-                                  ? "fill-yellow-400 text-yellow-400"
-                                  : "text-slate-300"
-                              }
-                            />
-                          </button>
-                          <button
-                            onClick={() => setActivityDeleteConfirm(activity.id)}
-                            className="w-8 h-8 flex items-center justify-center rounded-xl hover:bg-white/60 transition-colors"
-                          >
-                            <Trash2 size={14} className="text-slate-300 hover:text-red-400 transition-colors" />
-                          </button>
-                        </div>
-                      </motion.div>
-                    );
-                  })}
-                </AnimatePresence>
-              )}
-            </div>
-
-            {/* ── Bouton tout effacer ─────────────────────────────────── */}
-            {activities.length > 0 && (
-              <button
-                onClick={() => setConfirmClear(true)}
-                className="mt-5 w-full py-2.5 rounded-xl border border-slate-200 text-xs text-muted-foreground font-medium hover:bg-red-50 hover:text-red-400 hover:border-red-200 transition-all"
-              >
-                {lang === "fr" ? "Effacer tout l'historique" : "Clear all history"}
-              </button>
-            )}
           </motion.div>
         )}
       </AnimatePresence>

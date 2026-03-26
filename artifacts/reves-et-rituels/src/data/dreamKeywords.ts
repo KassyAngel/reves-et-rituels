@@ -286,7 +286,7 @@ export const dreamKeywords = {
         "défécation", "selle", "constipé", "diarrhée", "toilettes sales",
         "toilettes publiques", "pas de porte aux toilettes", "toilettes cassées",
         "chercher des toilettes", "ne pas trouver les toilettes",
-        "faire dans son pantalon", "accident", "énurésie", "bladder",
+        "faire dans son pantalon", "accident pipi", "accident urinaire", "énurésie",
         "se soulager", "se retenir", "besoin urgent"
       ],
       interpretation: "Rêver de toilettes est l'un des rêves les plus communs — et souvent tabou. Il symbolise le besoin de se libérer d'une charge émotionnelle, d'une toxine psychique ou d'une situation dont tu veux 'te débarrasser'. Des toilettes introuvables ou sales reflètent une difficulté à trouver un espace privé pour traiter tes émotions. Ce rêve t'invite à laisser partir ce qui ne t'appartient plus.",
@@ -672,7 +672,7 @@ export const dreamKeywords = {
       keywords: [
         "sang", "blessure", "cicatrice", "douleur", "saigner", "coupure",
         "plaie", "hémorragie", "ecchymose", "brûlure", "fracture", "opération",
-        "suture", "pansement", "sang qui coule", "accident", "trauma",
+        "suture", "pansement", "sang qui coule", "trauma",
         "contusion", "bleu", "entorse", "blessure sportive",
         "se couper", "se blesser", "os cassé"
       ],
@@ -1525,7 +1525,7 @@ export const dreamKeywords = {
         "defecation", "constipated", "diarrhea", "dirty toilet",
         "public toilet", "no door on toilet", "broken toilet",
         "looking for a toilet", "can't find a toilet",
-        "accident", "wetting yourself", "urgent need", "hold it in"
+        "wetting yourself", "wetting accident", "urgent need", "hold it in"
       ],
       interpretation: "Dreaming of toilets is one of the most common dreams — and often taboo. It symbolizes the need to release an emotional burden, a psychological toxin or a situation you want to 'get rid of'. Toilets that can't be found or are dirty reflect difficulty finding a private space to process your emotions. This dream invites you to let go of what no longer belongs to you.",
       image: "/images/iconekeywords/toilettes.webp"
@@ -1899,7 +1899,7 @@ export const dreamKeywords = {
       keywords: [
         "blood", "wound", "scar", "pain", "bleeding", "cut", "injury",
         "hemorrhage", "bruise", "burn", "fracture", "surgery",
-        "suture", "bandage", "blood flowing", "accident", "trauma",
+        "suture", "bandage", "blood flowing", "trauma",
         "sports injury", "contusion", "broken bone", "cut yourself"
       ],
       interpretation: "Blood symbolizes vital energy, passion and sometimes a deep emotional wound that needs healing. A wound that won't heal evokes an unresolved trauma. Seeing blood flow can signify a fear of losing energy or vitality. It is a call to take care of yourself with kindness.",

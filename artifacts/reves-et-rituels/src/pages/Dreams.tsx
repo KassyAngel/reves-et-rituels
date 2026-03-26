@@ -79,19 +79,45 @@ export default function Dreams() {
         let totalScore = 0;
         let bestKeyword = category.keywords[0];
         let bestKwScore = -1;
+        const coveredTokens = new Set<string>(); // which search tokens are matched
 
         for (const kw of category.keywords) {
-          const s = scoreKeyword(normalize(kw), searchTokens);
-          totalScore += s;
-          if (s > bestKwScore) {
-            bestKwScore = s;
+          const normKw = normalize(kw);
+          const kwWords = normKw.split(/\s+/);
+          let kwScore = 0;
+          let kwMatched = 0;
+
+          for (const token of searchTokens) {
+            let pts = 0;
+            if (normKw === token) pts = 4;
+            else if (kwWords.some(w => w === token)) pts = 2;
+            else if (kwWords.some(w => w.startsWith(token) || token.startsWith(w))) pts = 1;
+
+            if (pts > 0) {
+              kwScore += pts;
+              kwMatched++;
+              coveredTokens.add(token);
+            }
+          }
+
+          // Bonus for a single keyword matching multiple tokens
+          if (kwMatched > 1) kwScore += kwMatched * 2;
+          totalScore += kwScore;
+
+          if (kwScore > bestKwScore) {
+            bestKwScore = kwScore;
             bestKeyword = kw;
           }
         }
 
-        return { category, totalScore, bestKeyword };
+        return { category, totalScore, bestKeyword, covered: coveredTokens.size };
       })
-      .filter(({ totalScore }) => totalScore > 0)
+      .filter(({ totalScore, covered }) => {
+        if (totalScore === 0) return false;
+        // Multi-word query: ALL tokens must be covered by the category
+        if (searchTokens.length > 1) return covered >= searchTokens.length;
+        return true;
+      })
       .sort((a, b) => b.totalScore - a.totalScore)
       .slice(0, 5);
   }, [query, lang]);

@@ -661,7 +661,9 @@ export const dreamKeywords = {
         "sourire", "bouche", "prothèse dentaire", "dent de sagesse",
         "saigner des gencives", "mordre", "mâcher", "bruxisme", "rage de dent",
         "dent qui pousse", "dents blanches", "dents qui se cassent toutes",
-        "dent qui part dans la main"
+        "dent qui part dans la main", "bouche gonflée", "lèvres", "lèvres gonflées",
+        "gonflement bouche", "mâchoire gonflée", "gencives", "abcès dentaire",
+        "bouche qui gonfle", "bouche blessée", "bouche fermée", "bouche cousue"
       ],
       interpretation: "Perdre ses dents évoque une peur de perdre son pouvoir personnel, son attractivité ou sa capacité à s'exprimer. Une dent cassée suggère une parole regrettée ou un engagement non tenu. Le dentiste représente quelqu'un qui a du pouvoir sur tes décisions. Ce rêve est très fréquent dans les périodes de grande pression.",
       image: "/images/iconekeywords/dent.webp"
@@ -942,7 +944,9 @@ export const dreamKeywords = {
         "vitesse excessive", "perdre le contrôle", "autoroute", "gps",
         "passager", "rétroviseur", "parking", "carrefour dangereux",
         "vitesse", "permis de conduire", "garage", "capot", "moteur",
-        "voiture qui ne démarre pas", "accident de voiture", "freins qui lâchent"
+        "voiture qui ne démarre pas", "accident de voiture", "freins qui lâchent",
+        "bus", "autobus", "car", "accident de bus", "métro", "tramway", "transport",
+        "chauffeur", "chauffeur de bus", "collision", "carambolage", "percuter"
       ],
       interpretation: "Le véhicule représente ta trajectoire de vie et le contrôle que tu as sur ton destin. Conduire en confiance indique que tu es maître de ta direction. Perdre le contrôle suggère un sentiment de débordement. Être passager signifie que tu laisses les autres décider à ta place. La panne évoque un blocage dans ton avancement.",
       image: "/images/iconekeywords/voiture.webp"
@@ -1884,7 +1888,9 @@ export const dreamKeywords = {
         "broken tooth", "black tooth", "pulling a tooth", "dentist",
         "smile", "mouth", "dentures", "wisdom tooth",
         "bleeding gums", "bite", "chew", "bruxism",
-        "all teeth falling", "tooth in hand"
+        "all teeth falling", "tooth in hand", "swollen mouth", "swollen lips",
+        "lips", "swollen jaw", "gums", "dental abscess",
+        "mouth swelling", "swollen face", "mouth injury", "mouth sewn shut"
       ],
       interpretation: "Losing teeth evokes a fear of losing personal power, attractiveness or ability to express yourself. A broken tooth suggests a regretted word or an unkept commitment. The dentist represents someone with power over your decisions. This dream is very common during periods of intense pressure.",
       image: "/images/iconekeywords/dent.webp"
@@ -2148,7 +2154,9 @@ export const dreamKeywords = {
         "broken down car", "speeding", "lose control", "highway",
         "GPS", "passenger", "rear-view mirror", "parking", "dangerous intersection",
         "engine", "hood", "driver's license",
-        "car won't start", "car crash", "brakes failing"
+        "car won't start", "car crash", "brakes failing",
+        "bus", "bus accident", "subway", "metro", "tram", "transport",
+        "driver", "bus driver", "collision", "crash into", "hit"
       ],
       interpretation: "The vehicle represents your life path and the control you have over your destiny. Driving with confidence means you are directing your own path. Losing control suggests feeling overwhelmed. Being a passenger means you are letting others make decisions for you. A breakdown evokes a blockage in your progress.",
       image: "/images/iconekeywords/voiture.webp"

@@ -14,6 +14,16 @@ function normalize(text: string): string {
     .replace(/[^a-z0-9\s]/g, " ");
 }
 
+// Stop-words to ignore when tokenising a natural-language dream query
+const STOPWORDS = new Set([
+  "j", "ai", "un", "une", "des", "de", "du", "le", "la", "les", "et", "en",
+  "ma", "mon", "mes", "que", "qui", "ou", "on", "au", "aux", "je", "il", "elle",
+  "dans", "sur", "avec", "par", "pour", "quand", "dont", "jai", "son", "sa",
+  "i", "a", "an", "the", "my", "me", "in", "of", "at", "to", "is", "was",
+  "had", "have", "that", "with", "and", "dreamed", "dream", "reve", "rêvé",
+  "about", "dreamt", "dreaming",
+]);
+
 // Curated list of first-keywords that define the popular symbols grid
 const POPULAR_KEYWORDS: Record<"fr" | "en", string[]> = {
   fr: ["eau", "voler", "tomber", "feu", "tempête", "serpent", "chien", "mort", "maison", "amour", "dent", "voiture", "forêt", "montagne", "famille", "neige"],
@@ -35,15 +45,35 @@ export default function Dreams() {
   const suggestions = useMemo(() => {
     if (!query.trim()) return [];
     const normalizedQuery = normalize(query);
+
+    // Split into meaningful tokens (min 3 chars, no stopwords)
+    const tokens = normalizedQuery
+      .split(/\s+/)
+      .map(w => w.replace(/[^a-z0-9]/g, ""))
+      .filter(w => w.length >= 3 && !STOPWORDS.has(w));
+
+    // Fallback: if all words were filtered (very short query), use full query
+    const searchTokens = tokens.length > 0 ? tokens : [normalizedQuery.trim()];
+
     return dreamKeywords[lang]
-      .filter((category) =>
-        category.keywords.some(
-          (kw) =>
-            normalize(kw).includes(normalizedQuery) ||
-            normalizedQuery.includes(normalize(kw).slice(0, 4))
-        )
-      )
-      .slice(0, 5);
+      .map((category) => {
+        const normalizedKws = category.keywords.map(normalize);
+        let score = 0;
+        for (const token of searchTokens) {
+          if (normalizedKws.some(kw =>
+            kw.includes(token) ||              // keyword contains the token
+            token.includes(kw) ||              // token contains the keyword (e.g. "accidents" matches "accident")
+            (kw.length >= 4 && token.includes(kw.slice(0, 5))) // token contains first 5 chars
+          )) {
+            score++;
+          }
+        }
+        return { category, score };
+      })
+      .filter(({ score }) => score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 5)
+      .map(({ category }) => category);
   }, [query, lang]);
 
   const handleSelect = (category: any) => {

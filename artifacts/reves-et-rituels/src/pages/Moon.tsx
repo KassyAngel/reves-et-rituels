@@ -75,7 +75,7 @@ function SpecialBadge({ event, lang }: { event: string; lang: string }) {
 
 export default function Moon() {
   const { lang } = useLanguage();
-  const { trackNavigation } = useInterstitial();
+  const { trackAction } = useInterstitial();
   const locale = lang === "fr" ? frLocale : enLocale;
 
   const today = new Date();
@@ -87,7 +87,7 @@ export default function Moon() {
   const specialDesc = specialEvent ? specialMoonEvents[specialEvent] : null;
 
   const displayImage = specialDesc?.image ?? currentPhase.image;
-  const displayName  = specialDesc?.name[lang as "fr"|"en"] ?? currentPhase.name[lang as "fr"|"en"];
+  const displayName = specialDesc?.name[lang as "fr"|"en"] ?? moonData.preciseName[lang as "fr"|"en"];
 
   const next7Days = Array.from({ length: 7 }).map((_, i) => {
     const date = addDays(today, i + 1);
@@ -106,7 +106,7 @@ export default function Moon() {
 
   const handleDaySelect = (day: ModalDay) => {
     setSelected(day);
-    trackNavigation(); // ← interstitiel toutes les 3 ouvertures
+    trackAction(); // ← était trackNavigation, maintenant trackAction
   };
 
   return (
@@ -208,7 +208,7 @@ export default function Moon() {
                 special={!!day.data.specialEvent}
               />
               <span className="text-[9px] font-bold text-center leading-tight line-clamp-2 mt-1">
-                {day.specialDesc?.name[lang as "fr"|"en"] ?? day.phase.name[lang as "fr"|"en"]}
+                {day.specialDesc?.name[lang as "fr"|"en"] ?? day.data.preciseName[lang as "fr"|"en"]}
               </span>
             </motion.div>
           ))}
@@ -263,7 +263,7 @@ export default function Moon() {
                     {format(selected.date, "EEEE d MMMM", { locale })}
                   </p>
                   <h2 className="font-display font-bold text-xl text-foreground">
-                    {selected.specialDesc?.name[lang as "fr"|"en"] ?? selected.phase.name[lang as "fr"|"en"]}
+                    {selected.specialDesc?.name[lang as "fr"|"en"] ?? selected.data.preciseName[lang as "fr"|"en"]}
                   </h2>
 
                   <div className="flex justify-center gap-4 mt-3">

@@ -55,20 +55,28 @@ export async function scheduleDaily(
   const notifications = [];
   const now = new Date();
 
+  // ✅ Crée un ordre mélangé une fois, puis le répète si besoin
+  const shuffled = [...messages]
+    .map((msg, i) => ({ msg, sort: Math.sin(i * 7919 + now.getDate()) })) // pseudo-aléatoire déterministe
+    .sort((a, b) => a.sort - b.sort)
+    .map(x => x.msg);
+
   for (let i = 0; i < DAYS_AHEAD; i++) {
     const date = new Date();
     date.setDate(now.getDate() + i);
     date.setHours(hour, minute, 0, 0);
 
-    // Si l'heure est déjà passée aujourd'hui, on saute
     if (i === 0 && date <= now) continue;
 
-    const msg = messages[i % messages.length];
+    // ✅ Utilise le jour de la semaine (0-6) + semaine (0-51) pour varier
+    const dayOfWeek = date.getDay();
+    const weekOfYear = Math.floor(i / 7);
+    const msgIndex = (dayOfWeek + weekOfYear * 3 + i) % shuffled.length;
 
     notifications.push({
       id: 100 + i,
-      title: msg.title,
-      body: msg.body,
+      title: shuffled[msgIndex].title,
+      body: shuffled[msgIndex].body,
       schedule: {
         at: date,
         allowWhileIdle: true,

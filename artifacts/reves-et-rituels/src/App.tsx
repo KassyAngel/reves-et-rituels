@@ -12,12 +12,14 @@ import NotFound from "@/pages/not-found";
 import Prayers from "@/pages/Prayers";
 import Plants from "@/pages/Plants";
 import { NotificationPrompt } from "@/components/NotificationPrompt";
-import { requestConsentInfo, initAdMob } from "@/lib/admob";
+import { requestConsentInfo, initAdMob, hasValidConsent } from "@/lib/admob";
 import { getNotificationSettings, scheduleDaily } from "@/lib/notifications";
 import { useRateApp } from "@/hooks/use-rate-app";
+import { initPurchases } from "@/lib/purchases";
 
 const queryClient = new QueryClient();
 
+// ─── Scroll to top on route change ────────────────────────────────────────────
 function ScrollToTop() {
   const [location] = useLocation();
   useEffect(() => {
@@ -28,6 +30,7 @@ function ScrollToTop() {
   return null;
 }
 
+// ─── Routes ───────────────────────────────────────────────────────────────────
 function Router() {
   return (
     <Layout>
@@ -46,15 +49,27 @@ function Router() {
   );
 }
 
+// ─── App ──────────────────────────────────────────────────────────────────────
 function App() {
   const { checkAndPrompt } = useRateApp();
+
   useEffect(() => {
     const init = async () => {
-      await requestConsentInfo();
+      // 1. Achats in-app
+      await initPurchases();
+
+      // 2. Consentement : uniquement au 1er lancement (ou après 30 jours)
+      if (!hasValidConsent()) {
+        await requestConsentInfo();
+      }
+
+      // 3. AdMob (après consentement)
       await initAdMob();
+
+      // 4. Prompt de notation
       checkAndPrompt();
-     
-      // Re-schedule 365 jours à chaque ouverture de l'app
+
+      // 5. Re-planification des notifications (365 jours) à chaque ouverture
       try {
         const settings = await getNotificationSettings();
         if (settings?.enabled) {
@@ -65,6 +80,7 @@ function App() {
         // Web ou permission révoquée — pas de crash
       }
     };
+
     init();
   }, []);
 

@@ -9,6 +9,8 @@ export type PlantCategory =
   | 'beauty'
   | 'abundance';
 
+import { plantsExtra } from "./plants-extra";
+
 export type Plant = {
   id: string;
   category: PlantCategory;
@@ -48,7 +50,7 @@ export const plantCategories: Record<'fr' | 'en', Record<PlantCategory, string>>
   },
 };
 
-export const plants: Plant[] = [
+const plantsBase: Plant[] = [
 
   // ─── BIEN-ÊTRE & STRESS ───────────────────────────────────────────────────
   {
@@ -120,6 +122,81 @@ export const plants: Plant[] = [
     warning: {
       fr: "⚠️ INTERACTIONS IMPORTANTES : réduit l'efficacité de la pilule contraceptive, des antidépresseurs, anticoagulants et immunosuppresseurs. Consulter un médecin obligatoirement avant usage.",
       en: "⚠️ IMPORTANT INTERACTIONS: reduces the effectiveness of the contraceptive pill, antidepressants, anticoagulants and immunosuppressants. Consult a doctor before use.",
+    },
+  },
+  {
+    id: "ashwagandha",
+    category: "wellbeing",
+    image: "/images/plants/ashwagandha.webp",
+    name: { fr: "Ashwagandha", en: "Ashwagandha" },
+    latin: "Withania somnifera",
+    emoji: "🌿",
+    tagline: { fr: "Le ginseng indien de la sérénité", en: "The Indian ginseng of serenity" },
+    benefits: {
+      fr: ["Réduit le cortisol et le stress chronique", "Améliore la résistance physique et mentale", "Favorise un sommeil réparateur", "Équilibre le système hormonal"],
+      en: ["Reduces cortisol and chronic stress", "Improves physical and mental resilience", "Promotes restorative sleep", "Balances the hormonal system"],
+    },
+    usage: {
+      fr: "Gélules : 300 à 600 mg d'extrait standardisé (KSM-66 ou Sensoril) par jour, de préférence le soir. Poudre : 1/2 à 1 c. à café dans du lait chaud. Cure de 8 semaines minimum.",
+      en: "Capsules: 300 to 600 mg standardized extract (KSM-66 or Sensoril) per day, preferably in the evening. Powder: 1/2 to 1 tsp in warm milk. Minimum 8 week course.",
+    },
+    ritual: {
+      fr: "Prépare un lait chaud à l'ashwagandha le soir et bois-le lentement en lâchant les tensions de la journée.",
+      en: "Prepare a warm ashwagandha milk in the evening and drink it slowly while releasing the tensions of the day.",
+    },
+    warning: {
+      fr: "Déconseillé pendant la grossesse et l'allaitement. Peut interagir avec les médicaments pour la thyroïde, les immunosuppresseurs et les sédatifs. Consulter un médecin si traitement en cours.",
+      en: "Not recommended during pregnancy and breastfeeding. May interact with thyroid medications, immunosuppressants and sedatives. Consult a doctor if on treatment.",
+    },
+  },
+  {
+    id: "mélisse",
+    category: "wellbeing",
+    image: "/images/plants/melisse.webp",
+    name: { fr: "Mélisse", en: "Lemon Balm" },
+    latin: "Melissa officinalis",
+    emoji: "🍋",
+    tagline: { fr: "La citronnelle apaisante du jardin", en: "The soothing citrus herb of the garden" },
+    benefits: {
+      fr: ["Réduit l'anxiété et la nervosité", "Améliore la concentration et l'humeur", "Aide à l'endormissement", "Soulage les spasmes digestifs"],
+      en: ["Reduces anxiety and nervousness", "Improves concentration and mood", "Aids in falling asleep", "Relieves digestive spasms"],
+    },
+    usage: {
+      fr: "Infusion : 1 à 2 c. à café de feuilles fraîches ou séchées pour 200 ml, 5 à 10 min. 2 à 3 tasses par jour. Teinture-mère : 20 à 30 gouttes dans de l'eau.",
+      en: "Infusion: 1 to 2 tsp fresh or dried leaves per 200 ml, 5 to 10 min. 2 to 3 cups per day. Tincture: 20 to 30 drops in water.",
+    },
+    ritual: {
+      fr: "Bois une tisane de mélisse le soir en écrivant 3 choses positives de ta journée.",
+      en: "Drink a lemon balm tea in the evening while writing 3 positive things from your day.",
+    },
+    warning: {
+      fr: "Peut interagir avec les médicaments pour la thyroïde (réduit l'absorption). Déconseillée en cas d'hypothyroïdie sans avis médical.",
+      en: "May interact with thyroid medications (reduces absorption). Not recommended in hypothyroidism without medical advice.",
+    },
+  },
+  {
+    id: "rhodiola",
+    category: "wellbeing",
+    image: "/images/plants/rhodiola.webp",
+    name: { fr: "Rhodiola", en: "Rhodiola" },
+    latin: "Rhodiola rosea",
+    emoji: "🏔️",
+    tagline: { fr: "La racine dorée des montagnes arctiques", en: "The golden root of the Arctic mountains" },
+    benefits: {
+      fr: ["Adaptogène puissant contre le stress", "Combat la fatigue mentale et physique", "Améliore les performances cognitives", "Réduit les symptômes du burn-out"],
+      en: ["Powerful adaptogen against stress", "Fights mental and physical fatigue", "Improves cognitive performance", "Reduces burnout symptoms"],
+    },
+    usage: {
+      fr: "Extrait standardisé (3% rosavines, 1% salidroside) : 200 à 400 mg le matin à jeun. Ne pas prendre le soir (stimulant). Cure de 6 à 8 semaines.",
+      en: "Standardized extract (3% rosavins, 1% salidroside): 200 to 400 mg in the morning on an empty stomach. Do not take in the evening (stimulating). 6 to 8 week course.",
+    },
+    ritual: {
+      fr: "Prends ta rhodiola chaque matin en te rappelant ta force intérieure et ta capacité à surmonter les défis.",
+      en: "Take your rhodiola each morning reminding yourself of your inner strength and ability to overcome challenges.",
+    },
+    warning: {
+      fr: "Déconseillée en cas de trouble bipolaire ou de traitement aux IMAO. Peut perturber le sommeil si prise le soir. Éviter en cas de grossesse.",
+      en: "Not recommended in bipolar disorder or MAOI treatment. May disrupt sleep if taken in the evening. Avoid during pregnancy.",
     },
   },
 
@@ -199,6 +276,56 @@ export const plants: Plant[] = [
       en: "Contraindicated in kidney disease. Forbidden during pregnancy (may cause contractions). Do not use in prolonged internal courses.",
     },
   },
+  {
+    id: "angélique",
+    category: "protection",
+    image: "/images/plants/angelique.webp",
+    name: { fr: "Angélique", en: "Angelica" },
+    latin: "Angelica archangelica",
+    emoji: "👼",
+    tagline: { fr: "La racine archangélique", en: "The archangelic root" },
+    benefits: {
+      fr: ["Puissante protection spirituelle", "Éloigne les mauvaises énergies", "Tonique digestif et respiratoire", "Renforce le courage intérieur"],
+      en: ["Powerful spiritual protection", "Wards off negative energies", "Digestive and respiratory tonic", "Strengthens inner courage"],
+    },
+    usage: {
+      fr: "Racine séchée : infusion légère (1/2 c. à café pour 200 ml, 10 min). Teinture : 20 à 30 gouttes dans de l'eau avant les repas. Sachets de protection.",
+      en: "Dried root: light infusion (1/2 tsp per 200 ml, 10 min). Tincture: 20 to 30 drops in water before meals. Protection sachets.",
+    },
+    ritual: {
+      fr: "Porte un morceau de racine d'angélique dans ta poche comme talisman de protection lors des journées difficiles.",
+      en: "Carry a piece of angelica root in your pocket as a protection talisman during difficult days.",
+    },
+    warning: {
+      fr: "Photo-sensibilisante : éviter l'exposition solaire après application cutanée. Contre-indiquée pendant la grossesse. Interaction possible avec les anticoagulants.",
+      en: "Photo-sensitizing: avoid sun exposure after skin application. Contraindicated during pregnancy. Possible interaction with anticoagulants.",
+    },
+  },
+  {
+    id: "charbon-vegetal",
+    category: "protection",
+    image: "/images/plants/charbon-vegetal.webp",
+    name: { fr: "Chardon-Marie", en: "Milk Thistle" },
+    latin: "Silybum marianum",
+    emoji: "🌸",
+    tagline: { fr: "Le protecteur du foie", en: "The liver protector" },
+    benefits: {
+      fr: ["Protège et régénère les cellules du foie", "Aide à l'élimination des toxines", "Propriétés anti-inflammatoires puissantes", "Soutient la détoxification naturelle"],
+      en: ["Protects and regenerates liver cells", "Helps eliminate toxins", "Powerful anti-inflammatory properties", "Supports natural detoxification"],
+    },
+    usage: {
+      fr: "Extrait standardisé de silymarine : 140 à 420 mg par jour en 2 à 3 prises, pendant les repas. Cure de 4 à 8 semaines.",
+      en: "Standardized silymarin extract: 140 to 420 mg per day in 2 to 3 doses, with meals. 4 to 8 week course.",
+    },
+    ritual: {
+      fr: "Avant de prendre ta dose, pose une main sur ton foie et remercie ton corps pour tout ce qu'il filtre et transforme.",
+      en: "Before taking your dose, place a hand on your liver and thank your body for everything it filters and transforms.",
+    },
+    warning: {
+      fr: "Généralement bien toléré. Peut provoquer un léger effet laxatif au début. Déconseillé en cas d'allergie aux Astéracées.",
+      en: "Generally well tolerated. May cause a mild laxative effect initially. Not recommended if allergic to Asteraceae.",
+    },
+  },
 
   // ─── SOMMEIL & RÊVES ──────────────────────────────────────────────────────
   {
@@ -276,6 +403,56 @@ export const plants: Plant[] = [
       en: "May amplify the effect of sedative and anxiolytic medications. Not recommended during pregnancy. Do not exceed recommended doses.",
     },
   },
+  {
+    id: "houblon",
+    category: "sleep",
+    image: "/images/plants/houblon.webp",
+    name: { fr: "Houblon", en: "Hops" },
+    latin: "Humulus lupulus",
+    emoji: "🍺",
+    tagline: { fr: "Le calmant des nuits agitées", en: "The sedative for restless nights" },
+    benefits: {
+      fr: ["Sédatif naturel reconnu", "Réduit le temps d'endormissement", "Apaise l'irritabilité et la nervosité", "Souvent associé à la valériane pour plus d'efficacité"],
+      en: ["Recognized natural sedative", "Reduces time to fall asleep", "Soothes irritability and nervousness", "Often combined with valerian for greater effect"],
+    },
+    usage: {
+      fr: "Gélules : 60 à 500 mg d'extrait 30 min avant le coucher. Infusion : 1 à 2 c. à café de cônes séchés pour 200 ml, 10 min. Souvent en association avec valériane et mélisse.",
+      en: "Capsules: 60 to 500 mg extract 30 min before bedtime. Infusion: 1 to 2 tsp dried cones per 200 ml, 10 min. Often combined with valerian and lemon balm.",
+    },
+    ritual: {
+      fr: "Glisse un sachet de cônes de houblon séchés dans ta taie d'oreiller pour un effet sédatif par aromathérapie.",
+      en: "Slip a sachet of dried hop cones into your pillowcase for a sedative aromatherapy effect.",
+    },
+    warning: {
+      fr: "Provoque une somnolence : ne pas conduire. Déconseillé en cas de dépression (peut aggraver les symptômes), grossesse et allaitement.",
+      en: "Causes drowsiness: do not drive. Not recommended in depression (may worsen symptoms), pregnancy and breastfeeding.",
+    },
+  },
+  {
+    id: "tilleul",
+    category: "sleep",
+    image: "/images/plants/tilleul.webp",
+    name: { fr: "Tilleul", en: "Linden" },
+    latin: "Tilia cordata",
+    emoji: "🌳",
+    tagline: { fr: "La tisane des douces nuits", en: "The tea of gentle nights" },
+    benefits: {
+      fr: ["Favorise la détente et le sommeil", "Réduit l'anxiété légère", "Antispasmodique naturel", "Soulage les maux de tête tensionnels"],
+      en: ["Promotes relaxation and sleep", "Reduces mild anxiety", "Natural antispasmodic", "Relieves tension headaches"],
+    },
+    usage: {
+      fr: "Infusion : 1 à 2 c. à soupe de fleurs et bractées séchées pour 200 ml d'eau à 90°C, infuser 10 min. 2 tasses par jour, dont une le soir.",
+      en: "Infusion: 1 to 2 tbsp dried flowers and bracts per 200 ml water at 90°C, steep 10 min. 2 cups per day, including one in the evening.",
+    },
+    ritual: {
+      fr: "Prépare ta tisane de tilleul en silence, assieds-toi confortablement et laisse chaque gorgée emporter les tensions.",
+      en: "Prepare your linden tea in silence, sit comfortably and let each sip carry away the tensions.",
+    },
+    warning: {
+      fr: "En usage prolongé et à haute dose, le tilleul peut avoir un effet paradoxal (excitant). Déconseillé en cas d'allergie aux plantes de la famille des Tiliacées.",
+      en: "With prolonged use and at high doses, linden may have a paradoxical effect (stimulating). Not recommended if allergic to plants of the Tiliaceae family.",
+    },
+  },
 
   // ─── AMOUR & ATTRACTION ───────────────────────────────────────────────────
   {
@@ -347,6 +524,31 @@ export const plants: Plant[] = [
     warning: {
       fr: "Peut abaisser la tension artérielle : prudence en cas d'hypotension. Déconseillé avec certains médicaments contre l'hypertension. Consulter un médecin si traitement en cours.",
       en: "May lower blood pressure: caution with hypotension. Not recommended with certain blood pressure medications. Consult a doctor if on treatment.",
+    },
+  },
+  {
+    id: "ylang-ylang",
+    category: "love",
+    image: "/images/plants/ylang-ylang.webp",
+    name: { fr: "Ylang-Ylang", en: "Ylang-Ylang" },
+    latin: "Cananga odorata",
+    emoji: "💛",
+    tagline: { fr: "La fleur de la sensualité tropicale", en: "The flower of tropical sensuality" },
+    benefits: {
+      fr: ["Aphrodisiaque naturel reconnu", "Réduit le stress et l'anxiété", "Stimule la confiance et la séduction", "Régule la tension artérielle"],
+      en: ["Recognized natural aphrodisiac", "Reduces stress and anxiety", "Stimulates confidence and seduction", "Regulates blood pressure"],
+    },
+    usage: {
+      fr: "HE en diffusion : 2 à 3 gouttes maximum (odeur puissante). Application cutanée : 1 goutte diluée dans 10 ml d'huile végétale sur la nuque ou le thorax.",
+      en: "EO in diffusion: 2 to 3 drops maximum (powerful scent). Skin application: 1 drop diluted in 10 ml carrier oil on the neck or chest.",
+    },
+    ritual: {
+      fr: "Diffuse quelques gouttes d'ylang-ylang dans ta chambre avant un moment intime en affirmant : 'Je suis désirable et aimé(e).'",
+      en: "Diffuse a few drops of ylang-ylang in your room before an intimate moment affirming: 'I am desirable and loved.'",
+    },
+    warning: {
+      fr: "Ne jamais utiliser pure sur la peau (irritante). Odeur très intense : ne pas sur-doser en diffusion (maux de tête). Déconseillée en cas de pression artérielle basse.",
+      en: "Never use pure on skin (irritating). Very intense scent: do not overdose in diffusion (headaches). Not recommended with low blood pressure.",
     },
   },
 
@@ -426,6 +628,56 @@ export const plants: Plant[] = [
       en: "Not recommended in case of high blood pressure, heart disorders, or severe insomnia. Possible interactions with anticoagulants and certain medications. Consult a doctor before use.",
     },
   },
+  {
+    id: "maca",
+    category: "energy",
+    image: "/images/plants/maca.webp",
+    name: { fr: "Maca", en: "Maca" },
+    latin: "Lepidium meyenii",
+    emoji: "💪",
+    tagline: { fr: "Le superaliment des Andes", en: "The superfood of the Andes" },
+    benefits: {
+      fr: ["Augmente l'énergie et l'endurance", "Équilibre les hormones", "Améliore la libido chez l'homme et la femme", "Réduit la fatigue chronique"],
+      en: ["Increases energy and endurance", "Balances hormones", "Improves libido in men and women", "Reduces chronic fatigue"],
+    },
+    usage: {
+      fr: "Poudre : 1 à 3 c. à café par jour dans un smoothie, yaourt ou lait chaud. Gélules : 1 500 à 3 000 mg par jour. Cure de 4 à 12 semaines.",
+      en: "Powder: 1 to 3 tsp per day in a smoothie, yogurt or warm milk. Capsules: 1,500 to 3,000 mg per day. 4 to 12 week course.",
+    },
+    ritual: {
+      fr: "Ajoute la maca à ton petit-déjeuner chaque matin en visualisant ta journée remplie d'énergie et de vitalité.",
+      en: "Add maca to your breakfast each morning while visualizing your day filled with energy and vitality.",
+    },
+    warning: {
+      fr: "Déconseillée en cas de troubles hormonaux (cancer hormono-dépendant, SOPK non stabilisé). Peut interagir avec les traitements hormonaux. Consulter un médecin si traitement en cours.",
+      en: "Not recommended in hormonal disorders (hormone-dependent cancer, unstabilized PCOS). May interact with hormonal treatments. Consult a doctor if on treatment.",
+    },
+  },
+  {
+    id: "guarana",
+    category: "energy",
+    image: "/images/plants/guarana.webp",
+    name: { fr: "Guarana", en: "Guarana" },
+    latin: "Paullinia cupana",
+    emoji: "🌱",
+    tagline: { fr: "Le stimulant naturel d'Amazonie", en: "The natural stimulant from the Amazon" },
+    benefits: {
+      fr: ["Stimulant naturel puissant (caféine)", "Améliore la concentration et l'alertness", "Augmente l'endurance sportive", "Coupe-faim naturel léger"],
+      en: ["Powerful natural stimulant (caffeine)", "Improves concentration and alertness", "Increases sporting endurance", "Mild natural appetite suppressant"],
+    },
+    usage: {
+      fr: "Poudre : 1 à 2 c. à café dans une boisson le matin. Gélules : 200 à 800 mg par jour. Ne pas dépasser 400 mg de caféine totale par jour (toutes sources confondues).",
+      en: "Powder: 1 to 2 tsp in a drink in the morning. Capsules: 200 to 800 mg per day. Do not exceed 400 mg total caffeine per day (all sources combined).",
+    },
+    ritual: {
+      fr: "Prépare ta boisson au guarana avec intention, chaque gorgée t'apportant clarté et élan pour accomplir tes objectifs du jour.",
+      en: "Prepare your guarana drink with intention, each sip bringing you clarity and momentum to achieve your daily goals.",
+    },
+    warning: {
+      fr: "Contre-indiqué en cas de troubles cardiaques, hypertension, anxiété sévère, grossesse et allaitement. Ne pas combiner avec d'autres sources de caféine. Éviter après 14h (troubles du sommeil).",
+      en: "Contraindicated in heart disorders, hypertension, severe anxiety, pregnancy and breastfeeding. Do not combine with other sources of caffeine. Avoid after 2pm (sleep disruption).",
+    },
+  },
 
   // ─── GUÉRISON SPIRITUELLE ─────────────────────────────────────────────────
   {
@@ -501,6 +753,56 @@ export const plants: Plant[] = [
     warning: {
       fr: "Données scientifiques limitées. Usage principalement traditionnel. Consulter un professionnel de santé avant toute prise interne.",
       en: "Limited scientific data. Mainly traditional use. Consult a healthcare professional before any internal use.",
+    },
+  },
+  {
+    id: "copal",
+    category: "spiritual",
+    image: "/images/plants/copal.webp",
+    name: { fr: "Copal", en: "Copal" },
+    latin: "Bursera bipinnata",
+    emoji: "🌬️",
+    tagline: { fr: "La résine sacrée des Mayas", en: "The sacred resin of the Mayas" },
+    benefits: {
+      fr: ["Élève l'énergie spirituelle rapidement", "Clarifie et purifie l'espace rituel", "Favorise la connexion aux ancêtres", "Chasse les énergies lourdes"],
+      en: ["Rapidly raises spiritual energy", "Clarifies and purifies ritual space", "Promotes connection to ancestors", "Drives away heavy energies"],
+    },
+    usage: {
+      fr: "Brûle des larmes de copal sur un charbon ardent dans un encensoir. Usage exclusivement externe. Fenêtre entrouverte obligatoire.",
+      en: "Burn copal tears on a charcoal disk in a censer. Exclusively external use. Window must be ajar.",
+    },
+    ritual: {
+      fr: "Brûle le copal en début de rituel en disant : 'Je purifie cet espace et l'ouvre à la lumière divine.'",
+      en: "Burn copal at the start of a ritual saying: 'I purify this space and open it to divine light.'",
+    },
+    warning: {
+      fr: "Usage externe uniquement. Ventiler abondamment. Déconseillé en cas d'asthme ou de pathologies respiratoires. Ne pas inhaler directement la fumée.",
+      en: "External use only. Ventilate thoroughly. Not recommended for asthma or respiratory conditions. Do not inhale smoke directly.",
+    },
+  },
+  {
+    id: "myrrhe",
+    category: "spiritual",
+    image: "/images/plants/myrrhe.webp",
+    name: { fr: "Myrrhe", en: "Myrrh" },
+    latin: "Commiphora myrrha",
+    emoji: "🟤",
+    tagline: { fr: "La résine des pharaons et prophètes", en: "The resin of pharaohs and prophets" },
+    benefits: {
+      fr: ["Ancre et protège l'énergie spirituelle", "Favorise la méditation profonde", "Propriétés antiseptiques puissantes", "Connecte à la sagesse ancestrale"],
+      en: ["Grounds and protects spiritual energy", "Promotes deep meditation", "Powerful antiseptic properties", "Connects to ancestral wisdom"],
+    },
+    usage: {
+      fr: "Résine brûlée sur charbon ardent (usage spirituel). HE très diluée (0,5%) en application cutanée. Teinture de myrrhe : usage buccal dilué (gargarismes).",
+      en: "Resin burned on charcoal (spiritual use). Highly diluted EO (0.5%) for skin application. Myrrh tincture: diluted oral use (gargling).",
+    },
+    ritual: {
+      fr: "Mélange encens et myrrhe pour une purification spirituelle profonde avant une méditation ou une prière importante.",
+      en: "Blend frankincense and myrrh for a deep spiritual purification before an important meditation or prayer.",
+    },
+    warning: {
+      fr: "L'HE de myrrhe est contre-indiquée pendant la grossesse. Ne pas ingérer l'HE pure. La résine est réservée à la fumigation avec ventilation.",
+      en: "Myrrh EO is contraindicated during pregnancy. Do not ingest pure EO. The resin is reserved for fumigation with ventilation.",
     },
   },
 
@@ -580,6 +882,56 @@ export const plants: Plant[] = [
       en: "Contraindicated during pregnancy and breastfeeding (may reduce lactation). Not recommended for epilepsy. EO is very concentrated, do not ingest.",
     },
   },
+  {
+    id: "lion-mane",
+    category: "memory",
+    image: "/images/plants/lion-mane.webp",
+    name: { fr: "Crinière de Lion", en: "Lion's Mane" },
+    latin: "Hericium erinaceus",
+    emoji: "🍄",
+    tagline: { fr: "Le champignon du cerveau", en: "The brain mushroom" },
+    benefits: {
+      fr: ["Stimule la production de NGF (facteur de croissance nerveux)", "Améliore la mémoire et la concentration", "Réduit l'anxiété et la dépression légère", "Protège les neurones"],
+      en: ["Stimulates NGF production (nerve growth factor)", "Improves memory and concentration", "Reduces mild anxiety and depression", "Protects neurons"],
+    },
+    usage: {
+      fr: "Extrait : 500 à 1 000 mg par jour (extrait double), de préférence le matin. Poudre : 1 à 2 c. à café dans café, thé ou smoothie. Effets notables après 4 à 6 semaines.",
+      en: "Extract: 500 to 1,000 mg per day (dual extract), preferably in the morning. Powder: 1 to 2 tsp in coffee, tea or smoothie. Notable effects after 4 to 6 weeks.",
+    },
+    ritual: {
+      fr: "Ajoute la poudre de crinière de lion à ton café du matin en visualisant tes neurones s'illuminer et se connecter.",
+      en: "Add lion's mane powder to your morning coffee while visualizing your neurons lighting up and connecting.",
+    },
+    warning: {
+      fr: "Peut provoquer des réactions allergiques chez les personnes sensibles aux champignons. Déconseillé avant une chirurgie (effets sur la coagulation). Peu de données sur la grossesse.",
+      en: "May cause allergic reactions in people sensitive to mushrooms. Not recommended before surgery (effects on coagulation). Limited data during pregnancy.",
+    },
+  },
+  {
+    id: "gotu-kola",
+    category: "memory",
+    image: "/images/plants/gotu-kola.webp",
+    name: { fr: "Gotu Kola", en: "Gotu Kola" },
+    latin: "Centella asiatica",
+    emoji: "🍃",
+    tagline: { fr: "L'herbe de la longévité cérébrale", en: "The herb of brain longevity" },
+    benefits: {
+      fr: ["Améliore la mémoire et l'apprentissage", "Favorise la circulation cérébrale", "Réduit l'anxiété", "Régénère les tissus nerveux"],
+      en: ["Improves memory and learning", "Promotes brain circulation", "Reduces anxiety", "Regenerates nerve tissues"],
+    },
+    usage: {
+      fr: "Extrait : 60 à 120 mg d'asiaticosides par jour. Gélules : 500 à 1 000 mg par jour. Infusion : 1 c. à café de feuilles séchées pour 200 ml. Cure de 4 à 8 semaines.",
+      en: "Extract: 60 to 120 mg asiaticoside per day. Capsules: 500 to 1,000 mg per day. Infusion: 1 tsp dried leaves per 200 ml. 4 to 8 week course.",
+    },
+    ritual: {
+      fr: "Bois une tisane de gotu kola en méditant 5 minutes, visualisant ta clarté mentale s'affûter comme une lame.",
+      en: "Drink a gotu kola tea while meditating for 5 minutes, visualizing your mental clarity sharpening like a blade.",
+    },
+    warning: {
+      fr: "Peut être hépatotoxique à haute dose ou en usage prolongé sans pause. Contre-indiqué pendant la grossesse. Déconseillé avec des médicaments hépatotoxiques.",
+      en: "May be hepatotoxic at high doses or with prolonged use without breaks. Contraindicated during pregnancy. Not recommended with hepatotoxic medications.",
+    },
+  },
 
   // ─── BEAUTÉ & SOIN ────────────────────────────────────────────────────────
   {
@@ -655,6 +1007,56 @@ export const plants: Plant[] = [
     warning: {
       fr: "Peut interagir avec les anticoagulants et médicaments antihypertenseurs. Déconseillé en cas d'insuffisance rénale. Consulter un médecin si traitement en cours.",
       en: "May interact with anticoagulants and antihypertensive medications. Not recommended in kidney failure. Consult a doctor if on treatment.",
+    },
+  },
+  {
+    id: "rose-musquee",
+    category: "beauty",
+    image: "/images/plants/rose-musquee.webp",
+    name: { fr: "Rose Musquée", en: "Rosehip" },
+    latin: "Rosa rubiginosa",
+    emoji: "🌸",
+    tagline: { fr: "L'or liquide anti-âge", en: "The liquid gold of anti-aging" },
+    benefits: {
+      fr: ["Réduit les rides et cicatrices", "Régénère et illumine le teint", "Riche en vitamine C naturelle et acides gras", "Traite les vergetures et taches brunes"],
+      en: ["Reduces wrinkles and scars", "Regenerates and brightens complexion", "Rich in natural vitamin C and fatty acids", "Treats stretch marks and brown spots"],
+    },
+    usage: {
+      fr: "Huile pure de rose musquée : 3 à 5 gouttes sur le visage sec le soir. Peut être mélangée à la crème habituelle. Cure de 4 à 6 semaines pour voir les résultats.",
+      en: "Pure rosehip oil: 3 to 5 drops on dry face in the evening. Can be mixed with regular cream. 4 to 6 week course to see results.",
+    },
+    ritual: {
+      fr: "Masse ton visage avec l'huile de rose musquée en effectuant des mouvements ascendants, en honorant la beauté naturelle de ton visage.",
+      en: "Massage your face with rosehip oil using upward movements, honoring the natural beauty of your face.",
+    },
+    warning: {
+      fr: "Photo-sensibilisante : appliquer de préférence le soir. Certaines personnes à peau grasse peuvent avoir des réactions acnéiques. Tester d'abord sur une petite zone.",
+      en: "Photo-sensitizing: preferably apply in the evening. Some oily-skinned people may have acne reactions. Test on a small area first.",
+    },
+  },
+  {
+    id: "hamamélis",
+    category: "beauty",
+    image: "/images/plants/hamamelis.webp",
+    name: { fr: "Hamamélis", en: "Witch Hazel" },
+    latin: "Hamamelis virginiana",
+    emoji: "🍂",
+    tagline: { fr: "L'astringent naturel de la peau", en: "Nature's natural skin astringent" },
+    benefits: {
+      fr: ["Resserre les pores dilatés", "Réduit les rougeurs et l'inflammation", "Apaise les peaux à tendance acnéique", "Tonifie et purifie le teint"],
+      en: ["Tightens enlarged pores", "Reduces redness and inflammation", "Soothes acne-prone skin", "Tones and purifies complexion"],
+    },
+    usage: {
+      fr: "Eau d'hamamélis : appliquer avec un coton sur le visage propre matin et soir, comme tonique. Extrait standardisé : en gélules pour les problèmes veineux (150 à 300 mg/jour).",
+      en: "Witch hazel water: apply with a cotton pad on clean face morning and evening, as a toner. Standardized extract: in capsules for venous problems (150 to 300 mg/day).",
+    },
+    ritual: {
+      fr: "Applique l'eau d'hamamélis chaque matin en affirmant : 'Mon visage est pur, frais et rayonnant de lumière.'",
+      en: "Apply witch hazel water each morning affirming: 'My face is pure, fresh and radiant with light.'",
+    },
+    warning: {
+      fr: "Certains produits commerciaux contiennent de l'alcool : préférer les hydrolats sans alcool pour les peaux sensibles. Ne pas appliquer sur des plaies ouvertes.",
+      en: "Some commercial products contain alcohol: prefer alcohol-free hydrosols for sensitive skin. Do not apply on open wounds.",
     },
   },
 
@@ -751,4 +1153,58 @@ export const plants: Plant[] = [
       en: "Rub mint leaves between your hands before a negotiation or important request.",
     },
   },
+  {
+    id: "laurier",
+    category: "abundance",
+    image: "/images/plants/laurier.webp",
+    name: { fr: "Laurier Noble", en: "Bay Laurel" },
+    latin: "Laurus nobilis",
+    emoji: "🏆",
+    tagline: { fr: "L'herbe de la victoire et du succès", en: "The herb of victory and success" },
+    benefits: {
+      fr: ["Symbole de réussite et de gloire", "Favorise la manifestation des désirs", "Stimule la clarté mentale", "Propriétés digestives et anti-inflammatoires"],
+      en: ["Symbol of success and glory", "Promotes the manifestation of desires", "Stimulates mental clarity", "Digestive and anti-inflammatory properties"],
+    },
+    usage: {
+      fr: "Feuilles séchées : en cuisine librement. Infusion légère : 1 à 2 feuilles pour 200 ml, 10 min. Rituel d'écriture : écrire un souhait sur une feuille de laurier et la brûler.",
+      en: "Dried leaves: freely in cooking. Light infusion: 1 to 2 leaves per 200 ml, 10 min. Writing ritual: write a wish on a bay leaf and burn it.",
+    },
+    ritual: {
+      fr: "Écris ton vœu sur une feuille de laurier séchée, puis brûle-la avec intention en visualisant ta réussite.",
+      en: "Write your wish on a dried bay leaf, then burn it with intention while visualizing your success.",
+    },
+    warning: {
+      fr: "L'huile essentielle de laurier est irritante : toujours diluer. Les feuilles entières en cuisine sont sûres mais ne doivent pas être ingérées (risque d'étouffement).",
+      en: "Bay laurel essential oil is irritating: always dilute. Whole leaves in cooking are safe but should not be swallowed (choking risk).",
+    },
+  },
+  {
+    id: "verveine",
+    category: "abundance",
+    image: "/images/plants/verveine.webp",
+    name: { fr: "Verveine Odorante", en: "Lemon Verbena" },
+    latin: "Aloysia citrodora",
+    emoji: "🌿",
+    tagline: { fr: "L'herbe magique des sorcières", en: "The magical herb of witches" },
+    benefits: {
+      fr: ["Attire la chance et les bénédictions", "Apaise et équilibre les émotions", "Favorise la créativité", "Propriétés digestives et relaxantes"],
+      en: ["Attracts luck and blessings", "Soothes and balances emotions", "Promotes creativity", "Digestive and relaxing properties"],
+    },
+    usage: {
+      fr: "Infusion : 1 à 2 c. à café de feuilles séchées pour 200 ml d'eau à 90°C, 5 à 8 min. 2 à 3 tasses par jour. Eau florale en vaporisation.",
+      en: "Infusion: 1 to 2 tsp dried leaves per 200 ml water at 90°C, 5 to 8 min. 2 to 3 cups per day. Floral water as spray.",
+    },
+    ritual: {
+      fr: "Vaporise de l'eau de verveine dans ton espace de travail en affirmant : 'Je suis créatif(ve), inspiré(e) et chanceux(se).'",
+      en: "Spray verbena water in your workspace affirming: 'I am creative, inspired and lucky.'",
+    },
+    warning: {
+      fr: "Photo-sensibilisante : éviter l'exposition solaire après application cutanée. L'infusion est très bien tolérée. Déconseillée à forte dose pendant la grossesse.",
+      en: "Photo-sensitizing: avoid sun exposure after skin application. The infusion is very well tolerated. Not recommended in high doses during pregnancy.",
+    },
+  },
+];
+export const plants: Plant[] = [
+  ...plantsBase,
+  ...plantsExtra,
 ];

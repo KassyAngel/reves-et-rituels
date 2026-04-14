@@ -8,7 +8,9 @@
 //    • Fonction interpretDream mise à jour avec fallback intelligent
 // ─────────────────────────────────────────────────────────────────────────────
 
-export const dreamKeywords = {
+  import { dreamKeywordsExtra } from "./dreamKeywordsExtra";
+
+  export const dreamKeywords = {
   fr: [
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -2434,8 +2436,17 @@ export const dreamKeywords = {
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-//  HELPER FUNCTIONS
+//  MERGED KEYWORDS (base + extra)
 // ─────────────────────────────────────────────────────────────────────────────
+
+export const allDreamKeywords = {
+  fr: [...dreamKeywords.fr, ...dreamKeywordsExtra.fr],
+  en: [...dreamKeywords.en, ...dreamKeywordsExtra.en],
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
+//  HELPER FUNCTIONS
+// ──────────────────────────────────────────────────────────────────────────────────────────
 
 function normalize(text: string): string {
   return text
@@ -2530,7 +2541,7 @@ export const interpretDream = (text: string, lang: "fr" | "en") => {
   if (!normalizedText) return null;
 
   const inputWords = normalizedText.split(/\s+/).filter((w) => w.length >= 3);
-  const keywords = dreamKeywords[lang];
+  const keywords = allDreamKeywords[lang];
 
   const scored = keywords
     .map((category) => ({

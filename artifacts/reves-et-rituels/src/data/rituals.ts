@@ -178,7 +178,7 @@ export const rituals: Ritual[] = [
     steps: {
       fr: [
         "Prends un papier vierge et un stylo. Assure-toi d'être dans un espace calme et sans distractions.",
-        "Ferme les yeux et entre dans un état de légère relaxation. Demande-toi : 'Si tout était possible, qu'est-ce que je souhaiferais vraiment attirer ?'",
+        "Ferme les yeux et entre dans un état de légère relaxation. Demande-toi : 'Si tout était possible, qu'est-ce que je souhaiterais vraiment attirer ?'",
         "Ouvre les yeux et écris 3 désirs au présent, comme s'ils étaient déjà accomplis : 'Je reçois / Je suis / J'ai...'",
         "Place tes deux mains à plat sur le papier. Ferme les yeux et ressens la joie, la gratitude et le soulagement comme si ces choses étaient déjà réelles.",
         "Reste dans cet état au moins 2 minutes. Laisse une petite larme de joie venir si elle vient — c'est signe d'alignement.",

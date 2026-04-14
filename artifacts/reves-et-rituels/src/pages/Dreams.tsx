@@ -1,287 +1,293 @@
-import { useState, useMemo } from "react";
-import { useLanguage } from "@/hooks/use-language";
-import { dreamKeywords } from "@/data/dreamKeywords";
-import { motion, AnimatePresence } from "framer-motion";
-import { Search, X } from "lucide-react";
-import { useInterstitial } from "@/hooks/use-interstitial";
-import { useActivity } from "@/hooks/use-activity";
+            import { useState, useMemo } from "react";
+            import { useLanguage } from "@/hooks/use-language";
+            import { allDreamKeywords } from "@/data/dreamKeywords";
+            import { motion, AnimatePresence } from "framer-motion";
+            import { Search, X } from "lucide-react";
+            import { useInterstitial } from "@/hooks/use-interstitial";
+            import { useActivity } from "@/hooks/use-activity";
+            import { useJournal } from "@/hooks/use-journal";
 
-function normalize(text: string): string {
-  return text
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9\s]/g, " ");
-}
-
-// Stop-words to ignore when tokenising a natural-language dream query
-const STOPWORDS = new Set([
-  "j", "ai", "un", "une", "des", "de", "du", "le", "la", "les", "et", "en",
-  "ma", "mon", "mes", "que", "qui", "ou", "on", "au", "aux", "je", "il", "elle",
-  "dans", "sur", "avec", "par", "pour", "quand", "dont", "jai", "son", "sa",
-  "i", "a", "an", "the", "my", "me", "in", "of", "at", "to", "is", "was",
-  "had", "have", "that", "with", "and", "dreamed", "dream", "reve", "rêvé",
-  "about", "dreamt", "dreaming",
-]);
-
-// Curated list of first-keywords that define the popular symbols grid
-const POPULAR_KEYWORDS: Record<"fr" | "en", string[]> = {
-  fr: ["eau", "voler", "tomber", "feu", "tempête", "serpent", "chien", "mort", "maison", "amour", "dent", "voiture", "forêt", "montagne", "famille", "neige"],
-  en: ["water", "fly", "fall", "fire", "storm", "snake", "dog", "death", "home", "love", "tooth", "car", "forest", "mountain", "family", "snow"],
-};
-
-// Score a single keyword against all search tokens — word-boundary aware.
-// Keywords that match MORE tokens get a bonus, so "accident de bus" beats "accident" alone.
-function scoreKeyword(normKw: string, tokens: string[]): number {
-  const kwWords = normKw.split(/\s+/);
-  let s = 0;
-  let matched = 0;
-  for (const token of tokens) {
-    if (normKw === token) {
-      s += 4; matched++; // exact full-keyword match
-    } else if (kwWords.some(w => w === token)) {
-      s += 2; matched++; // exact word within multi-word keyword
-    } else if (kwWords.some(w => w.startsWith(token) || token.startsWith(w))) {
-      s += 1; matched++; // prefix match
-    }
-  }
-  // Bonus for multi-token coverage: "accident de bus" matches both "accident" AND "bus"
-  if (matched > 1) s += matched * 2;
-  return s;
-}
-
-export default function Dreams() {
-  const { lang } = useLanguage();
-  const { trackNavigation } = useInterstitial();
-  const { track } = useActivity();
-
-  const [query, setQuery] = useState("");
-  const [selected, setSelected] = useState<{
-    image: string;
-    interpretation: string;
-    title: string;
-  } | null>(null);
-
-  const suggestions = useMemo(() => {
-    if (!query.trim()) return [];
-    const normalizedQuery = normalize(query);
-
-    // Split into meaningful tokens (min 3 chars, no stopwords)
-    const tokens = normalizedQuery
-      .split(/\s+/)
-      .map(w => w.replace(/[^a-z0-9]/g, ""))
-      .filter(w => w.length >= 3 && !STOPWORDS.has(w));
-
-    const searchTokens = tokens.length > 0 ? tokens : [normalizedQuery.trim()];
-
-    return dreamKeywords[lang]
-      .map((category) => {
-        let totalScore = 0;
-        let bestKeyword = category.keywords[0];
-        let bestKwScore = -1;
-        const coveredTokens = new Set<string>(); // which search tokens are matched
-
-        for (const kw of category.keywords) {
-          const normKw = normalize(kw);
-          const kwWords = normKw.split(/\s+/);
-          let kwScore = 0;
-          let kwMatched = 0;
-
-          for (const token of searchTokens) {
-            let pts = 0;
-            if (normKw === token) pts = 4;
-            else if (kwWords.some(w => w === token)) pts = 2;
-            else if (kwWords.some(w => w.startsWith(token) || token.startsWith(w))) pts = 1;
-
-            if (pts > 0) {
-              kwScore += pts;
-              kwMatched++;
-              coveredTokens.add(token);
+            function normalize(text: string): string {
+              return text
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/[^a-z0-9\s]/g, " ");
             }
-          }
 
-          // Bonus for a single keyword matching multiple tokens
-          if (kwMatched > 1) kwScore += kwMatched * 2;
-          totalScore += kwScore;
+            const STOPWORDS = new Set([
+              "j", "ai", "un", "une", "des", "de", "du", "le", "la", "les", "et", "en",
+              "ma", "mon", "mes", "que", "qui", "ou", "on", "au", "aux", "je", "il", "elle",
+              "dans", "sur", "avec", "par", "pour", "quand", "dont", "jai", "son", "sa",
+              "i", "a", "an", "the", "my", "me", "in", "of", "at", "to", "is", "was",
+              "had", "have", "that", "with", "and", "dreamed", "dream", "reve", "rêvé",
+              "about", "dreamt", "dreaming",
+            ]);
 
-          if (kwScore > bestKwScore) {
-            bestKwScore = kwScore;
-            bestKeyword = kw;
-          }
-        }
+            const POPULAR_KEYWORDS: Record<"fr" | "en", string[]> = {
+              fr: ["eau", "voler", "tomber", "feu", "tempête", "serpent", "chien", "mort", "maison", "amour", "dent", "voiture", "forêt", "montagne", "famille", "neige"],
+              en: ["water", "fly", "fall", "fire", "storm", "snake", "dog", "death", "home", "love", "tooth", "car", "forest", "mountain", "family", "snow"],
+            };
 
-        return { category, totalScore, bestKeyword, covered: coveredTokens.size };
-      })
-      .filter(({ totalScore, covered }) => {
-        if (totalScore === 0) return false;
-        // Multi-word query: ALL tokens must be covered by the category
-        if (searchTokens.length > 1) return covered >= searchTokens.length;
-        return true;
-      })
-      .sort((a, b) => b.totalScore - a.totalScore)
-      .slice(0, 5);
-  }, [query, lang]);
+            export default function Dreams() {
+              const { lang } = useLanguage();
+              const { trackNavigation } = useInterstitial();
+              const { track } = useActivity();
+              const { addEntry } = useJournal(); // ✅ hook journal
 
-  const handleSelect = (category: any, displayTitle?: string) => {
-    const title = displayTitle ?? category.keywords[0];
-    setSelected({
-      image: category.image,
-      interpretation: category.interpretation,
-      title,
-    });
-    setQuery("");
-    trackNavigation();
+              const [query, setQuery] = useState("");
+              const [selected, setSelected] = useState<{
+                image: string;
+                interpretation: string;
+                title: string;
+              } | null>(null);
 
-    // ── Tracking activité ──────────────────────────────────────────────
-    track(
-      "dream",
-      category.keywords[0],
-      title.charAt(0).toUpperCase() + title.slice(1)
-    );
-  };
+              const suggestions = useMemo(() => {
+                if (!query.trim()) return [];
+                const normalizedQuery = normalize(query);
 
-  const handleClear = () => {
-    setQuery("");
-    setSelected(null);
-  };
+                const tokens = normalizedQuery
+                  .split(/\s+/)
+                  .map(w => w.replace(/[^a-z0-9]/g, ""))
+                  .filter(w => w.length >= 3 && !STOPWORDS.has(w));
 
-  return (
-    <div className="w-full h-full flex flex-col items-center relative">
+                const searchTokens = tokens.length > 0 ? tokens : [normalizedQuery.trim()];
 
-      <motion.div
-        animate={{ y: [0, -6, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="mb-4 mt-2"
-      >
-        <img
-          src={`${import.meta.env.BASE_URL}images/hero-moon.png`}
-          alt="Rêves & Rituels"
-          className="w-40 h-40 object-contain"
-          style={{
-            maskImage: "radial-gradient(circle, black 55%, transparent 75%)",
-            WebkitMaskImage: "radial-gradient(circle, black 55%, transparent 75%)",
-            filter: "drop-shadow(0px 8px 24px rgba(180, 140, 255, 0.4))",
-          }}
-        />
-      </motion.div>
+                return allDreamKeywords[lang]
+                  .map((category) => {
+                    let totalScore = 0;
+                    let bestKeyword = category.keywords[0];
+                    let bestKwScore = -1;
+                    const coveredTokens = new Set<string>();
 
-      <h1 className="font-display text-4xl font-bold text-center mb-2 text-foreground tracking-wide">
-        {lang === "fr" ? "Interprétation" : "Interpretation"}
-      </h1>
-      <div className="h-px w-20 bg-gradient-to-r from-transparent via-yellow-300 to-transparent mb-3" />
-      <p className="text-sm text-muted-foreground text-center mb-6 italic">
-        {lang === "fr" ? "Tape un mot de ton rêve..." : "Type a word from your dream..."}
-      </p>
+                    for (const kw of category.keywords) {
+                      const normKw = normalize(kw);
+                      const kwWords = normKw.split(/\s+/);
+                      let kwScore = 0;
+                      let kwMatched = 0;
 
-      <div className="w-full relative">
-        <div className="relative flex items-center">
-          <Search size={16} className="absolute left-4 text-primary/50 pointer-events-none" />
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => { setQuery(e.target.value); setSelected(null); }}
-            placeholder={lang === "fr" ? "Ex: eau, tomber, serpent, forêt..." : "Ex: water, fall, snake, forest..."}
-            className="w-full pl-10 pr-10 py-4 rounded-2xl bg-white border border-slate-200 shadow-sm focus:outline-none focus:border-primary/40 text-foreground placeholder:text-muted-foreground/60 transition-all text-sm"
-          />
-          {query.length > 0 && (
-            <button onClick={handleClear} className="absolute right-4 text-muted-foreground">
-              <X size={16} />
-            </button>
-          )}
-        </div>
+                      for (const token of searchTokens) {
+                        let pts = 0;
+                        if (normKw === token) pts = 4;
+                        else if (kwWords.some(w => w === token)) pts = 2;
+                        else if (kwWords.some(w => w.startsWith(token) || token.startsWith(w))) pts = 1;
 
-        <AnimatePresence>
-          {suggestions.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden z-50"
-            >
-              {suggestions.map(({ category, bestKeyword }, i) => (
-                <motion.button
-                  key={i}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
-                  onClick={() => handleSelect(category, bestKeyword)}
-                  className="w-full flex items-center gap-3 px-4 py-3 hover:bg-primary/5 transition-colors text-left border-b border-slate-50 last:border-0"
-                >
-                  <img src={`${import.meta.env.BASE_URL}${category.image.replace(/^\//, "")}`} alt={bestKeyword} className="w-8 h-8 object-contain rounded-lg flex-shrink-0" />
-                  <div>
-                    <p className="font-semibold text-sm text-foreground capitalize">{bestKeyword}</p>
-                    <p className="text-xs text-muted-foreground line-clamp-1">{category.interpretation.slice(0, 55)}...</p>
+                        if (pts > 0) {
+                          kwScore += pts;
+                          kwMatched++;
+                          coveredTokens.add(token);
+                        }
+                      }
+
+                      if (kwMatched > 1) kwScore += kwMatched * 2;
+                      totalScore += kwScore;
+
+                      if (kwScore > bestKwScore) {
+                        bestKwScore = kwScore;
+                        bestKeyword = kw;
+                      }
+                    }
+
+                    return { category, totalScore, bestKeyword, covered: coveredTokens.size };
+                  })
+                  .filter(({ totalScore, covered }) => {
+                    if (totalScore === 0) return false;
+                    if (searchTokens.length > 1) return covered >= searchTokens.length;
+                    return true;
+                  })
+                  .sort((a, b) => b.totalScore - a.totalScore)
+                  .slice(0, 5);
+              }, [query, lang]);
+
+              const handleSelect = (category: any, displayTitle?: string) => {
+                const title = displayTitle ?? category.keywords[0];
+                const capitalizedTitle = title.charAt(0).toUpperCase() + title.slice(1);
+
+                setSelected({
+                  image: category.image,
+                  interpretation: category.interpretation,
+                  title,
+                });
+                setQuery("");
+                trackNavigation();
+
+                // Suivi d'activité
+                track("dream", category.keywords[0], capitalizedTitle);
+
+                // ✅ Ajout automatique silencieux dans le journal
+                addEntry({
+                  date: new Date().toISOString(),
+                  title: capitalizedTitle,
+                  content: category.interpretation,
+                  moodId: "happy",
+                  tags: [],
+                });
+              };
+
+              const handleClear = () => {
+                setQuery("");
+                setSelected(null);
+              };
+
+              return (
+                <div className="w-full h-full flex flex-col items-center relative">
+
+                  <motion.div
+                    animate={{ y: [0, -6, 0] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                    className="mb-4 mt-2"
+                  >
+                    <img
+                      src={`${import.meta.env.BASE_URL}images/hero-moon.png`}
+                      alt="Rêves & Rituels"
+                      className="w-40 h-40 object-contain"
+                      style={{
+                        maskImage: "radial-gradient(circle, black 55%, transparent 75%)",
+                        WebkitMaskImage: "radial-gradient(circle, black 55%, transparent 75%)",
+                        filter: "drop-shadow(0px 8px 24px rgba(180, 140, 255, 0.4))",
+                      }}
+                    />
+                  </motion.div>
+
+                  <h1 className="font-display text-4xl font-bold text-center mb-2 text-foreground tracking-wide">
+                    {lang === "fr" ? "Interprétation" : "Interpretation"}
+                  </h1>
+                  <div className="h-px w-20 bg-gradient-to-r from-transparent via-yellow-300 to-transparent mb-3" />
+                  <p className="text-sm text-muted-foreground text-center mb-6 italic">
+                    {lang === "fr" ? "Tape un mot de ton rêve..." : "Type a word from your dream..."}
+                  </p>
+
+                  <div className="w-full relative">
+                    <div className="relative flex items-center">
+                      <Search size={16} className="absolute left-4 text-primary/50 pointer-events-none" />
+                      <input
+                        type="text"
+                        value={query}
+                        onChange={(e) => { setQuery(e.target.value); setSelected(null); }}
+                        placeholder={lang === "fr" ? "Ex: eau, tomber, serpent, forêt..." : "Ex: water, fall, snake, forest..."}
+                        className="w-full pl-10 pr-10 py-4 rounded-2xl bg-white border border-slate-200 shadow-sm focus:outline-none focus:border-primary/40 text-foreground placeholder:text-muted-foreground/60 transition-all text-sm"
+                      />
+                      {query.length > 0 && (
+                        <button onClick={handleClear} className="absolute right-4 text-muted-foreground">
+                          <X size={16} />
+                        </button>
+                      )}
+                    </div>
+
+                    <AnimatePresence>
+                      {suggestions.length > 0 && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -8 }}
+                          className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden z-50"
+                        >
+                          {suggestions.map(({ category, bestKeyword }, i) => (
+                            <motion.button
+                              key={i}
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: i * 0.05 }}
+                              onClick={() => handleSelect(category, bestKeyword)}
+                              className="w-full flex items-center gap-3 px-4 py-3 hover:bg-primary/5 transition-colors text-left border-b border-slate-50 last:border-0"
+                            >
+                              <img
+                                src={`${import.meta.env.BASE_URL}${category.image.replace(/^\//, "")}`}
+                                alt={bestKeyword}
+                                className="w-8 h-8 object-contain rounded-lg flex-shrink-0"
+                              />
+                              <div>
+                                <p className="font-semibold text-sm text-foreground capitalize">{bestKeyword}</p>
+                                <p className="text-xs text-muted-foreground line-clamp-1">{category.interpretation.slice(0, 55)}...</p>
+                              </div>
+                            </motion.button>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
-                </motion.button>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
 
-      {!selected && query.length === 0 && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="w-full mt-6">
-          <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-3">
-            {lang === "fr" ? "Symboles populaires" : "Popular symbols"}
-          </p>
-          <div className="grid grid-cols-4 gap-2 w-full">
-          {POPULAR_KEYWORDS[lang]
-            .map(kw => dreamKeywords[lang].find(c => c.keywords[0] === kw))
-            .filter((c): c is NonNullable<typeof c> => Boolean(c))
-            .map((category, i) => (
-              <motion.button
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.04 }}
-                onClick={() => handleSelect(category)}
-                className="rounded-2xl overflow-hidden shadow-sm hover:shadow-md active:scale-95 transition-all"
-              >
-                <div className="w-full aspect-square overflow-hidden rounded-2xl relative">
-                  <img
-                    src={`${import.meta.env.BASE_URL}${category.image.replace(/^\//, "")}`}
-                    alt={category.keywords[0]}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent px-1 pb-1 pt-3">
-                    <span className="text-white capitalize text-[9px] font-bold text-center leading-tight line-clamp-1 w-full block">
-                      {category.keywords[0]}
-                    </span>
-                  </div>
+                  {!selected && query.length === 0 && (
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="w-full mt-6">
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-3">
+                        {lang === "fr" ? "Symboles populaires" : "Popular symbols"}
+                      </p>
+                      <div className="grid grid-cols-4 gap-2 w-full">
+                        {POPULAR_KEYWORDS[lang]
+                          .map(kw => allDreamKeywords[lang].find(c => c.keywords[0] === kw))
+                          .filter((c): c is NonNullable<typeof c> => Boolean(c))
+                          .map((category, i) => (
+                            <motion.button
+                              key={i}
+                              initial={{ opacity: 0, scale: 0.9 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              transition={{ delay: i * 0.04 }}
+                              onClick={() => handleSelect(category)}
+                              className="rounded-2xl overflow-hidden shadow-sm hover:shadow-md active:scale-95 transition-all"
+                            >
+                              <div className="w-full aspect-square overflow-hidden rounded-2xl relative">
+                                <img
+                                  src={`${import.meta.env.BASE_URL}${category.image.replace(/^\//, "")}`}
+                                  alt={category.keywords[0]}
+                                  className="w-full h-full object-cover"
+                                />
+                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent px-1 pb-1 pt-3">
+                                  <span className="text-white capitalize text-[9px] font-bold text-center leading-tight line-clamp-1 w-full block">
+                                    {category.keywords[0]}
+                                  </span>
+                                </div>
+                              </div>
+                            </motion.button>
+                          ))}
+                      </div>
+                    </motion.div>
+                  )}
+
+                  <AnimatePresence>
+                    {selected && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                        className="mt-6 w-full glass-panel rounded-2xl p-6 relative overflow-hidden"
+                      >
+                        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-yellow-300 to-transparent opacity-50" />
+
+                        {/* ✅ Petit badge discret "Enregistré dans le journal" */}
+                        <div className="flex justify-end mb-2">
+                          <span className="text-[9px] text-primary/60 bg-primary/5 px-2 py-0.5 rounded-full font-medium">
+                            {lang === "fr" ? "📖 Ajouté au journal" : "📖 Added to journal"}
+                          </span>
+                        </div>
+
+                        <div className="flex flex-col items-center text-center">
+                          <img
+                            src={selected.image}
+                            alt={selected.title}
+                            className="w-16 h-16 object-contain mb-3 drop-shadow-md rounded-xl"
+                          />
+                          <h3 className="font-display font-bold text-lg mb-2 text-foreground capitalize">{selected.title}</h3>
+                          <div className="h-px w-16 bg-gradient-to-r from-transparent via-yellow-300 to-transparent mb-3" />
+                          <p className="text-foreground/80 leading-relaxed font-sans text-sm">{selected.interpretation}</p>
+                        </div>
+                        <div className="flex gap-2 mt-5">
+                          <button
+                            onClick={handleClear}
+                            className="flex-1 py-2.5 rounded-xl border border-slate-300 text-sm text-slate-600 font-medium hover:bg-slate-50 transition-all"
+                          >
+                            {lang === "fr" ? "Nouvelle recherche" : "New search"}
+                          </button>
+                          <button
+                            onClick={handleClear}
+                            className="px-4 py-2.5 rounded-xl bg-slate-100 text-sm text-slate-700 font-bold hover:bg-slate-200 transition-all"
+                          >
+                            {lang === "fr" ? "Fermer" : "Close"}
+                          </button>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
-              </motion.button>
-            ))}
-          </div>
-        </motion.div>
-      )}
-
-      <AnimatePresence>
-        {selected && (
-          <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            className="mt-6 w-full glass-panel rounded-2xl p-6 relative overflow-hidden"
-          >
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-yellow-300 to-transparent opacity-50" />
-            <div className="flex flex-col items-center text-center">
-              <img src={selected.image} alt={selected.title} className="w-16 h-16 object-contain mb-3 drop-shadow-md rounded-xl" />
-              <h3 className="font-display font-bold text-lg mb-2 text-foreground capitalize">{selected.title}</h3>
-              <div className="h-px w-16 bg-gradient-to-r from-transparent via-yellow-300 to-transparent mb-3" />
-              <p className="text-foreground/80 leading-relaxed font-sans text-sm">{selected.interpretation}</p>
-            </div>
-            <div className="flex gap-2 mt-5">
-              <button onClick={handleClear} className="flex-1 py-2 rounded-xl border border-slate-300 text-sm text-slate-600 font-medium hover:bg-slate-50 transition-all">
-                {lang === "fr" ? "Nouvelle recherche" : "New search"}
-              </button>
-              <button onClick={handleClear} className="px-4 py-2 rounded-xl bg-slate-100 text-sm text-slate-700 font-bold hover:bg-slate-200 transition-all">
-                {lang === "fr" ? "Fermer" : "Close"}
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
+              );
+            }

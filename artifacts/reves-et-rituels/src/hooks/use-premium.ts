@@ -48,11 +48,23 @@ export function usePremium(): PremiumState {
   // Helper générique pour acheter par identifier de package
   const buy = useCallback(
     async (packageId: string): Promise<boolean> => {
-      if (!offerings) return false;
+      if (!offerings) {
+        console.warn("[RC] No offerings available");
+        return false;
+      }
+
+      // ✅ Log pour débugger
+      console.log("[RC] Available packages:", offerings.availablePackages?.map((p: any) => p.identifier));
+
       const pkg = offerings.availablePackages?.find(
         (p: any) => p.identifier === packageId
       );
-      if (!pkg) return false;
+
+      if (!pkg) {
+        console.warn(`[RC] Package not found: ${packageId}`);
+        return false;
+      }
+
       setPurchasing(true);
       const success = await purchasePackage(pkg);
       if (success) setIsPremium(true);

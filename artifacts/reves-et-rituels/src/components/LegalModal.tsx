@@ -1,9 +1,12 @@
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Shield, FileText, X } from "lucide-react";
+import { Shield, FileText, X, Crown } from "lucide-react";
 import { useLanguage } from "@/hooks/use-language";
 import { NotificationSettings } from "./NotificationSettings";
 import { Browser } from "@capacitor/browser";
+import { usePremium } from "@/hooks/use-premium";
+import { PremiumModal } from "./PremiumModal";
+import { useState } from "react";
 
 interface Props {
   open: boolean;
@@ -11,20 +14,19 @@ interface Props {
   anchorRef?: React.RefObject<HTMLButtonElement | null>;
 }
 
-// Ouvre une URL dans le navigateur intégré Capacitor (ou dans l'onglet web)
 async function openUrl(url: string) {
   try {
     await Browser.open({ url });
   } catch {
-    // Fallback web
     window.open(url, "_blank");
   }
 }
 
 export function LegalModal({ open, onClose, anchorRef }: Props) {
   const { lang } = useLanguage();
+  const { isPremium } = usePremium();
+  const [showPremium, setShowPremium] = useState(false);
 
-  // URLs selon la langue — fichiers dans public/ de ton app
   const URLS = {
     privacy: lang === "fr"
       ? "https://kassyangel.github.io/reves-et-rituels-legal/politique-confidentialite.html"
@@ -46,93 +48,126 @@ export function LegalModal({ open, onClose, anchorRef }: Props) {
   const pos = getPosition();
 
   return createPortal(
-    <AnimatePresence>
-      {open && (
-        <>
-          <div className="fixed inset-0 z-[998]" onClick={onClose} />
+    <>
+      <AnimatePresence>
+        {open && (
+          <>
+            <div className="fixed inset-0 z-[998]" onClick={onClose} />
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: -6 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: -6 }}
-            transition={{ type: "spring", damping: 22, stiffness: 300 }}
-            style={{ top: pos.top, left: pos.left }}
-            className="fixed z-[999] w-72 bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-100"
-          >
-            {/* Flèche décorative */}
-            <div
-              className="absolute -top-2 w-4 h-4 bg-white rotate-45 border-l border-t border-slate-100"
-              style={{
-                left: anchorRef?.current
-                  ? anchorRef.current.getBoundingClientRect().left -
-                    Math.max(8, anchorRef.current.getBoundingClientRect().left - 180) + 12
-                  : 12,
-              }}
-            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: -6 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: -6 }}
+              transition={{ type: "spring", damping: 22, stiffness: 300 }}
+              style={{ top: pos.top, left: pos.left }}
+              className="fixed z-[999] w-72 bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-100"
+            >
+              {/* Flèche décorative */}
+              <div
+                className="absolute -top-2 w-4 h-4 bg-white rotate-45 border-l border-t border-slate-100"
+                style={{
+                  left: anchorRef?.current
+                    ? anchorRef.current.getBoundingClientRect().left -
+                      Math.max(8, anchorRef.current.getBoundingClientRect().left - 180) + 12
+                    : 12,
+                }}
+              />
 
-            <div className="pt-4 pb-3 px-3 space-y-2 relative">
-              <button
-                onClick={onClose}
-                className="absolute top-2 right-2 w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center"
-              >
-                <X size={12} className="text-slate-400" />
-              </button>
+              <div className="pt-4 pb-3 px-3 space-y-2 relative">
+                <button
+                  onClick={onClose}
+                  className="absolute top-2 right-2 w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center"
+                >
+                  <X size={12} className="text-slate-400" />
+                </button>
 
-              {/* ── Notifications ── */}
-              <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 px-1 mb-2">
-                {lang === "fr" ? "Notifications" : "Notifications"}
-              </p>
-              <NotificationSettings />
+                {/* ── PREMIUM (nouveau) ── */}
+                {!isPremium && (
+                  <>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 px-1 mb-2">
+                      {lang === "fr" ? "Abonnement" : "Subscription"}
+                    </p>
+                    <button
+                      onClick={() => { setShowPremium(true); onClose(); }}
+                      className="w-full flex items-center gap-3 p-3 rounded-xl text-left transition-all"
+                      style={{
+                        background: "linear-gradient(135deg, #1a0533 0%, #2d1060 100%)",
+                      }}
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-yellow-300 to-amber-500 flex items-center justify-center flex-shrink-0 shadow shadow-amber-400/40">
+                        <Crown size={15} className="text-white" />
+                      </div>
+                      <div>
+                        <p className="font-bold text-xs text-white">
+                          {lang === "fr" ? "Passer Premium" : "Go Premium"}
+                        </p>
+                        <p className="text-[10px] text-white/50">
+                          {lang === "fr" ? "Débloquer toutes les fonctionnalités" : "Unlock all features"}
+                        </p>
+                      </div>
+                    </button>
 
-              {/* ── Séparateur ── */}
-              <div className="h-px bg-slate-100 my-2" />
+                    {/* Séparateur */}
+                    <div className="h-px bg-slate-100 my-2" />
+                  </>
+                )}
 
-              {/* ── Légal ── */}
-              <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 px-1 mb-2">
-                {lang === "fr" ? "Informations légales" : "Legal"}
-              </p>
+                {/* ── Notifications ── */}
+                <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 px-1 mb-2">
+                  {lang === "fr" ? "Notifications" : "Notifications"}
+                </p>
+                <NotificationSettings />
 
-              {/* Politique de confidentialité */}
-              <button
-                onClick={() => { openUrl(URLS.privacy); onClose(); }}
-                className="w-full flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-blue-50 transition-colors text-left"
-              >
-                <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
-                  <Shield size={15} className="text-blue-500" />
-                </div>
-                <div>
-                  <p className="font-semibold text-xs text-foreground">
-                    {lang === "fr" ? "Politique de confidentialité" : "Privacy policy"}
-                  </p>
-                  <p className="text-[10px] text-muted-foreground">
-                    {lang === "fr" ? "Vos données & vie privée" : "Your data & privacy"}
-                  </p>
-                </div>
-              </button>
+                {/* ── Séparateur ── */}
+                <div className="h-px bg-slate-100 my-2" />
 
-              {/* Mentions légales */}
-              <button
-                onClick={() => { openUrl(URLS.legal); onClose(); }}
-                className="w-full flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors text-left"
-              >
-                <div className="w-8 h-8 rounded-lg bg-slate-200 flex items-center justify-center flex-shrink-0">
-                  <FileText size={15} className="text-slate-600" />
-                </div>
-                <div>
-                  <p className="font-semibold text-xs text-foreground">
-                    {lang === "fr" ? "Mentions légales" : "Legal notices"}
-                  </p>
-                  <p className="text-[10px] text-muted-foreground">
-                    {lang === "fr" ? "CGU & conditions" : "Terms of use"}
-                  </p>
-                </div>
-              </button>
+                {/* ── Légal ── */}
+                <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 px-1 mb-2">
+                  {lang === "fr" ? "Informations légales" : "Legal"}
+                </p>
 
-            </div>
-          </motion.div>
-        </>
-      )}
-    </AnimatePresence>,
+                <button
+                  onClick={() => { openUrl(URLS.privacy); onClose(); }}
+                  className="w-full flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-blue-50 transition-colors text-left"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
+                    <Shield size={15} className="text-blue-500" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-xs text-foreground">
+                      {lang === "fr" ? "Politique de confidentialité" : "Privacy policy"}
+                    </p>
+                    <p className="text-[10px] text-muted-foreground">
+                      {lang === "fr" ? "Vos données & vie privée" : "Your data & privacy"}
+                    </p>
+                  </div>
+                </button>
+
+                <button
+                  onClick={() => { openUrl(URLS.legal); onClose(); }}
+                  className="w-full flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors text-left"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-slate-200 flex items-center justify-center flex-shrink-0">
+                    <FileText size={15} className="text-slate-600" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-xs text-foreground">
+                      {lang === "fr" ? "Mentions légales" : "Legal notices"}
+                    </p>
+                    <p className="text-[10px] text-muted-foreground">
+                      {lang === "fr" ? "CGU & conditions" : "Terms of use"}
+                    </p>
+                  </div>
+                </button>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* PremiumModal déclenché depuis ici */}
+      <PremiumModal open={showPremium} onClose={() => setShowPremium(false)} />
+    </>,
     document.body
   );
 }

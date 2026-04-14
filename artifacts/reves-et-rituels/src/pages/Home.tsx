@@ -6,7 +6,7 @@ import { showBanner } from "@/lib/admob";
 const stars = Array.from({ length: 18 });
 
 export default function Home() {
-  const { t, lang, toggleLang } = useLanguage();
+  const { lang, toggleLang } = useLanguage();
   const [, navigate] = useLocation();
 
   return (
@@ -28,17 +28,17 @@ export default function Home() {
             duration: 3 + Math.random() * 4,
             repeat: Infinity,
             delay: Math.random() * 4,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         />
       ))}
 
-      {/* Language toggle */}
+      {/* Language toggle — seul élément conservé en haut */}
       <button
         onClick={toggleLang}
-        className="absolute top-6 right-6 px-3 py-1.5 rounded-full bg-white/70 backdrop-blur-sm text-xs font-bold text-slate-500 shadow-sm border border-white hover:bg-white transition-all"
+        className="absolute top-6 right-6 px-3 py-1.5 rounded-full bg-white/70 backdrop-blur-sm text-xs font-bold text-slate-500 shadow-sm border border-white hover:bg-white transition-all z-10"
       >
-        {lang === 'fr' ? 'EN' : 'FR'}
+        {lang === "fr" ? "EN" : "FR"}
       </button>
 
       {/* Main content */}
@@ -62,7 +62,7 @@ export default function Home() {
               borderRadius: "50%",
               maskImage: "radial-gradient(circle, black 55%, transparent 75%)",
               WebkitMaskImage: "radial-gradient(circle, black 55%, transparent 75%)",
-              filter: "drop-shadow(0px 8px 24px rgba(180, 140, 255, 0.4))"
+              filter: "drop-shadow(0px 8px 24px rgba(180, 140, 255, 0.4))",
             }}
           />
         </motion.div>
@@ -74,7 +74,7 @@ export default function Home() {
           transition={{ delay: 0.4, duration: 1.2 }}
           className="font-display text-4xl font-bold text-slate-700 mb-2 tracking-wide"
         >
-          {lang === 'fr' ? 'Rêves & Rituels' : 'Dreams & Rituals'}
+          {lang === "fr" ? "Rêves & Rituels" : "Dreams & Rituals"}
         </motion.h1>
 
         {/* Subtitle */}
@@ -84,7 +84,7 @@ export default function Home() {
           transition={{ delay: 0.8, duration: 1 }}
           className="text-slate-400 text-sm font-sans mb-8 italic"
         >
-          {lang === 'fr' ? 'Explore ton monde intérieur' : 'Explore your inner world'}
+          {lang === "fr" ? "Explore ton monde intérieur" : "Explore your inner world"}
         </motion.p>
 
         {/* Divider */}
@@ -102,9 +102,9 @@ export default function Home() {
           transition={{ delay: 1.2, duration: 1 }}
           className="text-slate-500 text-sm italic max-w-[260px] leading-relaxed mb-10 font-sans"
         >
-          {lang === 'fr'
-            ? '"Les rêves sont la fenêtre de l\'âme sur l\'infini."'
-            : '"Dreams are the soul\'s window to the infinite."'}
+          {lang === "fr"
+            ? "\"Les rêves sont la fenêtre de l'âme sur l'infini.\""
+            : "\"Dreams are the soul's window to the infinite.\""}
         </motion.p>
 
         {/* Enter button */}
@@ -120,9 +120,8 @@ export default function Home() {
           }}
           className="px-10 py-4 rounded-full bg-gradient-to-r from-purple-300 via-purple-200 to-yellow-200 text-slate-700 font-bold text-base shadow-lg hover:shadow-xl transition-all border border-white/60"
         >
-          {lang === 'fr' ? 'Commencer le voyage' : 'Begin the journey'}
+          {lang === "fr" ? "Commencer le voyage" : "Begin the journey"}
         </motion.button>
-
       </motion.div>
 
       {/* Bottom glow */}

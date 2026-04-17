@@ -25,8 +25,8 @@
             ]);
 
             const POPULAR_KEYWORDS: Record<"fr" | "en", string[]> = {
-              fr: ["eau", "voler", "tomber", "feu", "tempête", "serpent", "chien", "mort", "maison", "amour", "dent", "voiture", "forêt", "montagne", "famille", "neige"],
-              en: ["water", "fly", "fall", "fire", "storm", "snake", "dog", "death", "home", "love", "tooth", "car", "forest", "mountain", "family", "snow"],
+              fr: ["eau", "voler", "tomber", "feu", "bébé", "serpent", "chien", "mort", "maison", "amour", "dent", "voiture", "forêt", "montagne", "famille", "examen"],
+              en: ["water", "fly", "fall", "fire", "baby", "snake", "dog", "death", "home", "love", "tooth", "car", "forest", "mountain", "family", "exam"],
             };
 
             export default function Dreams() {
@@ -119,8 +119,8 @@
                   date: new Date().toISOString(),
                   title: capitalizedTitle,
                   content: category.interpretation,
-                  moodId: "happy",
-                  tags: [],
+                  moodId: "neutral",
+                  tags: ["rêve"],
                 });
               };
 

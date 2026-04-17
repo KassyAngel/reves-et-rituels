@@ -23,10 +23,10 @@
         "piscine", "plonger", "mouillé", "brouillard", "brume", "humide",
         "flaque", "fontaine", "bassin", "boue", "aquatique", "étang",
         "sous-marin", "profondeur", "abysses", "coulée", "déluge", "flot",
-        "courant", "reflux", "déborder", "se noyer", "baignade", "tremper",
+        "courant", "reflux", "déborder", "baignade", "tremper",
         "rosée", "vapeur", "condensation", "nappe phréatique"
       ],
-      interpretation: "L'eau symbolise tes émotions profondes et ton état intérieur. Une eau calme indique la paix et la clarté émotionnelle. Une eau agitée, une inondation ou une noyade révèle des émotions submergées qui demandent à être reconnues. Plonger dans l'eau signifie l'exploration de ton inconscient.",
+      interpretation: "L'eau symbolise tes émotions profondes et ton état intérieur. Une eau calme indique la paix et la clarté émotionnelle. Une eau agitée, une inondation ou une noyade révèle des émotions submergées qui demandent à être reconnues. Plonger dans l'eau signifie l'exploration de ton inconscient. Si la sensation est de couler et suffoquer, consulte le symbole 'noyade'.",
       image: "/images/iconekeywords/eau.webp"
     },
     {
@@ -577,7 +577,8 @@
         "fantôme d'un proche", "squelette", "agonie", "message d'un mort",
         "corps sans vie", "au-delà", "paradis", "enfer", "mourante",
         "testament", "succession", "disparaître", "mort subite",
-        "voir quelqu'un mourir", "annonce d'un décès"
+        "voir quelqu'un mourir", "annonce d'un décès","décès d'un proche", "perdre quelqu'un", "perdre sa mère", "perdre son père",
+        "perdre son enfant", "veuf", "veuve", "orphelin", "deuil d'un proche",
       ],
       interpretation: "La mort en rêve n'est pas littérale — elle symbolise la fin d'un cycle et un renouveau imminent. Rêver d'un proche décédé est souvent un message d'amour ou de guidance. La mort de soi-même représente une profonde transformation en cours. Ces rêves invitent à lâcher ce qui ne te sert plus pour renaître.",
       image: "/images/iconekeywords/mort.webp"
@@ -588,7 +589,8 @@
         "poltergeist", "maison hantée", "présence invisible", "ombre qui marche",
         "voix de l'au-delà", "lumière bleue", "table tournante", "message d'outre-tombe",
         "hantise", "possession", "entité", "ombre menaçante",
-        "être visité en rêve", "présence nocturne"
+        "être visité en rêve", "présence nocturne","vieille femme menaçante", "silhouette de vieille", "hag", "sorcière menaçante",
+        "vieillard menaçant", "figure sombre dans la chambre",
       ],
       interpretation: "Un fantôme représente une mémoire, une émotion ou une relation du passé qui n'a pas encore été intégrée. Il peut s'agir d'un regret, d'une culpabilité ou d'un deuil inachevé. Si le fantôme est bienveillant, c'est souvent un message de réconfort. S'il est menaçant, une peur refoulée demande à être affrontée.",
       image: "/images/iconekeywords/fantome.webp"
@@ -661,7 +663,8 @@
     // ═══════════════════════════════════════════════════════════════════════════
     {
       keywords: [
-        "dent", "dents", "perdre ses dents", "mâchoire", "dent qui tombe",
+        "dent", "dents", "perdre ses dents", "dents qui tombent", "perte des dents",
+        "dent qui tombe", "mes dents tombent", "mâchoire", "dent qui tombe",
         "dent cassée", "dent noire", "arracher une dent", "dentiste",
         "sourire", "bouche", "prothèse dentaire", "dent de sagesse",
         "saigner des gencives", "mordre", "mâcher", "bruxisme", "rage de dent",
@@ -895,7 +898,7 @@
     {
       keywords: [
         "serpent", "vipère", "morsure", "reptile", "cobra", "python",
-        "anaconda", "couleuvre", "boa", "serpent géant", "nid de serpents",
+        "anaconda", "couleuvre", "boa", "serpent géant", "grand serpent", "serpent immense", "énorme serpent", "nid de serpents",
         "venin", "sifflement", "peau de serpent", "muer", "séduire",
         "lézard", "caméléon", "gecko", "varan"
       ],
@@ -951,7 +954,8 @@
         "vitesse", "permis de conduire", "garage", "capot", "moteur",
         "voiture qui ne démarre pas", "accident de voiture", "freins qui lâchent",
         "bus", "autobus", "car", "accident de bus", "métro", "tramway", "transport",
-        "chauffeur", "chauffeur de bus", "collision", "carambolage", "percuter"
+        "chauffeur", "chauffeur de bus", "collision", "carambolage", "percuter", "percuter un mur", "emboutir",
+        "voiture qui explose", "pneu crevé", "capotage", "tonneau",
       ],
       interpretation: "Le véhicule représente ta trajectoire de vie et le contrôle que tu as sur ton destin. Conduire en confiance indique que tu es maître de ta direction. Perdre le contrôle suggère un sentiment de débordement. Être passager signifie que tu laisses les autres décider à ta place. La panne évoque un blocage dans ton avancement.",
       image: "/images/iconekeywords/voiture.webp"
@@ -1236,7 +1240,8 @@
         "contrôler les éléments", "baguette magique", "sort", "enchantement",
         "être un super-héros", "pouvoir spécial", "magie noire", "sorcier",
         "sorcellerie", "sorts", "potion",
-        "pouvoir du feu", "pouvoir de l'eau", "lévitation"
+        "pouvoir du feu", "pouvoir de l'eau", "lévitation","rêver d'avoir des pouvoirs", "super force", "force surhumaine soudaine",
+        "capacités spéciales", "pouvoir contrôler", "pouvoir sur les autres",
       ],
       interpretation: "Posséder des pouvoirs en rêve reflète un désir de maîtrise, de reconnaissance ou de dépassement de soi. La télékinésie symbolise le souhait d'influencer ton environnement sans effort. L'invisibilité traduit un besoin de retrait ou une peur d'être vu. La guérison par les mains révèle un don empathique profond. Ces rêves t'invitent à reconnaître les ressources extraordinaires qui sommeillent en toi.",
       image: "/images/iconekeywords/pouvoirs.webp"
@@ -1805,7 +1810,9 @@
         "mourning", "burial", "grave", "deceased", "passing", "cremation",
         "ghost of a loved one", "skeleton", "agony", "message from the dead",
         "lifeless body", "afterlife", "heaven", "hell", "will", "disappear",
-        "sudden death", "watching someone die"
+        "sudden death", "watching someone die",
+        "death of a loved one", "losing someone", "losing your mother", "losing your father",
+        "losing a child", "widower", "widow", "orphan", "grieving a loved one"
       ],
       interpretation: "Death in a dream is not literal — it symbolizes the end of a cycle and an imminent renewal. Dreaming of a deceased loved one is often a message of love or guidance. Death of yourself represents a deep transformation underway. These dreams invite you to release what no longer serves you in order to be reborn.",
       image: "/images/iconekeywords/mort.webp"
@@ -1816,7 +1823,7 @@
         "poltergeist", "haunted house", "invisible presence",
         "shadow that walks", "voice from beyond", "blue light",
         "message from beyond the grave", "haunting", "possession", "entity",
-        "night visitor", "being visited in a dream"
+        "night visitor", "being visited in a dream","threatening old woman", "menacing old woman", "silhouette of an old woman", "hag", "threatening witch", "menacing witch", "threatening old man", "menacing old man", "dark figure in the room", "shadowy figure in the room"
       ],
       interpretation: "A ghost represents a memory, emotion or relationship from the past that hasn't been integrated yet. It may be a regret, guilt or unfinished grief. If the ghost is benevolent, it's often a message of comfort. If threatening, a repressed fear is asking to be faced.",
       image: "/images/iconekeywords/fantome.webp"
@@ -1889,7 +1896,7 @@
     // ─── BODY / HEALTH ────────────────────────────────────────────────────────
     {
       keywords: [
-        "tooth", "teeth", "losing teeth", "jaw", "tooth falls out",
+        "tooth", "teeth", "losing your teeth", "teeth falling out", "tooth loss", "a tooth falling out", "my teeth are falling out", "jaw", "tooth falls out","all my teeth falling",
         "broken tooth", "black tooth", "pulling a tooth", "dentist",
         "smile", "mouth", "dentures", "wisdom tooth",
         "bleeding gums", "bite", "chew", "bruxism",
@@ -2161,7 +2168,8 @@
         "engine", "hood", "driver's license",
         "car won't start", "car crash", "brakes failing",
         "bus", "bus accident", "subway", "metro", "tram", "transport",
-        "driver", "bus driver", "collision", "crash into", "hit"
+        "driver", "bus driver", "collision", "crash into", "hit","collision", "car pile-up", "to crash into", "crashing into a wall", "rear-end collision",
+        "car explosion", "exploding car", "flat tire", "car rollover", "rollover", "car flipping over"
       ],
       interpretation: "The vehicle represents your life path and the control you have over your destiny. Driving with confidence means you are directing your own path. Losing control suggests feeling overwhelmed. Being a passenger means you are letting others make decisions for you. A breakdown evokes a blockage in your progress.",
       image: "/images/iconekeywords/voiture.webp"

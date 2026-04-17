@@ -364,7 +364,197 @@ export const dreamKeywordsExtra = {
       interpretation: "La dette et la dépense compulsive en rêve parlent de ta relation à la valeur, aux ressources et à la réciprocité. Être endetté symbolise un sentiment de devoir quelque chose aux autres — affectivement ou matériellement — ou une culpabilité non résolue. Dépenser sans compter peut révéler une fuite dans les plaisirs pour compenser un vide intérieur. Mendier représente un besoin d'aide ou de reconnaissance que tu n'arrives pas à formuler dans la réalité. Ce rêve t'invite à examiner ta relation aux ressources — pas seulement financières, mais aussi énergétiques et émotionnelles.",
       image: "/images/iconekeywords/dette.webp"
     },
-
+    // ═══════════════════════════════════════════════════════════════════════════
+    // ───ESCALIER──────────────────────────────────────────
+    // ═══════════════════════════════════════════════════════════════════════════
+    {
+      keywords: [
+        "escalier", "escaliers", "marches", "monter les escaliers",
+        "descendre les escaliers", "escalier en spirale", "escalier qui monte",
+        "escalier qui descend", "escalier interminable", "escalier cassé",
+        "escalier qui s'effondre", "escalier sans fin", "marche qui cède",
+        "tomber dans l'escalier", "glisser dans l'escalier", "rampe",
+        "palier", "escalier de secours", "escalier de cave", "escalier de grenier",
+        "monter des marches", "descendre des marches", "escalier tournant"
+      ],
+      interpretation: "Les escaliers sont l'un des symboles oniriques les plus chargés de sens. Monter les escaliers avec facilité représente une ascension dans ta vie — professionnelle, spirituelle ou personnelle — et la confiance dans ta progression. Descendre les escaliers invite à plonger dans ton inconscient, à revisiter le passé ou à retrouver des fondations perdues. Un escalier qui s'effondre ou des marches qui cèdent signalent une instabilité dans les bases de ta vie actuelle. Un escalier sans fin évoque une sensation d'effort sans résultat visible — ton inconscient t'invite à vérifier si tu es dans la bonne direction.",
+      image: "/images/iconekeywords/escalier.webp"
+    },
+    // ═══════════════════════════════════════════════════════════════════════════
+    // ─── ARAIGNEES ──────────────────────────────────────────
+    // ═══════════════════════════════════════════════════════════════════════════
+    {
+      keywords: [
+        "araignée", "araignées", "toile d'araignée", "piqûre d'araignée",
+        "araignée géante", "araignée monstrueuse", "être pris dans une toile",
+        "toile qui se referme", "araignée qui descend", "araignée sur moi",
+        "phobie des araignées", "arachnophobie", "nid d'araignées",
+        "araignée qui tisse", "grande araignée", "araignée noire",
+        "araignée rouge", "araignée venimeuse", "morsure d'araignée",
+        "araignée au plafond", "araignée qui me regarde", "veuve noire",
+        "tarentule", "faucheux"
+      ],
+      interpretation: "L'araignée est l'un des archétypes oniriques les plus puissants et les plus ambivalents. Elle symbolise la créativité et la capacité à tisser ta propre destinée — comme l'araignée tisse sa toile avec patience et précision. Elle représente aussi le principe féminin dans sa forme la plus ancienne : la Grande Mère, créatrice et dévorante à la fois. Être pris dans une toile évoque une situation dont tu peines à te dégager — une relation, une obligation ou une croyance qui t'emprisonne. Une araignée géante représente une figure d'autorité perçue comme envahissante. Si l'araignée te fascine sans t'effrayer, c'est une invitation à embrasser ta propre créativité et ton pouvoir intérieur.",
+      image: "/images/iconekeywords/araignee.webp"
+    },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // ─── PAPILLONS ──────────────────────────────────────────
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    keywords: [
+      "papillon", "papillons", "chrysalide", "cocon", "métamorphose",
+      "chenille qui devient papillon", "papillon qui vole", "papillon coloré",
+      "papillon blanc", "papillon noir", "papillon géant", "essaim de papillons",
+      "papillon posé sur moi", "attraper un papillon", "papillon blessé",
+      "collection de papillons", "papillon de nuit", "phalène", "coccinelle",
+      "libellule", "se transformer en papillon", "sortir du cocon",
+      "ailes de papillon"
+    ],
+    interpretation: "Le papillon est le symbole universel de la métamorphose, de la renaissance et de l'âme libérée. Le voir en rêve annonce une transformation profonde déjà en cours dans ta vie — même si tu n'en perçois pas encore tous les fruits. La chrysalide représente la période de transition que tu traverses : obscure et inconfortable de l'intérieur, elle prépare l'envol. Un papillon blanc symbolise la pureté et les messages de l'au-delà dans de nombreuses traditions. Un papillon blessé invite à prendre soin de ta vulnérabilité durant cette période de changement. Voir des papillons colorés annonce une période de joie, de légèreté et de renouveau imminent.",
+    image: "/images/iconekeywords/papillon.webp"
+  },
+    // ═══════════════════════════════════════════════════════════════════════════
+    // ─── GROTTE - CAVERNE──────────────────────────────────────────
+    // ═══════════════════════════════════════════════════════════════════════════
+    {
+      keywords: [
+        "grotte", "caverne", "cave naturelle", "spéléologie", "sous terre",
+        "galerie souterraine", "stalactite", "stalagmite", "entrée de grotte",
+        "grotte sombre", "grotte lumineuse", "grotte secrète", "grotte cachée",
+        "habiter une grotte", "se réfugier dans une grotte",
+        "explorer une grotte", "grotte sous la mer", "grotte de cristal",
+        "grottes profondes", "monde souterrain", "plafond de roche",
+        "parois de roche", "grotte préhistorique", "peintures rupestres"
+      ],
+      interpretation: "La grotte est le symbole de l'inconscient profond par excellence — avant même Jung, toutes les civilisations humaines ont vécu et sacré des grottes comme lieux de passage entre les mondes. Y entrer en rêve, c'est accepter de plonger dans les profondeurs de toi-même, dans ces territoires intérieurs encore inexplorés. Une grotte obscure invite à affronter tes peurs et tes zones d'ombre avec courage. Une grotte lumineuse ou de cristal annonce une révélation : un trésor intérieur t'attend. Se réfugier dans une grotte symbolise un besoin légitime de retrait, de silence et de ressourcement loin du monde extérieur.",
+      image: "/images/iconekeywords/grotte.webp"
+    },
+      // ═══════════════════════════════════════════════════════════════════════════
+      // ─── TUNNEL──────────────────────────────────────────
+      // ═══════════════════════════════════════════════════════════════════════════
+      {
+        keywords: [
+          "tunnel", "tunnel sombre", "au bout du tunnel", "lumière au bout du tunnel",
+          "tunnel interminable", "tunnel qui rétrécit", "tunnel sous la mer",
+          "tunnel ferroviaire", "tunnel de voiture", "passer dans un tunnel",
+          "souterrain", "passage souterrain", "couloir souterrain",
+          "tunnel sans issue", "tunnel qui s'effondre", "tunnel étroit",
+          "tunnel qui tourne", "galerie", "passage étroit",
+          "se faufiler dans un tunnel", "ramper dans un espace étroit"
+        ],
+        interpretation: "Le tunnel symbolise un passage obligé entre deux états de ta vie — une transition que tu ne peux ni contourner ni raccourcir. L'obscurité du tunnel représente la période d'incertitude que tu traverses actuellement : tu ne vois pas encore l'issue, mais elle existe. La lumière au bout du tunnel est l'un des symboles les plus universels d'espoir et de délivrance — si tu la vois dans ton rêve, la fin de ton épreuve est proche. Un tunnel qui rétrécit ou s'effondre signale une anxiété face à cette transition. Ramper dans un espace étroit évoque une situation qui te contraint et te demande une grande humilité pour passer au travers.",
+        image: "/images/iconekeywords/tunnel.webp"
+      },
+        // ═══════════════════════════════════════════════════════════════════════════
+        // ─── FENETRE──────────────────────────────────────────
+        // ═══════════════════════════════════════════════════════════════════════════
+        {
+          keywords: [
+            "fenêtre", "fenêtres", "regarder par la fenêtre", "fenêtre cassée",
+            "fenêtre brisée", "fenêtre ouverte", "fenêtre fermée", "fenêtre bloquée",
+            "fenêtre qui ne s'ouvre pas", "tomber par la fenêtre", "sauter par la fenêtre",
+            "regarder de l'autre côté", "vitre", "vitrine", "carreau",
+            "carreau brisé", "fenêtre de toit", "velux", "hublot",
+            "fenêtre du train", "fenêtre de la voiture", "fenêtre de la chambre",
+            "quelqu'un qui regarde par la fenêtre", "visage à la fenêtre"
+          ],
+          interpretation: "La fenêtre représente ton point de vue sur le monde et la frontière entre ton monde intérieur et la réalité extérieure. Regarder par une fenêtre symbolise une aspiration, un désir d'ailleurs ou une réflexion sur ta situation actuelle — tu observes sans encore agir. Une fenêtre ouverte annonce une opportunité ou une ouverture qui se présente. Une fenêtre fermée ou impossible à ouvrir exprime une frustration face à une occasion que tu ne parviens pas à saisir. Une vitre brisée symbolise une illusion qui vole en éclats ou une protection qui disparaît. Un visage inconnu à la fenêtre évoque une intrusion émotionnelle ou une prise de conscience soudaine.",
+          image: "/images/iconekeywords/fenetre.webp"
+        },
+          // ═══════════════════════════════════════════════════════════════════════════
+          // ─── MARIAGE──────────────────────────────────────────
+          // ═══════════════════════════════════════════════════════════════════════════
+          {
+            keywords: [
+              "mariage", "se marier", "cérémonie de mariage", "noces", "alliance",
+              "robe de mariée", "costume de marié", "fiançailles", "demande en mariage",
+              "dire oui", "dire non", "mariage raté", "mariage annulé",
+              "fuir son mariage", "être à l'autel", "témoin de mariage",
+              "liste de mariage", "lune de miel", "voyage de noces",
+              "invités au mariage", "salle de mariage", "gâteau de mariage",
+              "bouquet de mariée", "mariage forcé", "mariage arrangé",
+              "mariage avec un inconnu", "officier de mariage", "mairie", "église mariage",
+              "anneau", "bague de fiançailles", "bague de mariage"
+            ],
+            interpretation: "Le mariage en rêve est un symbole d'union profonde — mais pas nécessairement d'une union réelle à venir. Il représente avant tout la réconciliation de deux parties opposées en toi : raison et intuition, masculin et féminin intérieur, liberté et engagement. Dire 'oui' avec joie annonce une intégration harmonieuse et un alignement intérieur. Fuir son mariage ou refuser à l'autel exprime une peur de l'engagement ou une résistance à un changement pourtant nécessaire. Un mariage qui tourne mal reflète des doutes profonds sur une décision importante dans ta vie. Rêver du mariage d'un autre peut signaler une projection de tes propres désirs ou ambivalences.",
+            image: "/images/iconekeywords/mariage.webp"
+          },
+         // ═══════════════════════════════════════════════════════════════════════════
+        // ─── ILE DESERTE──────────────────────────────────────────
+        // ═══════════════════════════════════════════════════════════════════════════
+            {
+              keywords: [
+                "île déserte", "île", "naufragé", "seul sur une île", "échoué",
+                "île inhabitée", "Robinson", "naufrage", "bateau qui coule",
+                "survivre seul", "île paradisiaque", "île sauvage",
+                "île volcan", "île tropicale", "être sauvé d'une île",
+                "signal de détresse", "feu de détresse", "être secouru",
+                "île flottante", "île qui disparaît", "île de rêve",
+                "partir sur une île", "île lointaine", "archipel"
+              ],
+              interpretation: "L'île déserte symbolise un isolement volontaire ou subi, un retour radical à l'essentiel et une confrontation avec soi-même sans les distractions habituelles. Si tu es seul sur l'île avec sérénité, ton âme réclame une retraite, du silence et du ressourcement profond. Si tu y es piégé avec angoisse, tu te sens coupé de tes soutiens affectifs ou sociaux. Le naufrage qui mène à l'île représente une perte soudaine qui te force à reconstruire depuis les fondations. Être secouru annonce qu'une aide ou une connexion vitale est sur le point d'arriver.",
+              image: "/images/iconekeywords/ile.webp"
+            },
+        // ═══════════════════════════════════════════════════════════════════════════
+        // ─── COULEUR ROSE──────────────────────────────────────────
+        // ═══════════════════════════════════════════════════════════════════════════
+              {
+                keywords: [
+                  "rose", "couleur rose", "tout est rose", "rose vif", "rose pâle",
+                  "vêtement rose", "chambre rose", "lumière rose", "rose bonbon",
+                  "rose fushia", "rose poudré", "rose pastel", "nuance rose",
+                  "teinte rose", "voir en rose", "monde rose", "filtre rose"
+                ],
+                interpretation: "Le rose en rêve est la couleur de la tendresse, de l'amour doux et de l'innocence. Il symbolise une sensibilité à fleur de peau, un besoin d'affection et de douceur dans ta vie actuelle. Voir tout en rose peut indiquer une période d'idéalisation — belle mais peut-être déconnectée de certaines réalités. Un rose vif ou fushia exprime une énergie créatrice, une joie communicative et un désir d'expression. Un rose pâle ou poudré évoque une nostalgie douce, une féminité apaisée ou un retour à des valeurs simples et tendres.",
+                image: "/images/iconekeywords/couleur-rose.webp"
+              },
+             // ═══════════════════════════════════════════════════════════════════════════
+            // ─── COULEUR ORANGE──────────────────────────────────────────
+             // ═══════════════════════════════════════════════════════════════════════════
+                {
+                  keywords: [
+                    "orange", "couleur orange", "tout est orange", "orange vif",
+                    "vêtement orange", "lumière orange", "coucher de soleil orange",
+                    "feu orange", "teinte orangée", "ambre", "roux", "couleur cuivre",
+                    "couleur rouille", "nuance orange", "horizon orange"
+                  ],
+                  interpretation: "L'orange en rêve est la couleur de l'énergie créatrice, de la vitalité et du chakra sacré — centre des émotions, de la sensualité et de la joie de vivre. Il symbolise un appel à embrasser ta créativité, à te connecter à tes désirs profonds et à oser exprimer ta singularité. Une lumière orange chaude annonce une période de chaleur humaine et de générosité dans tes relations. Un orange vif peut aussi signaler une urgence douce : quelque chose dans ta vie réclame de l'action, de l'enthousiasme et du mouvement.",
+                  image: "/images/iconekeywords/couleur-orange.webp"
+                },
+              // ═══════════════════════════════════════════════════════════════════════════
+              // ─── COUTEAU──────────────────────────────────────────
+              // ═══════════════════════════════════════════════════════════════════════════
+                  {
+                    keywords: [
+                      "couteau", "lame", "se couper avec un couteau", "couteau de cuisine",
+                      "couteau pointu", "couteau tranchant", "donner un coup de couteau",
+                      "recevoir un coup de couteau", "couteau dans le dos",
+                      "couteau qui ne coupe pas", "affûter un couteau", "couteau brisé",
+                      "dague", "bistouri", "cutter", "lame de rasoir",
+                      "trancher", "sectionner", "couper net", "poignard",
+                      "tenir un couteau", "menacer avec un couteau"
+                    ],
+                    interpretation: "Le couteau en rêve est le symbole d'une décision tranchante, d'une coupure nette ou d'une séparation nécessaire. Tenir un couteau indique que tu possèdes le pouvoir de couper court à une situation, une relation ou une habitude qui ne te sert plus. Recevoir un coup de couteau reflète une blessure émotionnelle récente — une parole blessante, une trahison ou un rejet. Un couteau dans le dos symbolise une trahison inattendue de quelqu'un en qui tu avais confiance. Un couteau qui ne coupe pas suggère que tu n'arrives pas à prendre la décision que tu sais pourtant nécessaire.",
+                    image: "/images/iconekeywords/couteau.webp"
+                  },
+                // ═══════════════════════════════════════════════════════════════════════════
+                // ─── ACCOUCHEMENT/NAISSANCE──────────────────────────────────────────
+                // ═══════════════════════════════════════════════════════════════════════════
+                    {
+                      keywords: [
+                        "accouchement", "donner naissance", "contractions", "pousser",
+                        "salle d'accouchement", "maternité", "sage-femme", "obstétricien",
+                        "naître", "naissance difficile", "naissance rapide",
+                        "accoucher seule", "accoucher en public", "accoucher d'un animal",
+                        "accoucher d'un objet", "césarienne", "cordon ombilical",
+                        "premiers cris", "bébé qui naît", "nouveau-né qui arrive",
+                        "prématuré", "naissance prématurée", "naissance inattendue",
+                        "être en train d'accoucher", "aider quelqu'un à accoucher"
+                      ],
+                      interpretation: "Accoucher en rêve est l'un des symboles les plus puissants de création et de transformation. Il ne s'agit presque jamais d'une grossesse réelle à venir — c'est la naissance d'un projet, d'une version de toi-même ou d'une nouvelle phase de vie qui était en gestation. Les contractions représentent la douleur productive qui précède chaque grande création. Accoucher seule ou sans aide évoque une indépendance farouche mais parfois épuisante — tu n'as pas à tout porter seul. Accoucher d'un animal ou d'un objet surprenant symbolise l'expression d'un talent ou d'une facette de toi-même totalement inattendue et précieuse.",
+                      image: "/images/iconekeywords/naissance.webp"
+                    },
+                 
   ],
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -383,7 +573,7 @@ export const dreamKeywordsExtra = {
         "erased", "presence ignored", "leaving no trace",
         "disappear without anyone noticing",
         "not being recognized", "become invisible",
-        "invisibility power", "hidden but present"
+        "invisibility power", "hidden but present","dreaming of having powers", "super strength", "sudden superhuman strength", "special abilities", "ability to control", "mind control powers", "power over others"
       ],
       interpretation: "Being invisible in a dream is a profoundly revealing experience. It often reflects a feeling of not being seen, recognized or heard in your daily life — whether in a relationship, a group or at work. This isn't always negative: sometimes invisibility represents a desire for total freedom, to observe without being judged, or to escape exhausting social pressure. If the invisibility in your dream brings relief, your soul is asking for withdrawal and space. If it causes anguish, a deep part of you yearns to be seen and recognized as you truly are.",
       image: "/images/iconekeywords/invisible.webp"
@@ -688,6 +878,167 @@ export const dreamKeywordsExtra = {
       interpretation: "Debt and compulsive spending in dreams speak of your relationship to value, resources and reciprocity. Being in debt symbolizes a feeling of owing something to others — emotionally or materially — or an unresolved guilt. Spending without restraint may reveal an escape into pleasure to compensate for inner emptiness. Begging represents a need for help or recognition that you cannot articulate in reality. This dream invites you to examine your relationship to resources — not just financial, but also energetic and emotional.",
       image: "/images/iconekeywords/dette.webp"
     },
-
+  
+   // ─── STAIRS ───────────────────────────────────────────
+                     {
+                        keywords: [
+                          "stairs", "staircase", "steps", "climbing stairs", "going down stairs",
+                          "spiral staircase", "endless stairs", "broken stairs", "collapsing stairs",
+                          "stairs without end", "step that gives way", "fall down stairs",
+                          "slip on stairs", "banister", "railing", "landing", "fire escape",
+                          "basement stairs", "attic stairs", "going up steps", "going down steps",
+                          "stairwell", "stairway"
+                        ],
+                        interpretation: "Stairs are one of the most symbolically loaded dream images. Climbing stairs with ease represents an ascent in your life — professional, spiritual or personal — and confidence in your progression. Going down stairs invites you to dive into your unconscious, revisit the past or rediscover lost foundations. Collapsing stairs or steps that give way signal instability in the foundations of your current life. Endless stairs evoke a sensation of endless effort with no visible result — your unconscious is inviting you to check whether you are headed in the right direction.",
+                        image: "/images/iconekeywords/escalier.webp"
+                      },
+   // ─── SPIDER ───────────────────────────────────────────
+                      {
+                        keywords: [
+                          "spider", "spiders", "spider web", "cobweb", "spider bite",
+                          "giant spider", "monstrous spider", "caught in a web",
+                          "web closing in", "spider descending", "spider on me",
+                          "fear of spiders", "arachnophobia", "spider nest",
+                          "spider spinning a web", "large spider", "black spider",
+                          "red spider", "venomous spider", "spider on the ceiling",
+                          "spider watching me", "black widow", "tarantula", "daddy long legs"
+                        ],
+                        interpretation: "The spider is one of the most powerful and ambivalent dream archetypes. It symbolizes creativity and the ability to weave your own destiny — as the spider weaves its web with patience and precision. It also represents the feminine principle in its most ancient form: the Great Mother, both creator and devourer. Being caught in a web evokes a situation you struggle to escape — a relationship, an obligation or a belief that imprisons you. A giant spider represents an authority figure perceived as invasive. If the spider fascinates rather than frightens you, it is an invitation to embrace your own creativity and inner power.",
+                        image: "/images/iconekeywords/araignee.webp"
+                      },
+// ─── BUTTERFLY───────────────────────────────────────────
+                        {
+                          keywords: [
+                            "butterfly", "butterflies", "chrysalis", "cocoon", "metamorphosis",
+                            "caterpillar becoming butterfly", "butterfly flying", "colorful butterfly",
+                            "white butterfly", "black butterfly", "giant butterfly", "swarm of butterflies",
+                            "butterfly landing on me", "catch a butterfly", "injured butterfly",
+                            "butterfly collection", "moth", "dragonfly", "transform into butterfly",
+                            "emerge from cocoon", "butterfly wings"
+                          ],
+                          interpretation: "The butterfly is the universal symbol of metamorphosis, rebirth and the liberated soul. Seeing one in a dream announces a profound transformation already underway in your life — even if you cannot yet see all its fruits. The chrysalis represents the transition period you are going through: dark and uncomfortable from within, it prepares the flight. A white butterfly symbolizes purity and messages from the beyond in many traditions. An injured butterfly invites you to care for your vulnerability during this period of change. Seeing colorful butterflies announces a period of joy, lightness and imminent renewal.",
+                          image: "/images/iconekeywords/papillon.webp"
+                        },
+// ─── CAVE───────────────────────────────────────────
+                          {
+                            keywords: [
+                              "cave", "cavern", "grotto", "natural cave", "spelunking", "underground",
+                              "underground gallery", "stalactite", "stalagmite", "cave entrance",
+                              "dark cave", "luminous cave", "secret cave", "hidden cave",
+                              "living in a cave", "shelter in a cave", "explore a cave",
+                              "underwater cave", "crystal cave", "deep caves", "underworld",
+                              "rock ceiling", "rock walls", "prehistoric cave", "cave paintings"
+                            ],
+                            interpretation: "The cave is the quintessential symbol of the deep unconscious — long before Jung, every human civilization lived in and sacred caves as places of passage between worlds. Entering one in a dream is accepting a plunge into your own depths, into those inner territories still unexplored. A dark cave invites you to face your fears and shadows with courage. A luminous or crystal cave announces a revelation: an inner treasure awaits you. Sheltering in a cave symbolizes a legitimate need for withdrawal, silence and replenishment away from the outer world.",
+                            image: "/images/iconekeywords/grotte.webp"
+                          },
+  // ─── TUNNEL───────────────────────────────────────────
+                            {
+                              keywords: [
+                                "tunnel", "dark tunnel", "light at the end of the tunnel",
+                                "endless tunnel", "narrowing tunnel", "underwater tunnel",
+                                "railway tunnel", "car tunnel", "going through a tunnel",
+                                "underground passage", "underground corridor",
+                                "tunnel with no exit", "collapsing tunnel", "narrow tunnel",
+                                "winding tunnel", "gallery", "narrow passage",
+                                "squeeze through a tunnel", "crawl through a tight space"
+                              ],
+                              interpretation: "The tunnel symbolizes an obligatory passage between two states of your life — a transition you can neither bypass nor shorten. The tunnel's darkness represents the uncertainty you are currently navigating: you cannot yet see the exit, but it exists. The light at the end of the tunnel is one of the most universal symbols of hope and deliverance — if you see it in your dream, the end of your ordeal is near. A narrowing or collapsing tunnel signals anxiety about this transition. Crawling through a tight space evokes a situation that constrains you and demands great humility to pass through.",
+                              image: "/images/iconekeywords/tunnel.webp"
+                            },
+// ─── WINDOW───────────────────────────────────────────
+                              {
+                                keywords: [
+                                  "window", "windows", "looking out the window", "broken window",
+                                  "open window", "closed window", "stuck window", "window that won't open",
+                                  "fall out of window", "jump out of window", "looking to the other side",
+                                  "glass pane", "windowpane", "window frame", "cracked glass",
+                                  "skylight", "porthole", "train window", "car window",
+                                  "bedroom window", "someone looking through the window", "face at the window"
+                                ],
+                                interpretation: "The window represents your point of view on the world and the boundary between your inner world and external reality. Looking out a window symbolizes an aspiration, a longing for elsewhere or a reflection on your current situation — you are observing without yet acting. An open window announces an opportunity or an opening presenting itself. A closed or impossible-to-open window expresses frustration at an opportunity you cannot grasp. Broken glass symbolizes an illusion shattering or a protection disappearing. An unknown face at the window evokes an emotional intrusion or a sudden awakening.",
+                                image: "/images/iconekeywords/fenetre.webp"
+                              },
+// ─── WEDDING───────────────────────────────────────────
+                                {
+                                  keywords: [
+                                    "wedding", "get married", "wedding ceremony", "nuptials", "ring",
+                                    "wedding dress", "wedding suit", "engagement", "marriage proposal",
+                                    "say yes", "say no", "failed wedding", "cancelled wedding",
+                                    "run away from wedding", "at the altar", "best man", "maid of honor",
+                                    "wedding list", "honeymoon", "wedding reception",
+                                    "wedding guests", "wedding venue", "wedding cake",
+                                    "bouquet", "forced marriage", "arranged marriage",
+                                    "marry a stranger", "officiant", "city hall", "church wedding",
+                                    "engagement ring", "wedding band"
+                                  ],
+                                  interpretation: "A wedding in a dream is a symbol of deep union — but not necessarily of a real upcoming marriage. It represents above all the reconciliation of two opposing parts within you: reason and intuition, inner masculine and feminine, freedom and commitment. Saying yes with joy announces a harmonious inner integration and alignment. Running away from or refusing at the altar expresses a fear of commitment or resistance to a necessary change. A wedding that goes wrong reflects deep doubts about an important decision in your life. Dreaming of someone else's wedding may signal a projection of your own desires or ambivalences.",
+                                  image: "/images/iconekeywords/mariage.webp"
+                                },
+  // ─── DESRT ISLAND───────────────────────────────────────────
+                                  {
+                                    keywords: [
+                                      "desert island", "island", "shipwrecked", "alone on an island",
+                                      "stranded", "uninhabited island", "Robinson Crusoe", "shipwreck",
+                                      "sinking boat", "survive alone", "paradise island", "wild island",
+                                      "volcanic island", "tropical island", "rescued from island",
+                                      "distress signal", "rescue fire", "being rescued",
+                                      "floating island", "disappearing island", "dream island",
+                                      "go to an island", "remote island", "archipelago"
+                                    ],
+                                    interpretation: "The desert island symbolizes isolation — chosen or endured — a radical return to essentials and a confrontation with yourself without your usual distractions. If you are alone on the island with serenity, your soul is asking for a retreat, silence and deep replenishment. If you are trapped there with anguish, you feel cut off from your emotional or social supports. The shipwreck that leads to the island represents a sudden loss that forces you to rebuild from the foundations. Being rescued announces that vital help or connection is about to arrive.",
+                                    image: "/images/iconekeywords/ile.webp"
+                                  },
+// ─── PINK───────────────────────────────────────────
+                                    {
+                                      keywords: [
+                                        "pink", "pink color", "everything is pink", "bright pink", "pale pink",
+                                        "pink clothes", "pink room", "pink light", "candy pink",
+                                        "fuchsia", "dusty pink", "pastel pink", "pink hue",
+                                        "rose-colored", "see the world through rose-tinted glasses",
+                                        "pink world", "pink filter"
+                                      ],
+                                      interpretation: "Pink in dreams is the color of tenderness, gentle love and innocence. It symbolizes a heightened sensitivity, a need for affection and softness in your current life. Seeing everything in pink can indicate a period of idealization — beautiful but perhaps disconnected from certain realities. Bright or fuchsia pink expresses creative energy, communicative joy and a desire for expression. Pale or dusty pink evokes gentle nostalgia, a soothed femininity or a return to simple and tender values.",
+                                      image: "/images/iconekeywords/couleur-rose.webp"
+                                    },
+// ───ORANGE───────────────────────────────────────────
+                                      {
+                                        keywords: [
+                                          "orange", "orange color", "everything is orange", "bright orange",
+                                          "orange clothes", "orange light", "orange sunset",
+                                          "orange fire", "amber tones", "copper color", "rust color",
+                                          "orange hue", "orange horizon", "orange glow"
+                                        ],
+                                        interpretation: "Orange in dreams is the color of creative energy, vitality and the sacral chakra — the center of emotions, sensuality and joy of living. It symbolizes a call to embrace your creativity, connect to your deep desires and dare to express your uniqueness. A warm orange light announces a period of human warmth and generosity in your relationships. A bright orange can also signal a gentle urgency: something in your life is asking for action, enthusiasm and movement.",
+                                        image: "/images/iconekeywords/couleur-orange.webp"
+                                      },
+// ───KNIFE───────────────────────────────────────────
+                                        {
+                                          keywords: [
+                                            "knife", "blade", "cut yourself with a knife", "kitchen knife",
+                                            "sharp knife", "give a stab", "receive a stab", "knife in the back",
+                                            "knife that won't cut", "sharpen a knife", "broken blade",
+                                            "dagger", "scalpel", "box cutter", "razor blade",
+                                            "slash", "sever", "cut clean", "hold a knife",
+                                            "threaten with a knife", "stabbing", "stab wound"
+                                          ],
+                                          interpretation: "The knife in a dream is the symbol of a decisive decision, a clean break or a necessary separation. Holding a knife indicates you possess the power to cut short a situation, a relationship or a habit that no longer serves you. Receiving a stab reflects a recent emotional wound — a hurtful word, a betrayal or a rejection. A knife in the back symbolizes an unexpected betrayal from someone you trusted. A knife that won't cut suggests you cannot bring yourself to make a decision you know to be necessary.",
+                                          image: "/images/iconekeywords/couteau.webp"
+                                        },
+// ───CHILDBIRTH───────────────────────────────────────────
+                                          {
+                                            keywords: [
+                                              "childbirth", "give birth", "contractions", "push", "labor",
+                                              "delivery room", "maternity ward", "midwife", "obstetrician",
+                                              "be born", "difficult birth", "fast birth", "give birth alone",
+                                              "give birth in public", "give birth to an animal",
+                                              "give birth to an object", "cesarean", "c-section", "umbilical cord",
+                                              "first cry", "baby being born", "newborn arriving",
+                                              "premature birth", "unexpected birth", "being in labor",
+                                              "help someone give birth"
+                                            ],
+                                            interpretation: "Giving birth in a dream is one of the most powerful symbols of creation and transformation. It is almost never about a real upcoming pregnancy — it is the birth of a project, a version of yourself or a new life phase that has been gestating. Contractions represent the productive pain that precedes every great creation. Giving birth alone or without help evokes fierce independence but sometimes exhausting solitude — you don't have to carry everything alone. Giving birth to an animal or a surprising object symbolizes the expression of a talent or a facet of yourself that is entirely unexpected and precious.",
+                                            image: "/images/iconekeywords/naissance.webp"
+                                          },
   ],
 };

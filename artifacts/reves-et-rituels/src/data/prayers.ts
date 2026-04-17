@@ -1,7 +1,8 @@
 export const prayers = [
-  // ── EXISTANTES ────────────────────────────────────────────────────────────
+  // ── TRADITION ─────────────────────────────────────────────────────────────
   {
     id: "saint-michel",
+    category: "tradition",
     icon: "⚔️",
     title: { fr: "Saint Michel Archange", en: "Saint Michael the Archangel" },
     desc: { fr: "Prière de protection contre les forces négatives.", en: "Prayer of protection against negative forces." },
@@ -33,7 +34,136 @@ Amen.`
     }
   },
   {
+    id: "notre-dame",
+    category: "tradition",
+    icon: "🌹",
+    title: { fr: "Je vous salue Marie", en: "Hail Mary" },
+    desc: { fr: "La prière mariale la plus universelle au monde.", en: "The most universal Marian prayer in the world." },
+    text: {
+      fr: `Je vous salue Marie,
+pleine de grâce,
+le Seigneur est avec vous.
+
+Vous êtes bénie entre toutes les femmes,
+et Jésus, le fruit de vos entrailles, est béni.
+
+Sainte Marie, Mère de Dieu,
+priez pour nous, pauvres pécheurs,
+maintenant et à l'heure de notre mort.
+
+Amen.`,
+      en: `Hail Mary,
+full of grace,
+the Lord is with thee.
+
+Blessed art thou among women,
+and blessed is the fruit of thy womb, Jesus.
+
+Holy Mary, Mother of God,
+pray for us sinners,
+now and at the hour of our death.
+
+Amen.`
+    }
+  },
+  {
+    id: "notre-pere",
+    category: "tradition",
+    icon: "☁️",
+    title: { fr: "Notre Père", en: "Our Father" },
+    desc: { fr: "La prière enseignée par Jésus, fondement de toute prière.", en: "The prayer taught by Jesus, foundation of all prayer." },
+    text: {
+      fr: `Notre Père, qui es aux cieux,
+que ton nom soit sanctifié,
+que ton règne vienne,
+que ta volonté soit faite
+sur la terre comme au ciel.
+
+Donne-nous aujourd'hui notre pain de ce jour.
+Pardonne-nous nos offenses,
+comme nous pardonnons aussi
+à ceux qui nous ont offensés.
+
+Et ne nous soumets pas à la tentation,
+mais délivre-nous du mal.
+
+Car c'est à toi qu'appartiennent
+le règne, la puissance et la gloire,
+pour les siècles des siècles.
+
+Amen.`,
+      en: `Our Father, who art in heaven,
+hallowed be thy name.
+Thy kingdom come,
+thy will be done
+on earth as it is in heaven.
+
+Give us this day our daily bread,
+and forgive us our trespasses
+as we forgive those
+who trespass against us.
+
+And lead us not into temptation,
+but deliver us from evil.
+
+For thine is the kingdom,
+the power and the glory,
+for ever and ever.
+
+Amen.`
+    }
+  },
+  {
+    id: "holy-spirit",
+    category: "tradition",
+    icon: "🕊️",
+    title: { fr: "Viens Esprit Saint", en: "Come Holy Spirit" },
+    desc: { fr: "Invoquer le souffle divin pour être guidé et inspiré.", en: "Invoke the divine breath for guidance and inspiration." },
+    text: {
+      fr: `Viens, Esprit Saint,
+remplis le cœur de tes fidèles
+et allume en eux le feu de ton amour.
+
+Envoie ton Esprit, et tout sera créé,
+et tu renouvelleras la face de la terre.
+
+Ô Dieu, qui as instruit le cœur de tes fidèles
+par la lumière du Saint-Esprit,
+donne-nous de goûter en ton Esprit
+ce qui est droit et juste,
+et de nous réjouir toujours
+de sa consolation.
+
+Viens, Esprit de sagesse.
+Viens, Esprit de lumière.
+Viens, Esprit d'amour.
+
+Amen.`,
+      en: `Come, Holy Spirit,
+fill the hearts of your faithful
+and kindle in them the fire of your love.
+
+Send forth your Spirit and they shall be created,
+and you shall renew the face of the earth.
+
+O God, who by the light of the Holy Spirit
+has instructed the hearts of your faithful,
+grant that by the same Holy Spirit
+we may be truly wise
+and ever rejoice in his consolation.
+
+Come, Spirit of wisdom.
+Come, Spirit of light.
+Come, Spirit of love.
+
+Amen.`
+    }
+  },
+
+  // ── PROTECTION ────────────────────────────────────────────────────────────
+  {
     id: "protection-daily",
+    category: "protection",
     icon: "🛡️",
     title: { fr: "Protection Quotidienne", en: "Daily Protection" },
     desc: { fr: "Invoquer une bulle de lumière protectrice chaque matin.", en: "Invoke a protective bubble of light each morning." },
@@ -71,127 +201,8 @@ So be it.`
     }
   },
   {
-    id: "healing",
-    icon: "💚",
-    title: { fr: "Prière de Guérison", en: "Prayer of Healing" },
-    desc: { fr: "Appeler la guérison divine sur le corps et l'âme.", en: "Call divine healing upon body and soul." },
-    text: {
-      fr: `Ô Lumière divine, source de toute guérison,
-je t'ouvre mon corps, mon cœur et mon âme.
-
-Là où il y a douleur, apporte le soulagement.
-Là où il y a peur, apporte la paix.
-Là où il y a blessure, apporte la guérison.
-Là où il y a obscurité, apporte ta lumière.
-
-Je fais confiance au processus de guérison.
-Mon corps sait comment guérir.
-Mon âme sait comment se régénérer.
-
-Je reçois maintenant cette guérison
-avec gratitude et humilité.
-Merci. Merci. Merci.`,
-      en: `O Divine Light, source of all healing,
-I open my body, my heart and my soul to you.
-
-Where there is pain, bring relief.
-Where there is fear, bring peace.
-Where there is wound, bring healing.
-Where there is darkness, bring your light.
-
-I trust the healing process.
-My body knows how to heal.
-My soul knows how to regenerate.
-
-I now receive this healing
-with gratitude and humility.
-Thank you. Thank you. Thank you.`
-    }
-  },
-  {
-    id: "gratitude",
-    icon: "🙏",
-    title: { fr: "Gratitude Divine", en: "Divine Gratitude" },
-    desc: { fr: "Remercier l'univers pour ses grâces et bénédictions.", en: "Thank the universe for its graces and blessings." },
-    text: {
-      fr: `Merci pour ce jour nouveau,
-pour l'air que je respire,
-pour le battement de mon cœur,
-pour les bénédictions visibles et invisibles
-qui remplissent ma vie.
-
-Merci pour les épreuves qui m'ont rendu(e) plus fort(e).
-Merci pour les joies qui ont illuminé mon chemin.
-Merci pour les rencontres qui ont changé ma vie.
-Merci pour l'amour qui circule en moi et autour de moi.
-
-Je suis reconnaissant(e).
-Je suis béni(e).
-Je suis en paix.
-
-Qu'il en soit ainsi.`,
-      en: `Thank you for this new day,
-for the air I breathe,
-for the beating of my heart,
-for the visible and invisible blessings
-that fill my life.
-
-Thank you for the trials that made me stronger.
-Thank you for the joys that lit my path.
-Thank you for the encounters that changed my life.
-Thank you for the love that flows in me and around me.
-
-I am grateful.
-I am blessed.
-I am at peace.
-
-So be it.`
-    }
-  },
-  {
-    id: "defunts",
-    icon: "🕯️",
-    title: { fr: "Prière pour les Défunts", en: "Prayer for the Departed" },
-    desc: { fr: "Accompagner les âmes parties vers la lumière.", en: "Guide departed souls toward the light." },
-    text: {
-      fr: `Ô Lumière éternelle,
-accueille dans ta paix
-les âmes de ceux qui nous ont quittés.
-
-Qu'ils reposent dans ta lumière infinie.
-Qu'ils soient libérés de toute souffrance.
-Qu'ils sachent combien ils sont aimés.
-
-Nous les portons dans nos cœurs.
-Leur mémoire est une lumière
-qui ne s'éteint jamais.
-
-Et lorsque notre chemin touchera à sa fin,
-puissions-nous les retrouver
-dans la paix éternelle de ton amour.
-
-Amen.`,
-      en: `O Eternal Light,
-welcome into your peace
-the souls of those who have left us.
-
-May they rest in your infinite light.
-May they be freed from all suffering.
-May they know how deeply they are loved.
-
-We carry them in our hearts.
-Their memory is a light
-that never goes out.
-
-And when our own journey comes to its end,
-may we find them again
-in the eternal peace of your love.
-
-Amen.`
-    }
-  },
-  {
     id: "angels",
+    category: "protection",
     icon: "👼",
     title: { fr: "Invocation des Anges Gardiens", en: "Invocation of Guardian Angels" },
     desc: { fr: "Appeler la guidance et la protection de son ange.", en: "Call upon your angel's guidance and protection." },
@@ -233,93 +244,94 @@ Always.`
     }
   },
   {
-    id: "abundance",
-    icon: "✨",
-    title: { fr: "Prière d'Abondance", en: "Prayer of Abundance" },
-    desc: { fr: "Ouvrir son cœur à la prospérité et aux bénédictions.", en: "Open your heart to prosperity and blessings." },
+    id: "family",
+    category: "protection",
+    icon: "👨‍👩‍👧‍👦",
+    title: { fr: "Prière pour la Famille", en: "Prayer for the Family" },
+    desc: { fr: "Protéger et bénir ceux qu'on aime.", en: "Protect and bless those we love." },
     text: {
-      fr: `Univers généreux et abondant,
-je m'ouvre aujourd'hui à tes dons infinis.
+      fr: `Lumière divine,
+je te confie aujourd'hui ceux que j'aime.
 
-Je lâche toute croyance de manque.
-Je lâche toute peur de ne pas mériter.
-Je suis digne de recevoir.
-Je suis digne d'abonder.
+Protège-les là où ils se trouvent.
+Veille sur leurs pas, leur santé, leur cœur.
+Éloigne d'eux tout danger, toute souffrance inutile.
 
-L'argent circule librement dans ma vie.
-La prospérité me trouve facilement.
-Les opportunités s'ouvrent sur mon chemin.
+Bénis notre famille de ta grâce.
+Que l'amour qui nous unit
+soit plus fort que tout ce qui pourrait nous séparer.
 
-Je reçois avec gratitude.
-Je partage avec générosité.
-Je vis dans l'abondance.
+Que chacun trouve dans notre foyer
+un refuge de paix, de rire et d'amour.
 
-Et il en est ainsi.`,
-      en: `Generous and abundant Universe,
-I open myself today to your infinite gifts.
+Je te remercie pour chacun d'eux.
+Ils sont mes plus belles bénédictions.
 
-I release all beliefs of lack.
-I release all fear of not deserving.
-I am worthy of receiving.
-I am worthy of abundance.
+Amen.`,
+      en: `Divine Light,
+I entrust to you today those I love.
 
-Money flows freely in my life.
-Prosperity finds me easily.
-Opportunities open on my path.
+Protect them wherever they are.
+Watch over their steps, their health, their hearts.
+Keep from them all danger, all unnecessary suffering.
 
-I receive with gratitude.
-I share with generosity.
-I live in abundance.
+Bless our family with your grace.
+May the love that unites us
+be stronger than anything that could separate us.
 
-And so it is.`
+May each one find in our home
+a refuge of peace, laughter and love.
+
+I thank you for each of them.
+They are my greatest blessings.
+
+Amen.`
     }
   },
+
+  // ── GUÉRISON ──────────────────────────────────────────────────────────────
   {
-    id: "love-prayer",
-    icon: "💗",
-    title: { fr: "Prière pour l'Amour", en: "Prayer for Love" },
-    desc: { fr: "Attirer l'amour véritable et ouvrir son cœur.", en: "Attract true love and open your heart." },
+    id: "healing",
+    category: "guerison",
+    icon: "💚",
+    title: { fr: "Prière de Guérison", en: "Prayer of Healing" },
+    desc: { fr: "Appeler la guérison divine sur le corps et l'âme.", en: "Call divine healing upon body and soul." },
     text: {
-      fr: `Ô Amour divin,
-toi qui es la source de toute tendresse,
-je t'invite dans ma vie.
+      fr: `Ô Lumière divine, source de toute guérison,
+je t'ouvre mon corps, mon cœur et mon âme.
 
-Ouvre mon cœur à recevoir et à donner.
-Guéris les blessures du passé
-qui m'empêchent d'aimer pleinement.
+Là où il y a douleur, apporte le soulagement.
+Là où il y a peur, apporte la paix.
+Là où il y a blessure, apporte la guérison.
+Là où il y a obscurité, apporte ta lumière.
 
-Attire à moi l'âme sœur
-qui vibrera en harmonie avec mon être.
-Que notre rencontre soit guidée
-par la sagesse divine.
+Je fais confiance au processus de guérison.
+Mon corps sait comment guérir.
+Mon âme sait comment se régénérer.
 
-Je suis prêt(e) à aimer.
-Je suis prêt(e) à être aimé(e).
-Mon cœur est ouvert.
+Je reçois maintenant cette guérison
+avec gratitude et humilité.
+Merci. Merci. Merci.`,
+      en: `O Divine Light, source of all healing,
+I open my body, my heart and my soul to you.
 
-Qu'il en soit ainsi.`,
-      en: `O Divine Love,
-you who are the source of all tenderness,
-I invite you into my life.
+Where there is pain, bring relief.
+Where there is fear, bring peace.
+Where there is wound, bring healing.
+Where there is darkness, bring your light.
 
-Open my heart to receive and to give.
-Heal the wounds of the past
-that prevent me from loving fully.
+I trust the healing process.
+My body knows how to heal.
+My soul knows how to regenerate.
 
-Attract to me the kindred soul
-who will vibrate in harmony with my being.
-May our meeting be guided
-by divine wisdom.
-
-I am ready to love.
-I am ready to be loved.
-My heart is open.
-
-So be it.`
+I now receive this healing
+with gratitude and humility.
+Thank you. Thank you. Thank you.`
     }
   },
   {
     id: "serenity",
+    category: "guerison",
     icon: "🕊️",
     title: { fr: "Prière de Sérénité", en: "Prayer of Serenity" },
     desc: { fr: "Trouver la paix intérieure dans la tempête.", en: "Find inner peace in the storm." },
@@ -359,7 +371,69 @@ Peace. Peace. Peace.`
     }
   },
   {
+    id: "anxiety-release",
+    category: "guerison",
+    icon: "🌊",
+    title: { fr: "Libération de l'Anxiété", en: "Anxiety Release" },
+    desc: { fr: "Dissoudre la peur et retrouver la paix du cœur.", en: "Dissolve fear and reclaim peace of heart." },
+    text: {
+      fr: `Je reconnais cette anxiété en moi.
+Je ne la combats pas.
+Je lui parle avec douceur.
+
+Tu es là pour me protéger.
+Je t'entends.
+Mais tu n'as plus besoin de crier.
+
+Je respire.
+Je m'ancre dans ce moment présent.
+Mes pieds touchent le sol.
+Mon corps est en sécurité.
+
+Ce qui m'appartient reste.
+Ce qui doit partir s'en va.
+Je lâche le contrôle.
+Je fais confiance à la vie.
+
+La paix est déjà là, en moi.
+Elle a toujours été là.
+Je la laisse simplement être.
+
+Je suis en sécurité.
+Je suis en paix.
+Et il en est ainsi.`,
+      en: `I acknowledge this anxiety within me.
+I do not fight it.
+I speak to it gently.
+
+You are here to protect me.
+I hear you.
+But you no longer need to shout.
+
+I breathe.
+I ground myself in this present moment.
+My feet touch the ground.
+My body is safe.
+
+What belongs to me remains.
+What must leave, leaves.
+I release control.
+I trust in life.
+
+Peace is already here, within me.
+It has always been here.
+I simply let it be.
+
+I am safe.
+I am at peace.
+And so it is.`
+    }
+  },
+
+  // ── CROISSANCE ────────────────────────────────────────────────────────────
+  {
     id: "strength",
+    category: "croissance",
     icon: "🔥",
     title: { fr: "Prière de Force & Courage", en: "Prayer of Strength & Courage" },
     desc: { fr: "Invoquer la force divine pour affronter les épreuves.", en: "Invoke divine strength to face trials." },
@@ -408,6 +482,7 @@ I am ready.`
   },
   {
     id: "forgiveness",
+    category: "croissance",
     icon: "🤍",
     title: { fr: "Prière du Pardon", en: "Prayer of Forgiveness" },
     desc: { fr: "Se libérer par le pardon et la compassion.", en: "Free yourself through forgiveness and compassion." },
@@ -453,264 +528,8 @@ And so it is.`
     }
   },
   {
-    id: "sleep-prayer",
-    icon: "🌙",
-    title: { fr: "Prière du Soir", en: "Evening Prayer" },
-    desc: { fr: "S'endormir en paix et confier la nuit à Dieu.", en: "Fall asleep in peace and entrust the night to God." },
-    text: {
-      fr: `En ce soir qui s'achève,
-je pose devant toi
-le poids de cette journée.
-
-Ce qui fut accompli, merci.
-Ce qui fut difficile, apprends-moi.
-Ce qui fut douloureux, guéris-le pendant mon sommeil.
-
-Je confie mon corps, mon âme et mon esprit
-à ta protection bienveillante cette nuit.
-
-Que mes rêves soient doux et porteurs de lumière.
-Que mon sommeil soit réparateur et profond.
-Que je me réveille demain
-renouvelé(e), reposé(e), prêt(e).
-
-Bonne nuit, Seigneur.
-Bonne nuit, mon âme.`,
-      en: `As this evening draws to a close,
-I lay before you
-the weight of this day.
-
-What was accomplished, thank you.
-What was difficult, teach me.
-What was painful, heal it during my sleep.
-
-I entrust my body, my soul and my spirit
-to your loving protection this night.
-
-May my dreams be gentle and filled with light.
-May my sleep be restful and deep.
-May I wake tomorrow
-renewed, rested, ready.
-
-Good night, Lord.
-Good night, my soul.`
-    }
-  },
-  {
-    id: "family",
-    icon: "👨‍👩‍👧‍👦",
-    title: { fr: "Prière pour la Famille", en: "Prayer for the Family" },
-    desc: { fr: "Protéger et bénir ceux qu'on aime.", en: "Protect and bless those we love." },
-    text: {
-      fr: `Lumière divine,
-je te confie aujourd'hui ceux que j'aime.
-
-Protège-les là où ils se trouvent.
-Veille sur leurs pas, leur santé, leur cœur.
-Éloigne d'eux tout danger, toute souffrance inutile.
-
-Bénis notre famille de ta grâce.
-Que l'amour qui nous unit
-soit plus fort que tout ce qui pourrait nous séparer.
-
-Que chacun trouve dans notre foyer
-un refuge de paix, de rire et d'amour.
-
-Je te remercie pour chacun d'eux.
-Ils sont mes plus belles bénédictions.
-
-Amen.`,
-      en: `Divine Light,
-I entrust to you today those I love.
-
-Protect them wherever they are.
-Watch over their steps, their health, their hearts.
-Keep from them all danger, all unnecessary suffering.
-
-Bless our family with your grace.
-May the love that unites us
-be stronger than anything that could separate us.
-
-May each one find in our home
-a refuge of peace, laughter and love.
-
-I thank you for each of them.
-They are my greatest blessings.
-
-Amen.`
-    }
-  },
-
-  // ── NOUVELLES PRIÈRES ─────────────────────────────────────────────────────
-  {
-    id: "morning-prayer",
-    icon: "🌅",
-    title: { fr: "Prière du Matin", en: "Morning Prayer" },
-    desc: { fr: "Commencer chaque journée avec intention et lumière.", en: "Begin each day with intention and light." },
-    text: {
-      fr: `En ce matin qui s'éveille,
-je me lève avec gratitude dans le cœur.
-
-Que cette journée soit guidée par ta lumière.
-Que mes pensées soient justes et bienveillantes.
-Que mes paroles soient douces et vraies.
-Que mes actes soient alignés avec mon âme.
-
-Donne-moi la clarté pour voir ce qui est essentiel.
-Donne-moi l'énergie pour accomplir ma mission.
-Donne-moi la joie pour traverser les petites épreuves.
-
-Je m'engage à vivre pleinement ce jour.
-À aimer sans retenue.
-À servir avec humilité.
-
-Merci pour ce nouveau départ.
-Qu'il en soit ainsi.`,
-      en: `As this morning awakens,
-I rise with gratitude in my heart.
-
-May this day be guided by your light.
-May my thoughts be just and kind.
-May my words be gentle and true.
-May my actions be aligned with my soul.
-
-Give me clarity to see what is essential.
-Give me energy to fulfill my mission.
-Give me joy to face the small trials.
-
-I commit to living this day fully.
-To loving without restraint.
-To serving with humility.
-
-Thank you for this new beginning.
-So be it.`
-    }
-  },
-  {
-    id: "holy-spirit",
-    icon: "🕊️",
-    title: { fr: "Viens Esprit Saint", en: "Come Holy Spirit" },
-    desc: { fr: "Invoquer le souffle divin pour être guidé et inspiré.", en: "Invoke the divine breath for guidance and inspiration." },
-    text: {
-      fr: `Viens, Esprit Saint,
-remplis le cœur de tes fidèles
-et allume en eux le feu de ton amour.
-
-Envoie ton Esprit, et tout sera créé,
-et tu renouvelleras la face de la terre.
-
-Ô Dieu, qui as instruit le cœur de tes fidèles
-par la lumière du Saint-Esprit,
-donne-nous de goûter en ton Esprit
-ce qui est droit et juste,
-et de nous réjouir toujours
-de sa consolation.
-
-Viens, Esprit de sagesse.
-Viens, Esprit de lumière.
-Viens, Esprit d'amour.
-
-Amen.`,
-      en: `Come, Holy Spirit,
-fill the hearts of your faithful
-and kindle in them the fire of your love.
-
-Send forth your Spirit and they shall be created,
-and you shall renew the face of the earth.
-
-O God, who by the light of the Holy Spirit
-has instructed the hearts of your faithful,
-grant that by the same Holy Spirit
-we may be truly wise
-and ever rejoice in his consolation.
-
-Come, Spirit of wisdom.
-Come, Spirit of light.
-Come, Spirit of love.
-
-Amen.`
-    }
-  },
-  {
-    id: "notre-dame",
-    icon: "🌹",
-    title: { fr: "Je vous salue Marie", en: "Hail Mary" },
-    desc: { fr: "La prière mariale la plus universelle au monde.", en: "The most universal Marian prayer in the world." },
-    text: {
-      fr: `Je vous salue Marie,
-pleine de grâce,
-le Seigneur est avec vous.
-
-Vous êtes bénie entre toutes les femmes,
-et Jésus, le fruit de vos entrailles, est béni.
-
-Sainte Marie, Mère de Dieu,
-priez pour nous, pauvres pécheurs,
-maintenant et à l'heure de notre mort.
-
-Amen.`,
-      en: `Hail Mary,
-full of grace,
-the Lord is with thee.
-
-Blessed art thou among women,
-and blessed is the fruit of thy womb, Jesus.
-
-Holy Mary, Mother of God,
-pray for us sinners,
-now and at the hour of our death.
-
-Amen.`
-    }
-  },
-  {
-    id: "notre-pere",
-    icon: "☁️",
-    title: { fr: "Notre Père", en: "Our Father" },
-    desc: { fr: "La prière enseignée par Jésus, fondement de toute prière.", en: "The prayer taught by Jesus, foundation of all prayer." },
-    text: {
-      fr: `Notre Père, qui es aux cieux,
-que ton nom soit sanctifié,
-que ton règne vienne,
-que ta volonté soit faite
-sur la terre comme au ciel.
-
-Donne-nous aujourd'hui notre pain de ce jour.
-Pardonne-nous nos offenses,
-comme nous pardonnons aussi
-à ceux qui nous ont offensés.
-
-Et ne nous soumets pas à la tentation,
-mais délivre-nous du mal.
-
-Car c'est à toi qu'appartiennent
-le règne, la puissance et la gloire,
-pour les siècles des siècles.
-
-Amen.`,
-      en: `Our Father, who art in heaven,
-hallowed be thy name.
-Thy kingdom come,
-thy will be done
-on earth as it is in heaven.
-
-Give us this day our daily bread,
-and forgive us our trespasses
-as we forgive those
-who trespass against us.
-
-And lead us not into temptation,
-but deliver us from evil.
-
-For thine is the kingdom,
-the power and the glory,
-for ever and ever.
-
-Amen.`
-    }
-  },
-  {
     id: "chakra-opening",
+    category: "croissance",
     icon: "🌀",
     title: { fr: "Ouverture des Chakras", en: "Chakra Opening" },
     desc: { fr: "Harmoniser et éveiller les centres d'énergie du corps.", en: "Harmonize and awaken the body's energy centers." },
@@ -771,8 +590,54 @@ May I be balanced.
 So be it.`
     }
   },
+
+  // ── ABONDANCE ─────────────────────────────────────────────────────────────
+  {
+    id: "abundance",
+    category: "abondance",
+    icon: "✨",
+    title: { fr: "Prière d'Abondance", en: "Prayer of Abundance" },
+    desc: { fr: "Ouvrir son cœur à la prospérité et aux bénédictions.", en: "Open your heart to prosperity and blessings." },
+    text: {
+      fr: `Univers généreux et abondant,
+je m'ouvre aujourd'hui à tes dons infinis.
+
+Je lâche toute croyance de manque.
+Je lâche toute peur de ne pas mériter.
+Je suis digne de recevoir.
+Je suis digne d'abonder.
+
+L'argent circule librement dans ma vie.
+La prospérité me trouve facilement.
+Les opportunités s'ouvrent sur mon chemin.
+
+Je reçois avec gratitude.
+Je partage avec générosité.
+Je vis dans l'abondance.
+
+Et il en est ainsi.`,
+      en: `Generous and abundant Universe,
+I open myself today to your infinite gifts.
+
+I release all beliefs of lack.
+I release all fear of not deserving.
+I am worthy of receiving.
+I am worthy of abundance.
+
+Money flows freely in my life.
+Prosperity finds me easily.
+Opportunities open on my path.
+
+I receive with gratitude.
+I share with generosity.
+I live in abundance.
+
+And so it is.`
+    }
+  },
   {
     id: "prosperity",
+    category: "abondance",
     icon: "🌿",
     title: { fr: "Prière de Prospérité", en: "Prayer of Prosperity" },
     desc: { fr: "Attirer la réussite et ouvrir la voie à ses projets.", en: "Attract success and open the way to your projects." },
@@ -823,6 +688,7 @@ And so it is.`
   },
   {
     id: "divine-light",
+    category: "abondance",
     icon: "☀️",
     title: { fr: "Lumière Divine Intérieure", en: "Inner Divine Light" },
     desc: { fr: "Reconnaître et honorer la lumière qui brille en soi.", en: "Recognize and honor the light that shines within." },
@@ -881,8 +747,142 @@ on this day and forever.
 Amen.`
     }
   },
+
+  // ── AMOUR ─────────────────────────────────────────────────────────────────
+  {
+    id: "love-prayer",
+    category: "amour",
+    icon: "💗",
+    title: { fr: "Prière pour l'Amour", en: "Prayer for Love" },
+    desc: { fr: "Attirer l'amour véritable et ouvrir son cœur.", en: "Attract true love and open your heart." },
+    text: {
+      fr: `Ô Amour divin,
+toi qui es la source de toute tendresse,
+je t'invite dans ma vie.
+
+Ouvre mon cœur à recevoir et à donner.
+Guéris les blessures du passé
+qui m'empêchent d'aimer pleinement.
+
+Attire à moi l'âme sœur
+qui vibrera en harmonie avec mon être.
+Que notre rencontre soit guidée
+par la sagesse divine.
+
+Je suis prêt(e) à aimer.
+Je suis prêt(e) à être aimé(e).
+Mon cœur est ouvert.
+
+Qu'il en soit ainsi.`,
+      en: `O Divine Love,
+you who are the source of all tenderness,
+I invite you into my life.
+
+Open my heart to receive and to give.
+Heal the wounds of the past
+that prevent me from loving fully.
+
+Attract to me the kindred soul
+who will vibrate in harmony with my being.
+May our meeting be guided
+by divine wisdom.
+
+I am ready to love.
+I am ready to be loved.
+My heart is open.
+
+So be it.`
+    }
+  },
+  {
+    id: "gratitude",
+    category: "amour",
+    icon: "🙏",
+    title: { fr: "Gratitude Divine", en: "Divine Gratitude" },
+    desc: { fr: "Remercier l'univers pour ses grâces et bénédictions.", en: "Thank the universe for its graces and blessings." },
+    text: {
+      fr: `Merci pour ce jour nouveau,
+pour l'air que je respire,
+pour le battement de mon cœur,
+pour les bénédictions visibles et invisibles
+qui remplissent ma vie.
+
+Merci pour les épreuves qui m'ont rendu(e) plus fort(e).
+Merci pour les joies qui ont illuminé mon chemin.
+Merci pour les rencontres qui ont changé ma vie.
+Merci pour l'amour qui circule en moi et autour de moi.
+
+Je suis reconnaissant(e).
+Je suis béni(e).
+Je suis en paix.
+
+Qu'il en soit ainsi.`,
+      en: `Thank you for this new day,
+for the air I breathe,
+for the beating of my heart,
+for the visible and invisible blessings
+that fill my life.
+
+Thank you for the trials that made me stronger.
+Thank you for the joys that lit my path.
+Thank you for the encounters that changed my life.
+Thank you for the love that flows in me and around me.
+
+I am grateful.
+I am blessed.
+I am at peace.
+
+So be it.`
+    }
+  },
+
+  // ── SPIRITUALITÉ ──────────────────────────────────────────────────────────
+  {
+    id: "defunts",
+    category: "spiritualite",
+    icon: "🕯️",
+    title: { fr: "Prière pour les Défunts", en: "Prayer for the Departed" },
+    desc: { fr: "Accompagner les âmes parties vers la lumière.", en: "Guide departed souls toward the light." },
+    text: {
+      fr: `Ô Lumière éternelle,
+accueille dans ta paix
+les âmes de ceux qui nous ont quittés.
+
+Qu'ils reposent dans ta lumière infinie.
+Qu'ils soient libérés de toute souffrance.
+Qu'ils sachent combien ils sont aimés.
+
+Nous les portons dans nos cœurs.
+Leur mémoire est une lumière
+qui ne s'éteint jamais.
+
+Et lorsque notre chemin touchera à sa fin,
+puissions-nous les retrouver
+dans la paix éternelle de ton amour.
+
+Amen.`,
+      en: `O Eternal Light,
+welcome into your peace
+the souls of those who have left us.
+
+May they rest in your infinite light.
+May they be freed from all suffering.
+May they know how deeply they are loved.
+
+We carry them in our hearts.
+Their memory is a light
+that never goes out.
+
+And when our own journey comes to its end,
+may we find them again
+in the eternal peace of your love.
+
+Amen.`
+    }
+  },
   {
     id: "ancestors",
+    category: "spiritualite",
     icon: "🌳",
     title: { fr: "Prière aux Ancêtres", en: "Prayer to the Ancestors" },
     desc: { fr: "Honorer sa lignée et recevoir la sagesse des anciens.", en: "Honor your lineage and receive the wisdom of the elders." },
@@ -935,6 +935,7 @@ So be it.`
   },
   {
     id: "nature-prayer",
+    category: "spiritualite",
     icon: "🍃",
     title: { fr: "Prière à la Nature", en: "Prayer to Nature" },
     desc: { fr: "Se reconnecter à la Terre et aux éléments sacrés.", en: "Reconnect with the Earth and the sacred elements." },
@@ -983,66 +984,96 @@ In gratitude for all that is.
 So be it.`
     }
   },
+
+  // ── QUOTIDIEN ─────────────────────────────────────────────────────────────
   {
-    id: "anxiety-release",
-    icon: "🌊",
-    title: { fr: "Libération de l'Anxiété", en: "Anxiety Release" },
-    desc: { fr: "Dissoudre la peur et retrouver la paix du cœur.", en: "Dissolve fear and reclaim peace of heart." },
-    text: ``,
-    // text est rempli ci-dessous pour éviter les limites de longueur
+    id: "morning-prayer",
+    category: "quotidien",
+    icon: "🌅",
+    title: { fr: "Prière du Matin", en: "Morning Prayer" },
+    desc: { fr: "Commencer chaque journée avec intention et lumière.", en: "Begin each day with intention and light." },
+    text: {
+      fr: `En ce matin qui s'éveille,
+je me lève avec gratitude dans le cœur.
+
+Que cette journée soit guidée par ta lumière.
+Que mes pensées soient justes et bienveillantes.
+Que mes paroles soient douces et vraies.
+Que mes actes soient alignés avec mon âme.
+
+Donne-moi la clarté pour voir ce qui est essentiel.
+Donne-moi l'énergie pour accomplir ma mission.
+Donne-moi la joie pour traverser les petites épreuves.
+
+Je m'engage à vivre pleinement ce jour.
+À aimer sans retenue.
+À servir avec humilité.
+
+Merci pour ce nouveau départ.
+Qu'il en soit ainsi.`,
+      en: `As this morning awakens,
+I rise with gratitude in my heart.
+
+May this day be guided by your light.
+May my thoughts be just and kind.
+May my words be gentle and true.
+May my actions be aligned with my soul.
+
+Give me clarity to see what is essential.
+Give me energy to fulfill my mission.
+Give me joy to face the small trials.
+
+I commit to living this day fully.
+To loving without restraint.
+To serving with humility.
+
+Thank you for this new beginning.
+So be it.`
+    }
+  },
+  {
+    id: "sleep-prayer",
+    category: "quotidien",
+    icon: "🌙",
+    title: { fr: "Prière du Soir", en: "Evening Prayer" },
+    desc: { fr: "S'endormir en paix et confier la nuit à Dieu.", en: "Fall asleep in peace and entrust the night to God." },
+    text: {
+      fr: `En ce soir qui s'achève,
+je pose devant toi
+le poids de cette journée.
+
+Ce qui fut accompli, merci.
+Ce qui fut difficile, apprends-moi.
+Ce qui fut douloureux, guéris-le pendant mon sommeil.
+
+Je confie mon corps, mon âme et mon esprit
+à ta protection bienveillante cette nuit.
+
+Que mes rêves soient doux et porteurs de lumière.
+Que mon sommeil soit réparateur et profond.
+Que je me réveille demain
+renouvelé(e), reposé(e), prêt(e).
+
+Bonne nuit, Seigneur.
+Bonne nuit, mon âme.`,
+      en: `As this evening draws to a close,
+I lay before you
+the weight of this day.
+
+What was accomplished, thank you.
+What was difficult, teach me.
+What was painful, heal it during my sleep.
+
+I entrust my body, my soul and my spirit
+to your loving protection this night.
+
+May my dreams be gentle and filled with light.
+May my sleep be restful and deep.
+May I wake tomorrow
+renewed, rested, ready.
+
+Good night, Lord.
+Good night, my soul.`
+    }
   },
 ];
-
-// Ajouter le texte de la dernière prière séparément pour la lisibilité
-prayers[prayers.length - 1].text = {
-  fr: `Je reconnais cette anxiété en moi.
-Je ne la combats pas.
-Je lui parle avec douceur.
-
-Tu es là pour me protéger.
-Je t'entends.
-Mais tu n'as plus besoin de crier.
-
-Je respire.
-Je m'ancre dans ce moment présent.
-Mes pieds touchent le sol.
-Mon corps est en sécurité.
-
-Ce qui m'appartient reste.
-Ce qui doit partir s'en va.
-Je lâche le contrôle.
-Je fais confiance à la vie.
-
-La paix est déjà là, en moi.
-Elle a toujours été là.
-Je la laisse simplement être.
-
-Je suis en sécurité.
-Je suis en paix.
-Et il en est ainsi.`,
-  en: `I acknowledge this anxiety within me.
-I do not fight it.
-I speak to it gently.
-
-You are here to protect me.
-I hear you.
-But you no longer need to shout.
-
-I breathe.
-I ground myself in this present moment.
-My feet touch the ground.
-My body is safe.
-
-What belongs to me remains.
-What must leave, leaves.
-I release control.
-I trust in life.
-
-Peace is already here, within me.
-It has always been here.
-I simply let it be.
-
-I am safe.
-I am at peace.
-And so it is.`
-};

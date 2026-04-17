@@ -1084,4 +1084,244 @@ export const rituals: Ritual[] = [
     category: "quotidien",
     duration: "5 min"
   },
+  {
+    id: "bouclier-sel",
+    title: { fr: "Cercle de Sel Protecteur", en: "Protective Salt Circle" },
+    desc: {
+      fr: "Technique de magie blanche ancestrale : le cercle de sel crée une frontière infranchissable pour les énergies négatives.",
+      en: "Ancient white magic technique: the salt circle creates an impenetrable boundary against negative energies."
+    },
+    steps: {
+      fr: [
+        "Choisis l'espace à protéger — ton bureau, ta chambre, ou l'endroit où tu médites. Nettoie-le physiquement d'abord.",
+        "Verse du gros sel de mer dans ta main gauche (main réceptrice). Ferme les yeux et charge-le de ton intention : 'Que ce sel absorbe et neutralise toute énergie indésirable.'",
+        "En marchant dans le sens des aiguilles d'une montre, trace un cercle fermé de sel autour de l'espace. Ne lève pas la main avant d'avoir complété le cercle.",
+        "Une fois le cercle fermé, place-toi en son centre. Ferme les yeux et étends les deux bras. Ressens la frontière énergétique qui s'élève comme un mur de lumière.",
+        "Dis à voix haute : 'Ce cercle est scellé. Seul l'amour entre ici. Seul l'amour en sort. Rien de nocif ne peut traverser.'",
+        "Travaille, médite ou dors à l'intérieur de ce cercle. Quand tu n'en as plus besoin, ramasse le sel en marchant dans le sens inverse des aiguilles d'une montre.",
+        "Jette le sel utilisé à l'extérieur ou dans les égouts — il a absorbé les énergies indésirables et ne doit pas être réutilisé."
+      ],
+      en: [
+        "Choose the space to protect — your desk, bedroom, or meditation spot. Clean it physically first.",
+        "Pour coarse sea salt into your left hand (receiving hand). Close your eyes and charge it with your intention: 'May this salt absorb and neutralize all unwanted energy.'",
+        "Walking clockwise, trace a closed circle of salt around the space. Do not lift your hand until the circle is complete.",
+        "Once the circle is closed, stand at its center. Close your eyes and extend both arms. Feel the energetic boundary rising like a wall of light.",
+        "Say aloud: 'This circle is sealed. Only love enters here. Only love leaves here. Nothing harmful can cross.'",
+        "Work, meditate or sleep within this circle. When no longer needed, collect the salt by walking counterclockwise.",
+        "Dispose of the used salt outside or down the drain — it has absorbed unwanted energies and must not be reused."
+      ]
+    },
+    category: "protection",
+    duration: "10 min"
+  },
+  {
+    id: "nœud-protection",
+    title: { fr: "Magie des Nœuds (Knot Magic)", en: "Knot Magic" },
+    desc: {
+      fr: "Pratique celtico-nordique millénaire : chaque nœud emprisonne une protection. Le cordon devient un talisman vivant.",
+      en: "Ancient Celtic-Nordic practice: each knot locks in protection. The cord becomes a living talisman."
+    },
+    steps: {
+      fr: [
+        "Procure-toi un cordon naturel d'environ 30 cm — laine rouge pour la protection, noire pour repousser le négatif, ou blanche pour la paix. Coupe-le avec des ciseaux propres.",
+        "Tiens le cordon entre les deux mains et souffle dessus 3 fois. Chaque souffle lui transmet ton intention de protection.",
+        "Tu vas faire 9 nœuds. Commence par les deux extrémités (nœuds 1 et 9), puis le milieu (nœud 5), puis les espaces entre (2, 8, 3, 7, 4, 6). Cet ordre suit la tradition cunning folk.",
+        "À chaque nœud, dis la phrase correspondante :\n1 : 'Le sort est commencé' — 2 : 'Il se renforce' — 3 : 'Il est en chemin' — 4 : 'Il est dans la loi' — 5 : 'Il est vivant' — 6 : 'Il fixe' — 7 : 'Il tient' — 8 : 'Il ne faiblit pas' — 9 : 'Le sort est fait'",
+        "Après le 9e nœud, tiens le cordon contre ton cœur pendant une minute. Ressens la chaleur de la protection s'y concentrer.",
+        "Porte ce cordon sur toi (poignet, poche, sac), ou place-le sous ton oreiller, au-dessus de ta porte d'entrée, ou dans un endroit stratégique.",
+        "Pour défaire le sort, défais chaque nœud dans l'ordre inverse en remerciant l'énergie libérée."
+      ],
+      en: [
+        "Obtain a natural cord about 30 cm long — red wool for protection, black to repel negativity, or white for peace. Cut it with clean scissors.",
+        "Hold the cord in both hands and blow on it 3 times. Each breath transfers your protective intention.",
+        "You will tie 9 knots. Start with both ends (knots 1 and 9), then the middle (knot 5), then the spaces between (2, 8, 3, 7, 4, 6). This order follows the cunning folk tradition.",
+        "At each knot, say the corresponding phrase:\n1: 'The spell is begun' — 2: 'It strengthens' — 3: 'It is on its way' — 4: 'It is in the law' — 5: 'It lives' — 6: 'It sets' — 7: 'It holds' — 8: 'It does not weaken' — 9: 'The spell is done'",
+        "After the 9th knot, hold the cord against your heart for one minute. Feel the warmth of protection concentrating within it.",
+        "Wear this cord on you (wrist, pocket, bag), or place it under your pillow, above your front door, or in a strategic location.",
+        "To undo the spell, untie each knot in reverse order while thanking the released energy."
+      ]
+    },
+    category: "protection",
+    duration: "15 min"
+  },
+  {
+    id: "miroir-protection",
+    title: { fr: "Miroir de Répulsion (Black Mirror)", en: "Repelling Mirror Ritual" },
+    desc: {
+      fr: "Technique de magie blanche basée sur la loi du miroir : ce qui est envoyé revient à son expéditeur.",
+      en: "White magic technique based on the law of mirrors: what is sent returns to its sender."
+    },
+    steps: {
+      fr: [
+        "Prépare un petit miroir (de poche ou de sac). Nettoie-le avec un peu de sel et d'eau en déclarant : 'Je te purifie de toute énergie antérieure.'",
+        "Tiens le miroir, face réfléchissante vers l'extérieur, devant toi.",
+        "Ferme les yeux. Pense à la source d'énergie négative que tu souhaites repousser — une personne, une situation, un lieu — sans animosité. L'intention est de refléter, pas de nuire.",
+        "Dis 3 fois : 'Ce que l'on m'envoie, je le renvoie avec amour. Ce miroir reflète, ne blesse pas. Je suis protégé(e) et en paix.'",
+        "Visualise le miroir former une barrière lumineuse autour de toi, renvoyant tout ce qui te vise vers sa source, transformé en lumière neutre.",
+        "Place ce miroir orienté face réfléchissante vers la source de perturbation : face à une fenêtre, vers une porte, ou dans un sac pour une protection portable.",
+        "Nettoie le miroir chaque pleine lune avec du sel et de l'eau, et rechargez l'intention."
+      ],
+      en: [
+        "Prepare a small mirror (pocket or bag size). Clean it with a little salt and water declaring: 'I purify you of all prior energy.'",
+        "Hold the mirror with its reflective face outward, in front of you.",
+        "Close your eyes. Think of the negative energy source you wish to repel — a person, situation, or place — without animosity. The intention is to reflect, not harm.",
+        "Say 3 times: 'What is sent to me, I return with love. This mirror reflects, does not harm. I am protected and at peace.'",
+        "Visualize the mirror forming a luminous barrier around you, reflecting everything aimed at you back to its source, transformed into neutral light.",
+        "Place this mirror with reflective face toward the disturbance source: facing a window, toward a door, or in a bag for portable protection.",
+        "Cleanse the mirror each full moon with salt and water, and renew the intention."
+      ]
+    },
+    category: "protection",
+    duration: "10 min"
+  },
+  {
+    id: "fumigation-herbes",
+    title: { fr: "Fumigation aux Herbes Sacrées", en: "Sacred Herb Fumigation" },
+    desc: {
+      fr: "Au-delà de la sauge : chaque herbe a une signature vibratoire unique. Compose ton encens personnalisé pour cibler ton intention.",
+      en: "Beyond sage: each herb has a unique vibrational signature. Compose your personalized incense to target your intention."
+    },
+    steps: {
+      fr: [
+        "Choisis tes herbes selon ton intention : Romarin (protection, clarté mentale) — Lavande (paix, sommeil, amour) — Thym (courage, purification) — Menthe (énergie, prospérité) — Camomille (apaisement, rêves) — Origan (joie, santé).",
+        "Mélange 2 à 3 herbes complémentaires dans un bol ignifugé ou un mortier. Écrase-les légèrement entre les doigts pour libérer leurs huiles essentielles.",
+        "Tiens le mélange dans les deux mains et souffle dessus 3 fois en visualisant ton intention s'y imprégner.",
+        "Dépose le mélange sur un charbon ardent (disponible en magasin ésotérique) ou dans un encensoir résistant à la chaleur. Si tu n'as pas de charbon, enroule les herbes dans une feuille de cèdre ou de sauge pour former un petit faggot que tu peux allumer.",
+        "Dirige la fumée avec une plume ou ta main vers les espaces, objets ou zones de ton corps à purifier. Commence toujours par les coins et termines par le centre.",
+        "Pendant la fumigation, chante ou répète ton intention à voix basse : 'Ces herbes sacrées purifient et protègent. Que cet espace soit un temple de lumière.'",
+        "Ouvre une fenêtre pour laisser sortir la fumée chargée. Remercie les plantes pour leur service."
+      ],
+      en: [
+        "Choose your herbs according to your intention: Rosemary (protection, mental clarity) — Lavender (peace, sleep, love) — Thyme (courage, purification) — Mint (energy, prosperity) — Chamomile (soothing, dreams) — Oregano (joy, health).",
+        "Blend 2 to 3 complementary herbs in a fireproof bowl or mortar. Crush them slightly between your fingers to release their essential oils.",
+        "Hold the mixture in both hands and blow on it 3 times while visualizing your intention infusing it.",
+        "Place the mixture on lit charcoal (available at esoteric shops) or in a heat-resistant censer. If you have no charcoal, wrap the herbs in a cedar or sage leaf to form a small bundle you can light.",
+        "Direct the smoke with a feather or your hand toward spaces, objects, or body areas to purify. Always begin in the corners and finish at the center.",
+        "During fumigation, chant or softly repeat your intention: 'These sacred herbs purify and protect. May this space be a temple of light.'",
+        "Open a window to let the charged smoke out. Thank the plants for their service."
+      ]
+    },
+    category: "purification",
+    duration: "20 min"
+  },
+  {
+    id: "son-cloche",
+    title: { fr: "Purification par le Son (Tingshas & Bols)", en: "Sound Purification (Tingsha & Bowls)" },
+    desc: {
+      fr: "Le son est l'outil de purification le plus ancien de l'humanité. Les fréquences sonores dissoudent les énergies stagnantes que le feu et le sel ne peuvent atteindre.",
+      en: "Sound is humanity's oldest purification tool. Sound frequencies dissolve stagnant energies that fire and salt cannot reach."
+    },
+    steps: {
+      fr: [
+        "Rassemble ce dont tu as besoin : un bol chantant tibétain, des tingshas (cymbales tibétaines), des clochettes, ou même deux couvercles en métal que tu peux faire résonner.",
+        "Commence aux extrémités de ton espace, les coins supérieurs inclus. Les énergies stagnantes adorent se nicher dans les angles morts.",
+        "Sonne ton instrument une fois dans chaque coin, lentement. Écoute la vibration se propager et se déployer dans l'espace. Attends qu'elle s'éteigne complètement avant de passer au coin suivant.",
+        "Note la qualité du son : un son court et mat indique une énergie dense. Un son long et pur indique que l'espace est déjà léger. Continue de sonner jusqu'à ce que le son s'allonge et s'épure.",
+        "Promène-toi dans la pièce en sonnant le bol en continu — avec le maillet en rotation sur le bord pour un son soutenu — et visualise les vibrations brisent les poches d'énergie figée comme des bulles de savon.",
+        "Termine au centre de la pièce. Sonne une longue note finale et laisse-la s'éteindre dans le silence.",
+        "Reste immobile quelques instants dans ce silence nouvellement créé. Remarque la légèreté de l'air. Tu peux aussi faire ce rituel sur ton propre corps en faisant tourner le bol au-dessus de chaque chakra."
+      ],
+      en: [
+        "Gather what you need: a Tibetan singing bowl, tingshas (Tibetan cymbals), bells, or even two metal lids you can resonate together.",
+        "Begin at the extremities of your space, including upper corners. Stagnant energies love to nestle in blind spots.",
+        "Strike your instrument once in each corner, slowly. Listen to the vibration spread and unfold in the space. Wait until it dies out completely before moving to the next corner.",
+        "Note the quality of the sound: a short, dull sound indicates dense energy. A long, pure sound indicates the space is already light. Keep sounding until the tone lengthens and purifies.",
+        "Walk through the room sounding the bowl continuously — using the mallet rotating around the rim for a sustained sound — and visualize the vibrations breaking frozen energy pockets like soap bubbles.",
+        "Finish at the center of the room. Sound one long final note and let it fade into silence.",
+        "Stand still for a few moments in this newly created silence. Notice the lightness of the air. You can also do this ritual on your own body by circling the bowl above each chakra."
+      ]
+    },
+    category: "purification",
+    duration: "15 min"
+  },
+  {
+    id: "bain-sucre",
+    title: { fr: "Scrub Rituel Sucre & Miel", en: "Ritual Sugar & Honey Scrub" },
+    desc: {
+      fr: "Pratique de magie douce venue d'Amérique du Sud : le sucre attire la douceur, le miel scelle la chance. Un rituel de renouveau complet corps-âme.",
+      en: "Gentle magic practice from South America: sugar attracts sweetness, honey seals luck. A complete body-soul renewal ritual."
+    },
+    steps: {
+      fr: [
+        "Prépare ton mélange rituel dans un bol : 4 cuillères à soupe de sucre roux (sucre = douceur et attraction), 1 cuillère de miel brut (miel = abondance et protection), quelques gouttes d'huile de rose ou de lavande.",
+        "Avant de commencer, tiens le bol dans les deux mains. Ferme les yeux et visualise tout ce que tu souhaites attirer dans ta vie pendant que tes mains réchauffent le mélange.",
+        "Sous la douche ou dans le bain, commence à appliquer le scrub sur ton corps avec des mouvements circulaires dans le sens des aiguilles d'une montre — ce sens appelle et attire.",
+        "En massant, répète à voix basse : 'Je me débarrasse de tout ce qui m'alourdit. Je m'ouvre à la douceur, à la joie et à l'abondance. Ma peau se renouvelle, ma vie se renouvelle.'",
+        "Accorde une attention particulière aux mains, aux poignets, au cœur et à la nuque — zones énergétiques importantes dans de nombreuses traditions.",
+        "Rince avec de l'eau tiède en visualisant tout ce dont tu veux te débarrasser partir dans les canalisations avec le sucre.",
+        "Sèche-toi en douceur avec une serviette propre. Applique une crème ou une huile sur ta peau en déclarant : 'Mon corps est un temple. Je l'honore et il m'honore en retour.'"
+      ],
+      en: [
+        "Prepare your ritual blend in a bowl: 4 tablespoons of brown sugar (sugar = sweetness and attraction), 1 tablespoon of raw honey (honey = abundance and protection), a few drops of rose or lavender oil.",
+        "Before starting, hold the bowl in both hands. Close your eyes and visualize everything you wish to attract into your life as your hands warm the mixture.",
+        "In the shower or bath, begin applying the scrub to your body with clockwise circular movements — this direction calls and attracts.",
+        "While massaging, softly repeat: 'I release everything that weighs me down. I open myself to sweetness, joy and abundance. My skin renews, my life renews.'",
+        "Pay special attention to hands, wrists, heart area and nape of the neck — important energy zones in many traditions.",
+        "Rinse with warm water while visualizing everything you wish to release flowing down the drain with the sugar.",
+        "Dry yourself gently with a clean towel. Apply cream or oil to your skin declaring: 'My body is a temple. I honor it and it honors me in return.'"
+      ]
+    },
+    category: "bien-être",
+    duration: "20 min"
+  },
+  {
+    id: "pendule",
+    title: { fr: "Art du Pendule (Radiesthésie)", en: "Pendulum Dowsing" },
+    desc: {
+      fr: "Outil de divination et de connexion à l'intuition supérieure utilisé depuis l'Égypte ancienne. Le pendule révèle ce que l'esprit conscient ne voit pas encore.",
+      en: "Divination tool and connection to higher intuition used since ancient Egypt. The pendulum reveals what the conscious mind cannot yet see."
+    },
+    steps: {
+      fr: [
+        "Tiens le pendule entre le pouce et l'index de ta main dominante, laissant environ 10-15 cm de chaîne libre. Le pendule doit pouvoir se balancer librement.",
+        "Établis d'abord ton code de réponse. Demande à voix haute : 'Montre-moi OUI.' Observe la direction du mouvement (circulaire, avant-arrière, droite-gauche). Mémorise-le.",
+        "Puis demande : 'Montre-moi NON.' Observe la nouvelle direction. Tu as maintenant ton code personnel.",
+        "Pour commencer une session, demande la permission : 'Puis-je recevoir des informations utiles maintenant ?' Attends la réponse du pendule avant de continuer.",
+        "Pose des questions simples auxquelles on peut répondre par oui ou non. Formule clairement : évite les doubles négations et les questions vagues. Ex : 'Est-ce que ce chemin est aligné avec mon bien supérieur ?'",
+        "Reste neutre émotionnellement. Le pendule amplifie les micro-mouvements inconscients de ta main — si tu désires fortement un résultat, il peut être influencé. Si tu remarques un biais, ferme les yeux.",
+        "Termine chaque session en remerciant ton pendule et en le posant sur un tissu naturel. Nettoie-le régulièrement sous l'eau courante ou à la lumière de la lune."
+      ],
+      en: [
+        "Hold the pendulum between the thumb and index finger of your dominant hand, leaving about 10-15 cm of chain free. The pendulum must be able to swing freely.",
+        "First establish your response code. Ask aloud: 'Show me YES.' Observe the direction of movement (circular, back-forth, left-right). Memorize it.",
+        "Then ask: 'Show me NO.' Observe the new direction. You now have your personal code.",
+        "To begin a session, ask permission: 'May I receive helpful information now?' Wait for the pendulum's response before continuing.",
+        "Ask simple yes-or-no questions. Phrase them clearly: avoid double negatives and vague questions. Ex: 'Is this path aligned with my highest good?'",
+        "Remain emotionally neutral. The pendulum amplifies unconscious micro-movements in your hand — if you strongly desire a result, it can be influenced. If you notice bias, close your eyes.",
+        "End each session by thanking your pendule and placing it on natural fabric. Cleanse it regularly under running water or in moonlight."
+      ]
+    },
+    category: "spiritualité",
+    duration: "15 min"
+  },
+  {
+    id: "tableau-vision",
+    title: { fr: "Vision Board Sacré", en: "Sacred Vision Board" },
+    desc: {
+      fr: "Bien plus qu'un collage — un outil de magie sympathique : rendre visible l'invisible pour que l'univers puisse le manifester.",
+      en: "Far more than a collage — a tool of sympathetic magic: making the invisible visible so the universe can manifest it."
+    },
+    steps: {
+      fr: [
+        "Rassemble du matériel : un carton ou panneau de liège, des magazines, des imprimés, des feutres, de la colle, des ciseaux. Installe-toi dans un espace calme avec de la musique douce.",
+        "Avant de couper quoi que ce soit, ferme les yeux 5 minutes. Demande-toi : 'Dans un an, si tout se passe parfaitement, à quoi ressemble ma vie ?' Ressens ce futur dans ton corps avant de chercher à le représenter.",
+        "Découpe ou imprime des images, mots et couleurs qui RÉSONNENT — pas ce que tu penses devoir vouloir, mais ce qui crée un frisson dans ta poitrine. Ton intuition guide le choix.",
+        "Dispose les éléments avant de les coller. Laisse de l'espace — un tableau trop chargé étouffé l'énergie. Chaque zone peut correspondre à une sphère de vie : haut pour le spirituel, gauche pour les relations, droite pour la carrière, bas pour le foyer.",
+        "En collant chaque image, dis à voix haute : 'Ceci, ou quelque chose de mieux encore, vient à moi maintenant. Merci.'",
+        "Quand le tableau est terminé, pose les deux mains dessus. Ferme les yeux. Envoie 3 grandes respirations d'amour et de gratitude dans ce tableau — tu l'animes.",
+        "Place le tableau où tu le verras chaque matin au réveil. Regarde-le 60 secondes chaque jour en ressentant la gratitude comme si c'était déjà accompli. Mets-le à jour chaque nouvelle année ou à chaque grande lune."
+      ],
+      en: [
+        "Gather materials: cardboard or corkboard, magazines, printouts, markers, glue, scissors. Set up in a calm space with gentle music.",
+        "Before cutting anything, close your eyes for 5 minutes. Ask yourself: 'In one year, if everything goes perfectly, what does my life look like?' Feel this future in your body before seeking to represent it.",
+        "Cut or print images, words and colors that RESONATE — not what you think you should want, but what creates a flutter in your chest. Your intuition guides the choice.",
+        "Arrange elements before gluing. Leave space — an overcrowded board stifles energy. Each zone can correspond to a life sphere: top for spiritual, left for relationships, right for career, bottom for home.",
+        "As you glue each image, say aloud: 'This, or something even better, comes to me now. Thank you.'",
+        "When the board is complete, place both hands on it. Close your eyes. Send 3 deep breaths of love and gratitude into this board — you are animating it.",
+        "Place the board where you will see it each morning upon waking. Look at it for 60 seconds each day feeling gratitude as if it were already accomplished. Update it each new year or at each major moon."
+      ]
+    },
+    category: "manifestation",
+    duration: "45 min"
+  },
 ];
